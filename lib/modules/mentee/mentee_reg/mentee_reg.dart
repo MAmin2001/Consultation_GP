@@ -1,5 +1,5 @@
-import 'package:consultation_gp/modules/login/login.dart';
-import 'package:consultation_gp/modules/mentor_reg/mentor_reg.dart';
+import 'package:consultation_gp/modules/login/login_screen/login.dart';
+import 'package:consultation_gp/modules/mentor/mentor_reg/mentor_reg.dart';
 import 'package:flutter/material.dart';
 
 
