@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 class ProfileSetup extends StatefulWidget {
    ProfileSetup({Key? key}) : super(key: key);
 
@@ -8,12 +9,15 @@ class ProfileSetup extends StatefulWidget {
 }
 
 class _ProfileSetupState extends State<ProfileSetup> {
-  var selectedCategroy;
-  var selectedGender;
-  var selectedSkills;
-  var selectedExperience;
-
-
+  var selectedCategroy,selectedSkills,selectedExperience,selectedGender;
+  DateTime date = DateTime.now();
+     File _file = File("")  ;
+  Future pickerCamera ()async{
+    final myfile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    setState(() {
+      _file = File(myfile!.path) ;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,11 +40,22 @@ class _ProfileSetupState extends State<ProfileSetup> {
                               height: 90,
                               child: CircleAvatar(
                                 backgroundColor: Colors.blue,
-                                child: Icon(
+                                child:
+                                _file == null ?
+                                Icon(
                                   Icons.account_circle_rounded,
-                                  color: Colors.white,
-                                ),
-                              ),
+                                  color: Colors.white,) :
+                                Container(
+                                    width: 90,
+                                    height: 90,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: FileImage(_file)
+                                      )
+                                    ),
+                                    ),),
                             ),
                           ]),
                ),
@@ -49,7 +64,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
                         ),
               Center(
                 child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: pickerCamera,
                             child: Text("Upload Image"),
                           ),
               ),
@@ -95,11 +110,34 @@ class _ProfileSetupState extends State<ProfileSetup> {
                     fontSize: 19,
                     color: Colors.grey,
                   ),
-                  "Date of birth: "),
+                  "Date of birth: "
+                      "${date.day}/${date.month}/${date.year}"),
               SizedBox(
                 height: 5,
               ),
-              TextFormField(
+              Container(
+                width: double.infinity,
+                child: ElevatedButton(
+                    onPressed: () async {
+                       DateTime? newDate = await showDatePicker(
+                            context: context,
+                            initialDate: date,
+                            firstDate: DateTime(1950),
+                            lastDate: DateTime(2100));
+                       if(newDate == null) return;
+                       setState(() {
+                         date=newDate;
+                       });
+                    },
+                    child: Text(
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                    "Select a date") ),
+              )
+              ,
+              /*TextFormField(
                 validator: (value) {
                   if(value!.isEmpty)
                   {
@@ -121,8 +159,30 @@ class _ProfileSetupState extends State<ProfileSetup> {
                     color: Colors.grey,
                   ),
                 ),
-              ),
-              SizedBox(height: 20.0,),
+              ),*//*TextFormField(
+                validator: (value) {
+                  if(value!.isEmpty)
+                  {
+                    return "Please enter your Date of birth";
+                  }
+                  return null;
+                },
+                //onSaved: (value) => _firstname = value!,
+                decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(),
+                  hintText: "Day-Month-Year",
+                  hintStyle: TextStyle(
+                    color: Colors.grey,
+                  ),
+                ),
+              ),*/
+              //SizedBox(height: 20.0,),
               Text(
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
