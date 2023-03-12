@@ -1,4 +1,6 @@
-import 'package:consultation_gp/modules/login/login.dart';
+import 'package:consultation_gp/modules/login/login_screen/login.dart';
+import 'package:consultation_gp/modules/mentor/mentor_reg/mentor_reg.dart';
+import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,12 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ConsultLogin(),
+      home: ProfileSetup(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
-//jtyhjun5uhu5u5eh
 
-//hello hassanein
-//hello hassanein12

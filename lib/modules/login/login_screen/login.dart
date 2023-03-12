@@ -1,5 +1,5 @@
-import 'package:consultation_gp/modules/consult_reg/consult_reg.dart';
-import 'package:consultation_gp/modules/forgot_password/forgot_password.dart';
+import 'package:consultation_gp/modules/login/forgot_password/forgot_password.dart';
+import 'package:consultation_gp/modules/mentee/mentee_reg/mentee_reg.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

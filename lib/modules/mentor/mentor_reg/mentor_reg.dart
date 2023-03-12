@@ -1,3 +1,4 @@
+import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
 import 'package:flutter/material.dart';
 
 class MentorReg extends StatefulWidget {
@@ -289,10 +290,13 @@ class _MentorRegState extends State<MentorReg> {
     ),
       SizedBox(height: 7,),*/
                   Center(
-                    child: ElevatedButton(onPressed: () {
-                      if (_formkey.currentState!.validate()){
+                    child: ElevatedButton(
+                        onPressed: () {
+                      if (_formkey.currentState!.validate())
+                      {
                         _formkey.currentState!.save();
                       }
+
                     }, child: Text("Sign Up")),
                   ),
                 ]),
