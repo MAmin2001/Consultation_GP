@@ -1,5 +1,6 @@
 import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:consultation_gp/modules/mentor/mentor_reg/mentor_reg.dart';
+import 'package:consultation_gp/modules/mentor/mentor_show_profile/show_mentor_profile.dart';
 import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ProfileSetup(),
+      home: ShowMentorProfile(),
       debugShowCheckedModeBanner: false,
     );
   }
