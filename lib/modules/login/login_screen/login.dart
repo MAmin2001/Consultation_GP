@@ -1,5 +1,6 @@
 import 'package:consultation_gp/modules/login/forgot_password/forgot_password.dart';
 import 'package:consultation_gp/modules/mentee/mentee_reg/mentee_reg.dart';
+import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -132,6 +133,7 @@ class _ConsultLoginState extends State<ConsultLogin> {
                             if (_formKey.currentState!.validate()) {
                               _formKey.currentState!.save();
                               print(' Email: $_email, Password: $_password');
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfileSetup(),));
                             }
                           },
                           child: Text("Login")),
