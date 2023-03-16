@@ -1,3 +1,4 @@
+import 'package:consultation_gp/modules/mentor/mentor_show_profile/show_mentor_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -51,7 +52,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
                                     decoration: BoxDecoration(
                                       shape: BoxShape.circle,
                                       image: DecorationImage(
-                                        fit: BoxFit.fill,
+                                        fit: BoxFit.fitHeight,
                                         image: FileImage(_file)
                                       )
                                     ),
@@ -577,7 +578,9 @@ class _ProfileSetupState extends State<ProfileSetup> {
                  height: 50.0,
                  width: 100.0,
                  child: ElevatedButton(
-                         onPressed: () {},
+                         onPressed: () {
+                           Navigator.push(context, MaterialPageRoute(builder: (context) => ShowMentorProfile(),));
+                         },
                          child: Text("Submit"),
                    ),
                ),

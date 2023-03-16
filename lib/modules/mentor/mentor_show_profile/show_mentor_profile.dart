@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+
 class ShowMentorProfile extends StatefulWidget {
 
   @override
@@ -10,7 +11,6 @@ class _ShowMentorProfileState extends State<ShowMentorProfile> {
   @override
   double? _ratingValue;
   Widget build(BuildContext context) {
-
     return  Scaffold(
       appBar: AppBar(title: Text("Mentor Profile"),),
       body: Padding(
@@ -155,7 +155,9 @@ class _ShowMentorProfileState extends State<ShowMentorProfile> {
                     ),
                     "About Me                                                       "),
                 Divider(),
-                Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."),
+                Text(
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old."),
                 Divider(
                   color: Colors.blue,
                   thickness: 1,
@@ -166,6 +168,7 @@ class _ShowMentorProfileState extends State<ShowMentorProfile> {
                       fontWeight: FontWeight.bold,
                     ),
                     "Personal Details                                                       "),
+                Divider(),
                 Row(
                   children: [
                     Expanded(
@@ -216,7 +219,201 @@ class _ShowMentorProfileState extends State<ShowMentorProfile> {
                   ],
                 ),
                 SizedBox(height: 20.0,),
+                Divider(
+                  color: Colors.blue,
+                  thickness: 1,
+                ),
+                Text(
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    "Qualifications                                                         "),
+                Divider(),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.grey,
+                          ),
+                          "Job Title: "),
+                    ),
+                    SizedBox(width: 20.0,),
+                    Expanded(
+                      child:  Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.black,
+                          ),
+                          "Software Engineer"),
+                    ),
+                    SizedBox(height: 5.0,),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.grey,
+                          ),
+                          "Category: "),
+                    ),
+                    SizedBox(width: 20.0,),
+                    Expanded(
+                      child:  Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.black,
+                          ),
+                          "Software"),
+                    ),
+                    SizedBox(height: 5.0,),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.grey,
+                          ),
+                          "Skills: "),
+                    ),
+                    SizedBox(width: 20.0,),
+                    Expanded(
+                      child:  Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.black,
+                          ),
+                          "Flutter"),
+                    ),
+                    SizedBox(height: 5.0,),
+                  ],
+                ),
+                SizedBox(height: 1,),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.grey,
+                          ),
+                          "Years Of Experience: "),
+                    ),
+                    SizedBox(width: 20.0,),
+                    Expanded(
+                      child:  Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.black,
+                          ),
+                          "6 Years"),
+                    ),
+                    SizedBox(height: 5.0,),
+                  ],
+                ),
+                Divider(
+                  color: Colors.blue,
+                  thickness: 1,
+                ),
+                Text(
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    "Location                                                          "),
+                Divider(),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.grey,
+                          ),
+                          "Country: "),
+                    ),
+                    SizedBox(width: 20.0,),
+                    Expanded(
+                      child:  Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.black,
+                          ),
+                          "Egypt"),
+                    ),
+                    SizedBox(height: 5.0,),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.grey,
+                          ),
+                          "City: "),
+                    ),
+                    SizedBox(width: 20.0,),
+                    Expanded(
+                      child:  Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.black,
+                          ),
+                          "Cairo"),
+                    ),
+                    SizedBox(height: 5.0,),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.grey,
+                          ),
+                          "Postal Code: "),
+                    ),
+                    SizedBox(width: 20.0,),
+                    Expanded(
+                      child:  Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19,
+                            color: Colors.black,
+                          ),
+                          "17311"),
+                    ),
+                    SizedBox(height: 5.0,),
+                  ],
+                ),
+
+
               ],
+
             ),
           ),
         ),
