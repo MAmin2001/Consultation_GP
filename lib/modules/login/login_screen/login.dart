@@ -20,8 +20,8 @@ class _ConsultLoginState extends State<ConsultLogin> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login"),
-        leading: Icon(Icons.login),
+        //title: Text("Login"),
+        //leading: Icon(Icons.login),
       ),
       body: Container(
         child: Form(
@@ -34,21 +34,23 @@ class _ConsultLoginState extends State<ConsultLogin> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 30,
-                        ),
-                        "Login"),
-                    Text(
+                    Center(
+                      child: Text(
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 40.0,
+                          ),
+                          "LOGIN"),
+                    ),
+                   /* Text(
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 19,
                           color: Colors.grey,
                         ),
-                        "E-mail"),
+                        "E-mail"),*/
                     SizedBox(
-                      height: 5,
+                      height: 20,
                     ),
                     TextFormField(
                       decoration: InputDecoration(
@@ -82,15 +84,15 @@ class _ConsultLoginState extends State<ConsultLogin> {
                     SizedBox(
                       height: 20,
                     ),
-                    Text(
+                    /*Text(
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 19,
                           color: Colors.grey,
                         ),
-                        "Password"),
+                        "Password"),*/
                     SizedBox(
-                      height: 5,
+                      height: 10,
                     ),
                     TextFormField(
                       validator: (value) {
@@ -126,6 +128,9 @@ class _ConsultLoginState extends State<ConsultLogin> {
                         ),
                       ),
                       obscureText: isOb,
+                    ),
+                    SizedBox(
+                      height: 20,
                     ),
                     Center(
                       child: ElevatedButton(
