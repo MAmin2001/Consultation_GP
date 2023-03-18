@@ -33,6 +33,10 @@ dependencies:
   get: ^4.6.5
   image_picker:
   flutter_rating_bar:
+  sliding_switch: ^1.1.0
+  bloc: ^8.1.1
+  flutter_bloc: ^8.1.2
+
 
 dev_dependencies:
   flutter_test:
