@@ -10,6 +10,7 @@ LoginCubit (): super(LoginInitialState());
 static LoginCubit get(context) => BlocProvider.of(context);
 
 
+
 bool isMentor=false;
 bool isOb= true;
 
@@ -31,19 +32,49 @@ void mentorLogin({
   required String password
 })
 {
-DioHelper.postData(
+  emit(LoginLoadingState());
+ DioHelper.postData(
     url: '/mentor/login',
     data:
     {
       'email': email,
       'password':password
-    });
+    }).then((value)
+{
+  print(value.data);
+  emit(LoginSuccessState());
+}).catchError((error)
+  {
+    emit(LoginErrorState(error.toString()));
+    print(error.toString());
+
+  });
 }
 
 
-void clientLogin()
+void clientLogin({
+  required String email,
+  required String password
+})
 {
+  emit(LoginLoadingState());
 
+
+   DioHelper.postData(
+      url: '/mentee/login',
+      data:
+      {
+        'email': email,
+        'password':password
+      }).then((value)
+  {
+    print(value.data);
+    emit(LoginSuccessState());
+  }).catchError((error)
+  {
+    emit(LoginErrorState(error));
+    print(error.toString());
+  });
 }
 
 

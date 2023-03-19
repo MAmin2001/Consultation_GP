@@ -160,7 +160,8 @@ class _ProfileSetupState extends State<ProfileSetup> {
                     color: Colors.grey,
                   ),
                 ),
-              ),*//*TextFormField(
+              ),*/
+              /*TextFormField(
                 validator: (value) {
                   if(value!.isEmpty)
                   {

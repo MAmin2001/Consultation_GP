@@ -16,6 +16,8 @@ class ConsultLogin extends StatelessWidget {
 
   final _formKey = GlobalKey<FormState>();
   late String _email, _password;
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +82,7 @@ class ConsultLogin extends StatelessWidget {
                             height: 40,
                           ),
                           TextFormField(
+                            controller: emailController,
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
@@ -113,6 +116,7 @@ class ConsultLogin extends StatelessWidget {
                             height: 30,
                           ),
                           TextFormField(
+                            controller: passwordController,
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'Please enter a password';
@@ -149,20 +153,34 @@ class ConsultLogin extends StatelessWidget {
                           SizedBox(
                             height: 30,
                           ),
-                          Center(
-                            child: Container(
-                              width: double.infinity,
-                              height: 50.0,
-                              child: ElevatedButton(
-                                  onPressed: () {
-                                    if (_formKey.currentState!.validate()) {
-                                      _formKey.currentState!.save();
-                                      print(' Email: $_email, Password: $_password');
-                                     LoginCubit.get(context).isMentor? Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MenteeProfile(),)):Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfileSetup(),));
+                          Container
+                            (
+                            width: double.infinity,
+                            height: 50.0,
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  if (_formKey.currentState!.validate())
+                                  {
+                                    _formKey.currentState!.save();
+                                    //print(' Email: $_email, Password: $_password');
+                                    if(LoginCubit.get(context).isMentor)
+                                    {
+                                      LoginCubit.get(context).clientLogin(email:emailController.text , password:passwordController.text);
+                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MenteeProfile()));
                                     }
-                                  },
-                                  child: Text("Login", style: TextStyle(
-                                      fontSize: 20.0, fontWeight: FontWeight.w500),)),
+                                    else
+                                    {
+                                      LoginCubit.get(context).mentorLogin(email:emailController.text , password:passwordController.text);
+                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfileSetup()));
+                                    }
+                                  }
+                                },
+                                child: Text("Login",
+                                  style: TextStyle
+                                    (
+                                    fontSize: 20.0, fontWeight: FontWeight.w500
+                                    ),
+                                )
                             ),
                           ),
                           /*Center(
@@ -245,7 +263,6 @@ class ConsultLogin extends StatelessWidget {
                                   )
                               )
                             ],
-
                           )
                         ],
                       ),
