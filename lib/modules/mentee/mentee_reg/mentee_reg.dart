@@ -13,23 +13,23 @@ class ConsultRegister extends StatelessWidget {
     return Scaffold(
 
       appBar: AppBar(
-        title: Text("Register"),
+        title: Text("Register as client"),
       ),
       body: Padding(
-        padding:  EdgeInsets.all(17.0),
+        padding:  EdgeInsets.all(20.0),
         child: Form(
           key: _formkey,
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                /*Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
-                    "Sign up as a mentee"),
-                Row(
+                    "Sign up as a mentee"),*/
+                /*Row(
                   children: [
                     Text(
                         style: TextStyle(fontSize: 17),
@@ -46,17 +46,8 @@ class ConsultRegister extends StatelessWidget {
                             "mentor instead")),
                     Text(style: TextStyle(fontSize: 17), "?"),
                   ],
-                ),
-                Text(
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                      color: Colors.grey,
-                    ),
-                    "First Name: "),
-                SizedBox(
-                  height: 5,
-                ),
+                ),*/
+                SizedBox(height: 25.0,),
                 TextFormField(
                   validator: (value) {
                     if(value!.isEmpty)
@@ -81,16 +72,7 @@ class ConsultRegister extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                      color: Colors.grey,
-                    ),
-                    "Last Name: "),
-                SizedBox(
-                  height: 5,
-                ),
+               SizedBox(height: 25.0,),
                 TextFormField(
                   validator: (value) {
                     if(value!.isEmpty)
@@ -115,16 +97,7 @@ class ConsultRegister extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                      color: Colors.grey,
-                    ),
-                    "E-mail: "),
-                SizedBox(
-                  height: 5,
-                ),
+                SizedBox(height: 25.0,),
                 TextFormField(
                   validator: (value) {
                     if(value!.isEmpty)
@@ -152,16 +125,7 @@ class ConsultRegister extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                      color: Colors.grey,
-                    ),
-                    "Password: "),
-                SizedBox(
-                  height: 5,
-                ),
+                SizedBox(height: 25.0,),
                 TextFormField(
                   validator: (value) {
                     if(value!.isEmpty)
@@ -187,16 +151,7 @@ class ConsultRegister extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 19,
-                      color: Colors.grey,
-                    ),
-                    "Confirm Password: "),
-                SizedBox(
-                  height: 5,
-                ),
+                SizedBox(height: 25.0,),
                 TextFormField(
                   validator: (value) {
                     if(value!.isEmpty)
@@ -218,7 +173,7 @@ class ConsultRegister extends StatelessWidget {
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(),
-                    labelText: "confirm Password",
+                    labelText: "Confirm Password",
                     hintText: "enter password again",
                     hintStyle: TextStyle(
                       color: Colors.grey,
@@ -241,15 +196,15 @@ class ConsultRegister extends StatelessWidget {
                     children: [
                       Text("Already have an account?"),
                       SizedBox(
-                        width: 10,
+                        width: 0,
                       ),
-                      ElevatedButton(
+                      TextButton(
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => ConsultLogin(),
                             ));
                           },
-                          child: Text("Sign In"))
+                          child: Text("Sign In",style: TextStyle(fontSize: 15.0),))
                     ],
                   ),
                 )
