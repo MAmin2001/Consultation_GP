@@ -41,7 +41,7 @@ class DioHelper
 
   })async
   {
-    return await dio.get
+    return await dio.post
       (
         url,
         queryParameters: query,

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:consultation_gp/models/login_model.dart';
 import 'package:consultation_gp/modules/login/login_cubit/login_states.dart';
 import 'package:consultation_gp/network/remote/dio_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +11,7 @@ LoginCubit (): super(LoginInitialState());
 static LoginCubit get(context) => BlocProvider.of(context);
 
 
-
+late ConsultLoginModel loginModel;
 bool isMentor=false;
 bool isOb= true;
 
@@ -27,6 +28,7 @@ void obscureLogin()
 }
 
 
+
 void mentorLogin({
   required String email,
   required String password
@@ -41,8 +43,9 @@ void mentorLogin({
       'password':password
     }).then((value)
 {
-  print(value.data);
-  emit(LoginSuccessState());
+  loginModel=ConsultLoginModel.fromJson(value.data);
+  print(loginModel.message);
+  emit(LoginSuccessState(loginModel));
 }).catchError((error)
   {
     emit(LoginErrorState(error.toString()));
@@ -59,7 +62,6 @@ void clientLogin({
 {
   emit(LoginLoadingState());
 
-
    DioHelper.postData(
       url: '/mentee/login',
       data:
@@ -68,18 +70,15 @@ void clientLogin({
         'password':password
       }).then((value)
   {
-    print(value.data);
-    emit(LoginSuccessState());
+    loginModel=ConsultLoginModel.fromJson(value.data);
+    print(loginModel.message);
+    emit(LoginSuccessState(loginModel));
   }).catchError((error)
   {
     emit(LoginErrorState(error));
     print(error.toString());
   });
 }
-
-
-
-
 
 
 
