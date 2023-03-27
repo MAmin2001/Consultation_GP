@@ -32,6 +32,17 @@ class _ScheduleTimingsState extends State<ScheduleTimings> {
     'Saturday'
   ];
 
+  List<String> slots=
+  [
+    '09:00 Am - 10:00 Am',
+    '09:00 Am - 8:00 Am',
+    '09:00 Am - 7:00 Am',
+    '09:00 Am - 8:00 Am',
+    '09:00 Am - 6:00 Am',
+    '09:00 Am - 3:00 Am',
+    '09:00 Am - 1:00 Am',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,14 +157,57 @@ class _ScheduleTimingsState extends State<ScheduleTimings> {
                     ),
                   ],
                 ),
+                SizedBox(height: 10.0,),
+                Expanded(
+                  child: GridView.count(
+                      crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: 1/0.25,
+                    children: List.generate(slots.length, (index) => TimeSlot(time: slots[index])
+                    )
+
+
+                  ),
+                )
               ],
             ),
           )
-
-
         ],
       ),
 
     );
   }
 }
+
+
+
+class TimeSlot extends StatelessWidget {
+   TimeSlot({Key? key,required this.time}) : super(key: key);
+   late String time;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 20.0,
+      width: 20.0,
+      decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: BorderRadius.circular(10)
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Text(time,style: TextStyle(color: Colors.white),),
+          InkWell(
+            child: Icon(Icons.cancel_outlined,color: Colors.white,),
+            onTap: (){},
+
+          ),
+        ],
+      ),
+    );
+  }
+}
+
