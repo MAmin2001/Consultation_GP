@@ -290,7 +290,7 @@ class Dashboard extends StatelessWidget {
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'Hassona',
+                                            'Hassanien',
                                             style: TextStyle(
                                                 fontSize: 17.0,
                                                 fontWeight: FontWeight.bold
