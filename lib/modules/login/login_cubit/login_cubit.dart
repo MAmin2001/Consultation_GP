@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:consultation_gp/models/login_model.dart';
 import 'package:consultation_gp/modules/login/login_cubit/login_states.dart';
+import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:consultation_gp/network/remote/dio_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,6 +19,7 @@ bool isOb= true;
 void toggleLogin()
 {
 isMentor= !isMentor;
+CacheHelper.saveData(key: 'isMentor', value: isMentor);
 emit(LoginToggleState());
 }
 
@@ -44,7 +46,6 @@ void mentorLogin({
     }).then((value)
 {
   loginModel=ConsultLoginModel.fromJson(value.data);
-  print(loginModel.message);
   emit(LoginSuccessState(loginModel));
 }).catchError((error)
   {

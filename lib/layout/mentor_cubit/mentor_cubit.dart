@@ -1,4 +1,4 @@
-import 'package:consultation_gp/layout/consult_cubit/consult_states.dart';
+import 'package:consultation_gp/layout/mentor_cubit/mentor_states.dart';
 import 'package:consultation_gp/modules/mentor/bookings/mentor_bookings.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
 import 'package:consultation_gp/modules/mentor/incvoices/invoices.dart';
@@ -7,10 +7,10 @@ import 'package:consultation_gp/modules/mentor/reviews/reviews.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ConsultCubit extends Cubit<ConsultStates> {
-  ConsultCubit() : super(ConsultInitialState());
+class MentorCubit extends Cubit<ConsultStates> {
+  MentorCubit() : super(ConsultInitialState());
 
-  static ConsultCubit get(context) => BlocProvider.of(context);
+  static MentorCubit get(context) => BlocProvider.of(context);
 
 
 

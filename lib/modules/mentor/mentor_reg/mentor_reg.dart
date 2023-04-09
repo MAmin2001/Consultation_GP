@@ -294,7 +294,7 @@ class _MentorRegState extends State<MentorReg> {
                         onPressed: () {
                       if (_formkey.currentState!.validate())
                       {
-                        _formkey.currentState!.save();
+                        Navigator.push(context, MaterialPageRoute(builder:(context)=>ProfileSetup()));
                       }
 
                     }, child: Text("Sign Up")),

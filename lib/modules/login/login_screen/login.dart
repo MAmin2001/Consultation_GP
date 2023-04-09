@@ -1,3 +1,4 @@
+import 'package:consultation_gp/layout/mentor_layout.dart';
 import 'package:consultation_gp/modules/login/forgot_password/forgot_password.dart';
 import 'package:consultation_gp/modules/login/login_cubit/login_cubit.dart';
 import 'package:consultation_gp/modules/login/login_cubit/login_states.dart';
@@ -5,6 +6,7 @@ import 'package:consultation_gp/modules/mentee/mentee_profile.dart';
 import 'package:consultation_gp/modules/mentee/mentee_reg/mentee_reg.dart';
 import 'package:consultation_gp/modules/mentor/mentor_reg/mentor_reg.dart';
 import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
+import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -29,32 +31,38 @@ class ConsultLogin extends StatelessWidget {
         {
           if(state is LoginSuccessState)
             {
-              if(state.loginModel.success!)
+             if(state.loginModel.success!)
+             {
+              if(LoginCubit.get(context).isMentor)
               {
-                if(LoginCubit.get(context).isMentor)
-                {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => MenteeProfile()));
-                }
-                else
-                {
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => ProfileSetup()));
-                }
+               CacheHelper.saveData(key: 'token', value: state.loginModel.token.toString()).then((value)
+               {
+               Navigator.pushReplacement(context,
+               MaterialPageRoute(builder: (context) => MenteeProfile()));
+               });
               }
               else
               {
-                Fluttertoast.showToast(
-                    msg: state.loginModel.message!,
-                    toastLength: Toast.LENGTH_LONG,
-                    gravity: ToastGravity.BOTTOM,
-                    timeInSecForIosWeb: 10,
-                    backgroundColor: Colors.red,
-                    textColor: Colors.white,
-                    fontSize: 20.0,
-                );
+                CacheHelper.saveData(key: 'token', value: state.loginModel.token).then((value) => {
+                Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => MentorLayout()))
+                });
+
               }
-            }
+             }
+             else
+             {
+              Fluttertoast.showToast(
+              msg: state.loginModel.message!,
+              toastLength: Toast.LENGTH_LONG,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIosWeb: 10,
+              backgroundColor: Colors.red,
+              textColor: Colors.white,
+              fontSize: 20.0,
+              );
+              }
+          }
         },
         builder: (context,state)
         {
@@ -106,7 +114,7 @@ class ConsultLogin extends StatelessWidget {
                               textOn: 'Client',
                               colorOff: Colors.blue,
                               colorOn: Colors.blue,
-                              animationDuration: const Duration(milliseconds: 400),
+                              animationDuration: const Duration(milliseconds: 300),
                             ),
                           ),
                           SizedBox(
@@ -311,3 +319,31 @@ class ConsultLogin extends StatelessWidget {
 
 
 
+/*if(state is LoginSuccessState)
+{
+if(state.loginModel.success!)
+{
+if(LoginCubit.get(context).isMentor)
+{
+Navigator.pushReplacement(context,
+MaterialPageRoute(builder: (context) => MenteeProfile()));
+}
+else
+{
+Navigator.pushReplacement(context,
+MaterialPageRoute(builder: (context) => ProfileSetup()));
+}
+}
+else
+{
+Fluttertoast.showToast(
+msg: state.loginModel.message!,
+toastLength: Toast.LENGTH_LONG,
+gravity: ToastGravity.BOTTOM,
+timeInSecForIosWeb: 10,
+backgroundColor: Colors.red,
+textColor: Colors.white,
+fontSize: 20.0,
+);
+}
+}*/

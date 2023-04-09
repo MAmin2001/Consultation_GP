@@ -1,4 +1,5 @@
-import 'package:consultation_gp/layout/consult_layout.dart';
+import 'package:consultation_gp/layout/mentor_layout.dart';
+import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
 import 'package:consultation_gp/modules/mentor/mentor_show_profile/show_mentor_profile.dart';
 import 'package:flutter/material.dart';
@@ -582,7 +583,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
                  width: 100.0,
                  child: ElevatedButton(
                          onPressed: () {
-                           Navigator.push(context, MaterialPageRoute(builder: (context) => HomeLayout(),));
+                           Navigator.push(context, MaterialPageRoute(builder: (context) => ConsultLogin(),));
                          },
                          child: Text("Submit"),
                    ),
