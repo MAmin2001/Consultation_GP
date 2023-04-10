@@ -17,7 +17,7 @@ class MentorLayout extends  StatelessWidget {
       builder: (context,state){
         var cubit = MentorCubit.get(context);
         return Scaffold(
-          appBar: AppBar(
+          /*appBar: AppBar(
             actions: [
               TextButton(
                   onPressed: ()
@@ -29,7 +29,7 @@ class MentorLayout extends  StatelessWidget {
                   )
               )
             ]
-          ),
+          ),*/
           body: cubit.screens[cubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: Colors.grey[100],

@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:consultation_gp/models/login_model.dart';
+import 'package:consultation_gp/models/login/login_model.dart';
 import 'package:consultation_gp/modules/login/login_cubit/login_states.dart';
 import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:consultation_gp/network/remote/dio_helper.dart';

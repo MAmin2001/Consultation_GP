@@ -4,7 +4,7 @@ import 'package:consultation_gp/modules/login/login_cubit/login_cubit.dart';
 import 'package:consultation_gp/modules/login/login_cubit/login_states.dart';
 import 'package:consultation_gp/modules/mentee/mentee_profile.dart';
 import 'package:consultation_gp/modules/mentee/mentee_reg/mentee_reg.dart';
-import 'package:consultation_gp/modules/mentor/mentor_reg/mentor_reg.dart';
+import 'package:consultation_gp/modules/mentor/mentor_reg/register_screen/mentor_reg.dart';
 import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
 import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';

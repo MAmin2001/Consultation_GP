@@ -1,4 +1,4 @@
-import 'package:consultation_gp/models/login_model.dart';
+import 'package:consultation_gp/models/login/login_model.dart';
 
 abstract class LoginStates{}
 
