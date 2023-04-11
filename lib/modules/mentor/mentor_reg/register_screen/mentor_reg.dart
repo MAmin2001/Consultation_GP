@@ -4,6 +4,7 @@ import 'package:consultation_gp/modules/mentor/mentor_reg/register_cubit/registe
 import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class MentorReg extends StatefulWidget {
   MentorReg({Key? key}) : super(key: key);
@@ -31,7 +32,6 @@ class _MentorRegState extends State<MentorReg> {
         (
         listener:(context,state)
         {
-
           if(state is RegisterSuccessState)
           {
            if(state.loginModel.success!)
@@ -39,8 +39,19 @@ class _MentorRegState extends State<MentorReg> {
              Navigator.pushReplacement(context,
                  MaterialPageRoute(builder: (context) => ProfileSetup()));
            }
+           else
+           {
+             Fluttertoast.showToast(
+               msg: state.loginModel.message!,
+               toastLength: Toast.LENGTH_LONG,
+               gravity: ToastGravity.BOTTOM,
+               timeInSecForIosWeb: 10,
+               backgroundColor: Colors.red,
+               textColor: Colors.white,
+               fontSize: 20.0,
+             );
+           }
           }
-
         } ,
         builder:(context,state)
         {
@@ -156,12 +167,14 @@ class _MentorRegState extends State<MentorReg> {
                                 fontSize: 19,
                                 color: Colors.grey,
                               ),
-                              "E-mail: "),
+                              "E-mail: "
+                          ),
                           SizedBox(
                             height: 5,
                           ),
                           TextFormField(
-                            validator: (value) {
+                            validator: (value)
+                            {
                               if(value!.isEmpty)
                               {
                                 return "Please enter an email";
@@ -199,7 +212,8 @@ class _MentorRegState extends State<MentorReg> {
                             height: 5,
                           ),
                           TextFormField(
-                            validator: (value) {
+                            validator: (value)
+                            {
                               if(value!.isEmpty)
                               {
                                 return "Please enter phone number";
@@ -234,7 +248,8 @@ class _MentorRegState extends State<MentorReg> {
                             height: 5,
                           ),
                           TextFormField(
-                            validator: (value) {
+                            validator: (value)
+                            {
                               if(value!.isEmpty)
                               {
                                 return "Please enter a password";
@@ -246,7 +261,8 @@ class _MentorRegState extends State<MentorReg> {
                             obscureText: RegisterCubit.get(context).isOb,
                             decoration: InputDecoration(
                               suffixIcon: IconButton(
-                                onPressed: () {
+                                onPressed: ()
+                                {
                                   RegisterCubit.get(context).obscureRegister();
                                 },
                                 icon: RegisterCubit.get(context).isOb ? Icon(Icons.visibility_off) : Icon(Icons
@@ -277,7 +293,8 @@ class _MentorRegState extends State<MentorReg> {
                             height: 5,
                           ),
                           TextFormField(
-                            validator: (value) {
+                            validator: (value)
+                            {
                               if(value!.isEmpty)
                               {
                                 return 'Please re-enter password';
@@ -339,20 +356,20 @@ class _MentorRegState extends State<MentorReg> {
         SizedBox(height: 7,),*/
                           Center(
                             child: ElevatedButton(
-                                onPressed: () {
+                                onPressed: ()
+                                {
                                   if (_formkey.currentState!.validate())
                                   {
                                     RegisterCubit.get(context).mentorRegister(
-                                        fName: fNameController.toString(),
-                                        lName: lNameController.toString(),
-                                        email: emailController.toString(),
-                                        pNumber: pNumController.toString(),
-                                        password: passwordController.toString(),
-                                        cPassword: cPasswordController.toString()
+                                        fName: fNameController.text,
+                                        lName: lNameController.text,
+                                        email: emailController.text,
+                                        pNumber: pNumController.text,
+                                        password: passwordController.text,
+                                        cPassword: cPasswordController.text
                                     );
 
                                   }
-
                                 }, child: Text("Sign Up")),
                           ),
                           Center(
@@ -364,7 +381,8 @@ class _MentorRegState extends State<MentorReg> {
                                   width: 0,
                                 ),
                                 TextButton(
-                                    onPressed: () {
+                                    onPressed: ()
+                                    {
                                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                                         builder: (context) => ConsultLogin(),
                                       ));

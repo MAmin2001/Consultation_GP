@@ -50,6 +50,11 @@ void mentorRegister({
     }).then((value)
 {
   loginModel=ConsultLoginModel.fromJson(value.data);
+  print(loginModel.message);
+  print(loginModel.status);
+  print(loginModel.success);
+
+
   emit(RegisterSuccessState(loginModel));
 }).catchError((error)
   {

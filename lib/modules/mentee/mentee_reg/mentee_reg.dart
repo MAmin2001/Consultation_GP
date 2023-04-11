@@ -5,6 +5,7 @@ import 'package:consultation_gp/modules/mentor/mentor_reg/register_cubit/registe
 import 'package:consultation_gp/modules/mentor/mentor_reg/register_screen/mentor_reg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 class ConsultRegister extends StatelessWidget {
@@ -36,6 +37,18 @@ class ConsultRegister extends StatelessWidget {
             {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => MenteeProfile()));
+            }
+            else
+            {
+              Fluttertoast.showToast(
+                msg: state.loginModel.message!,
+                toastLength: Toast.LENGTH_LONG,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 10,
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 20.0,
+              );
             }
           }
         },
@@ -287,13 +300,13 @@ class ConsultRegister extends StatelessWidget {
                           {
                             RegisterCubit.get(context).clientRegister
                               (
-                                fName: fNameController.toString(),
-                                lName: lNameController.toString(),
-                                userName: userNameController.toString(),
-                                pNumber: pNumController.toString(),
-                                email: emailController.toString(),
-                                password: passwordController.toString(),
-                                cPassword: cPasswordController.toString()
+                                fName: fNameController.text,
+                                lName: lNameController.text,
+                                userName: userNameController.text,
+                                pNumber: pNumController.text,
+                                email: emailController.text,
+                                password: passwordController.text,
+                                cPassword: cPasswordController.text
                             );
 
                           }
