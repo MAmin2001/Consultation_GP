@@ -1,7 +1,6 @@
 import 'package:consultation_gp/layout/mentor_layout.dart';
 import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
-import 'package:consultation_gp/modules/mentor/mentor_show_profile/show_mentor_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';

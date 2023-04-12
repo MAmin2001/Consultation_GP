@@ -7,8 +7,8 @@ import 'package:consultation_gp/modules/mentee/mentee_reg/mentee_reg.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
 import 'package:consultation_gp/modules/mentor/incvoices/invoice_view.dart';
 import 'package:consultation_gp/modules/mentor/incvoices/invoices.dart';
+import 'package:consultation_gp/modules/mentor/mentor_profile/mentor_profile.dart';
 import 'package:consultation_gp/modules/mentor/mentor_reg/register_screen/mentor_reg.dart';
-import 'package:consultation_gp/modules/mentor/mentor_show_profile/show_mentor_profile.dart';
 import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
 import 'package:consultation_gp/modules/mentor/reviews/reviews.dart';
 import 'package:consultation_gp/modules/mentor/schedule_timings/schedule_time.dart';
@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context)=> MentorCubit(),
       child: MaterialApp(
-        home: startScreen,
+        home: MentorProfile(),
         debugShowCheckedModeBanner: false,
       ),
     );
