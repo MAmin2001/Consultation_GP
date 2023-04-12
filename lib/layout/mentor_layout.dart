@@ -17,19 +17,6 @@ class MentorLayout extends  StatelessWidget {
       builder: (context,state){
         var cubit = MentorCubit.get(context);
         return Scaffold(
-          /*appBar: AppBar(
-            actions: [
-              TextButton(
-                  onPressed: ()
-                  {
-                    CacheHelper.sharedPreferences.remove('token').then((value) =>
-                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ConsultLogin()), (route) => false));
-                  },
-                  child: Text('sign out',style: TextStyle(color: Colors.white),
-                  )
-              )
-            ]
-          ),*/
           body: cubit.screens[cubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: Colors.grey[100],

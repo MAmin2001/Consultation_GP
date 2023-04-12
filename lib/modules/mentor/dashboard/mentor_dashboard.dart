@@ -1,4 +1,6 @@
+import 'package:consultation_gp/modules/mentee/mentee_profile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hex_color/flutter_hex_color.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class Dashboard extends StatelessWidget {
@@ -139,7 +141,7 @@ class Dashboard extends StatelessWidget {
                             height: 120.0,
                             width: double.infinity,
                             decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: HexColor('#dce8ff'),
                                 borderRadius: BorderRadius.circular(10.0)
                             ),
                             child: Column(
@@ -171,7 +173,7 @@ class Dashboard extends StatelessWidget {
                             height: 120.0,
                             width: double.infinity,
                             decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: HexColor('#fcf6d4'),
                                 borderRadius: BorderRadius.circular(10.0)
                             ),
                             child: Column(
@@ -203,7 +205,7 @@ class Dashboard extends StatelessWidget {
                             height: 120.0,
                             width: double.infinity,
                             decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: HexColor('#fedde6'),
                                 borderRadius: BorderRadius.circular(10.0)
                             ),
                             child: Column(
@@ -346,14 +348,17 @@ class Dashboard extends StatelessWidget {
                                       Container(
                                           width: 100.0,
                                           child:  ElevatedButton.icon(
-                                            onPressed: (){},
+                                            onPressed: ()
+                                            {
+                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>MenteeProfile()));
+                                            },
                                             icon: Icon(Icons.remove_red_eye_rounded),
                                             label: Text('View',
                                               style: TextStyle(
                                                   fontSize: 15.0
                                               ),),
                                             style: ElevatedButton.styleFrom(
-                                                primary: Colors.green[300],
+                                                primary: HexColor('#b6d0e7'),
                                                 elevation: 0.0
                                             ),
                                           )
