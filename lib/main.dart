@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (BuildContext context)=> MentorCubit(),
       child: MaterialApp(
-        home: InvoiceView(),
+        home: ProfileSetup(),
         debugShowCheckedModeBanner: false,
       ),
     );

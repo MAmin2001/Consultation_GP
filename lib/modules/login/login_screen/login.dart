@@ -67,10 +67,7 @@ class ConsultLogin extends StatelessWidget {
         builder: (context,state)
         {
           return Scaffold(
-            appBar: AppBar(
-              //title: Text("Login"),
-              //leading: Icon(Icons.login),
-            ),
+
             body: Form(
               key: _formKey,
               child: Center(
@@ -85,20 +82,21 @@ class ConsultLogin extends StatelessWidget {
                           Center(
                             child: Text(
                                 style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
+                                  color: Colors.blue
                                 ),
-                                "Login"),
+                                "Welcome to MentorQuest"),
                           ),
-                          SizedBox(height: 5.0,),
+                          SizedBox(height: 20.0,),
                           Center(
                             child: Text(
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 18,
+                                    fontSize: 20,
                                     color: Colors.grey[500]
                                 ),
-                                "login as"),
+                                "Login as"),
                           ),
                           SizedBox(height: 20,),
                           Center(

@@ -7,12 +7,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginCubit extends Cubit<LoginStates>
 {
-LoginCubit (): super(LoginInitialState());
+  LoginCubit (): super(LoginInitialState());
 
-static LoginCubit get(context) => BlocProvider.of(context);
+  static LoginCubit get(context) => BlocProvider.of(context);
 
 
-late ConsultLoginModel loginModel;
+  late ConsultLoginModel loginModel;
 bool isMentor=false;
 bool isOb= true;
 

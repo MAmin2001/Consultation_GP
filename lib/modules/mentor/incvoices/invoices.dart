@@ -1,3 +1,4 @@
+import 'package:consultation_gp/modules/mentor/incvoices/invoice_view.dart';
 import 'package:flutter/material.dart';
 
 class Invoice extends StatelessWidget {
@@ -123,7 +124,10 @@ class Invoice extends StatelessWidget {
                                 Container(
                                   height: 37.0,
                                   child: ElevatedButton.icon(
-                                    onPressed: (){},
+                                    onPressed: ()
+                                    {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=>InvoiceView()));
+                                    },
                                     icon: Icon(Icons.remove_red_eye_rounded),
                                     label: Text('View',
                                       style: TextStyle(
