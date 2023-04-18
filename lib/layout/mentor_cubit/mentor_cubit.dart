@@ -1,5 +1,5 @@
 import 'package:consultation_gp/layout/mentor_cubit/mentor_states.dart';
-import 'package:consultation_gp/modules/mentor/bookings/mentor_bookings.dart';
+import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmentes.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
 import 'package:consultation_gp/modules/mentor/incvoices/invoices.dart';
 import 'package:consultation_gp/modules/mentor/mentor_profile/mentor_profile.dart';
@@ -24,7 +24,7 @@ void changeBottomNavIndex(int index)
 List<Widget> screens=
 [
   Dashboard(),
-  Bookings(),
+  Appointments(),
   Invoice(),
   Reviews(),
   MentorProfile(),

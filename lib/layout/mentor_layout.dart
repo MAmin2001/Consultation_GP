@@ -35,7 +35,7 @@ class MentorLayout extends  StatelessWidget {
               ),
               BottomNavigationBarItem(
                   icon:Icon(Icons.book,),
-                  label: 'Bookings'
+                  label: 'Appointments'
               ),
               BottomNavigationBarItem(
                   icon:Icon(Icons.file_copy,),
