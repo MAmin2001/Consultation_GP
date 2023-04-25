@@ -1,4 +1,6 @@
+import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class ForgotPassword extends StatelessWidget {
   ForgotPassword({Key? key}) : super(key: key);
@@ -8,11 +10,11 @@ class ForgotPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Reset your password"),
+        title: Text("Forgot your password "),
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(17.0),
+          padding: const EdgeInsets.all(10.0),
           child: Form(
             key: _formkey,
             child: Column(
@@ -25,14 +27,14 @@ class ForgotPassword extends StatelessWidget {
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     ),
-                    "Reset your password")),
+                    "Forgot your password ?")),
                 SizedBox(height: 20,),
                 Center(child: Text(
                     style: TextStyle(
                       fontSize: 16,
                     ),
-                    "A password reset link for all of your accounts on this e-mail (mentor & mentee) is going to be sent to you!")),
-                SizedBox(height: 20,),
+                    "Enter your email to get a password reset link")),
+                SizedBox(height: 15,),
                 Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -53,7 +55,6 @@ class ForgotPassword extends StatelessWidget {
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(),
-                    labelText: "E-mail",
                     hintText: "enter your email",
                     hintStyle: TextStyle(
                       color: Colors.grey,
@@ -70,15 +71,42 @@ class ForgotPassword extends StatelessWidget {
                   },
                   onSaved: (value) => _email = value!,
                 ),
-                SizedBox(height: 15,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ConsultLogin(),));
+                    }, child: Text(
+                      "Remember your password?",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 17.0,
+                          color: Colors.blue
+                      ),
+                    )
+                    )
+                  ],
+                ),
+                SizedBox(height: 12,),
 
                 Center(child: ElevatedButton(
 
                     onPressed: (){
+
                       if (_formkey.currentState!.validate()) {
                         _formkey.currentState!.save();
                         print(' Email: $_email ');
+                        Fluttertoast.showToast(
+                          msg: "please check your Email inbox",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.BOTTOM,
+                          timeInSecForIosWeb: 1,
+                          textColor: Colors.white,
+                          fontSize: 16.0,);
+
                       }
+
                     }, child: Text
                   (
                     "Confirm"
