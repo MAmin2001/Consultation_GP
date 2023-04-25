@@ -1,5 +1,6 @@
 import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class ForgotPassword extends StatelessWidget {
@@ -10,41 +11,38 @@ class ForgotPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Forgot your password "),
+        title: Center(child: Text("Forgot password ")),
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding:  EdgeInsets.all(10.0.w),
           child: Form(
             key: _formkey,
             child: Column(
-
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(child: Text(
                     style: TextStyle(
-                      fontSize: 25,
+                      fontSize: 25.sp,
                       fontWeight: FontWeight.bold,
                     ),
                     "Forgot your password ?")),
-                SizedBox(height: 20,),
+                SizedBox(height: MediaQuery.of(context).size.height/20,),
                 Center(child: Text(
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                     ),
                     "Enter your email to get a password reset link")),
-                SizedBox(height: 15,),
+                SizedBox(height: MediaQuery.of(context).size.height/20,),
                 Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: Colors.grey,
                     ),
                     "E-mail: "),
-                SizedBox(
-                  height: 5,
-                ),
+                SizedBox(height: MediaQuery.of(context).size.height/45,),
                 TextFormField(
 
                   decoration: InputDecoration(
@@ -71,46 +69,43 @@ class ForgotPassword extends StatelessWidget {
                   },
                   onSaved: (value) => _email = value!,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ConsultLogin(),));
-                    }, child: Text(
-                      "Remember your password?",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17.0,
-                          color: Colors.blue
-                      ),
-                    )
-                    )
-                  ],
+                SizedBox(height: MediaQuery.of(context).size.height/45,),
+                Center(
+                  child: TextButton(onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ConsultLogin(),));
+                  }, child: Text(
+                    "Remember your password?",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 17.0.sp,
+                        color: Colors.blue
+                    ),
+                  )
+                  ),
                 ),
-                SizedBox(height: 12,),
-
-                Center(child: ElevatedButton(
-
-                    onPressed: (){
-
-                      if (_formkey.currentState!.validate()) {
-                        _formkey.currentState!.save();
-                        print(' Email: $_email ');
-                        Fluttertoast.showToast(
-                          msg: "please check your Email inbox",
-                          toastLength: Toast.LENGTH_SHORT,
-                          gravity: ToastGravity.BOTTOM,
-                          timeInSecForIosWeb: 1,
-                          textColor: Colors.white,
-                          fontSize: 16.0,);
-
-                      }
-
-                    }, child: Text
-                  (
-                    "Confirm"
-                ))),
+                SizedBox(height: MediaQuery.of(context).size.height/20,),
+                Center(child: Container(
+                  width: 100.w,
+                  height: 35.h,
+                  child: ElevatedButton(
+                      onPressed: (){
+                        if (_formkey.currentState!.validate()) {
+                          _formkey.currentState!.save();
+                          print(' Email: $_email ');
+                          Fluttertoast.showToast(
+                            msg: "please check your Email inbox",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.BOTTOM,
+                            timeInSecForIosWeb: 1,
+                            textColor: Colors.white,
+                            fontSize: 16.0.sp,);
+                        }
+                      }, child: Text
+                    (
+                      "Confirm"
+                  )),
+                )),
               ],
             ),
           ),

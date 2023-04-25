@@ -9,6 +9,7 @@ import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart'
 import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:sliding_switch/sliding_switch.dart';
@@ -59,7 +60,7 @@ class ConsultLogin extends StatelessWidget {
               timeInSecForIosWeb: 10,
               backgroundColor: Colors.red,
               textColor: Colors.white,
-              fontSize: 20.0,
+              fontSize: 20.0.sp,
               );
               }
           }
@@ -72,7 +73,7 @@ class ConsultLogin extends StatelessWidget {
               key: _formKey,
               child: Center(
                 child: Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(20.0.w),
                   child: SingleChildScrollView(
                     child: SingleChildScrollView(
                       child: Column(
@@ -83,22 +84,22 @@ class ConsultLogin extends StatelessWidget {
                             child: Text(
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 30,
+                                  fontSize: 25.sp,
                                   color: Colors.blue
                                 ),
                                 "Welcome to MentorQuest"),
                           ),
-                          SizedBox(height: 20.0,),
+                          SizedBox(height: MediaQuery.of(context).size.height/45,),
                           Center(
                             child: Text(
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 20,
+                                    fontSize: 20.sp,
                                     color: Colors.grey[500]
                                 ),
                                 "Login as"),
                           ),
-                          SizedBox(height: 20,),
+                          SizedBox(height: MediaQuery.of(context).size.height/45,),
                           Center(
                             child: SlidingSwitch(
                               value: LoginCubit.get(context).isMentor,
@@ -115,14 +116,12 @@ class ConsultLogin extends StatelessWidget {
                               animationDuration: const Duration(milliseconds: 300),
                             ),
                           ),
-                          SizedBox(
-                            height: 40,
-                          ),
+                          SizedBox(height: MediaQuery.of(context).size.height/15,),
                           TextFormField(
                             controller: emailController,
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(10.r),
                                 borderSide: BorderSide(
                                   color: Colors.grey,
                                 ),
@@ -149,9 +148,7 @@ class ConsultLogin extends StatelessWidget {
                             },
                             onSaved: (value) => _email = value!,
                           ),
-                          SizedBox(
-                            height: 30,
-                          ),
+                          SizedBox(height: MediaQuery.of(context).size.height/20,),
                           TextFormField(
                             controller: passwordController,
                             validator: (value) {
@@ -164,7 +161,7 @@ class ConsultLogin extends StatelessWidget {
                             decoration: InputDecoration(
                               focusedBorder: OutlineInputBorder(),
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(10.r),
                                 borderSide: BorderSide(
                                   color: Colors.grey,
                                 ),
@@ -187,13 +184,11 @@ class ConsultLogin extends StatelessWidget {
                             ),
                             obscureText: LoginCubit.get(context).isOb,
                           ),
-                          SizedBox(
-                            height: 30,
-                          ),
+                          SizedBox(height: MediaQuery.of(context).size.height/15,),
                           Container
                             (
-                            width: double.infinity,
-                            height: 50.0,
+                            width: double.infinity.w,
+                            height: 50.0.h,
                             child: ElevatedButton(
                                 onPressed: () {
                                   if (_formKey.currentState!.validate())
@@ -213,7 +208,7 @@ class ConsultLogin extends StatelessWidget {
                                 child: Text("Login",
                                   style: TextStyle
                                     (
-                                    fontSize: 20.0, fontWeight: FontWeight.w500
+                                    fontSize: 20.0.sp, fontWeight: FontWeight.w500
                                     ),
                                 )
                             ),
@@ -227,30 +222,28 @@ class ConsultLogin extends StatelessWidget {
                               },
                               child: Text("Sign Up")),
                         ),*/
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              TextButton(onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => ForgotPassword(),));
-                              }, child: Text(
-                                "Forgot password ?",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 17.0,
-                                    color: Colors.black
-                                ),
-                              )
-                              )
-                            ],
+                          SizedBox(height: MediaQuery.of(context).size.height/55,),
+                          Center(
+                            child: TextButton(onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ForgotPassword(),));
+                            }, child: Text(
+                              "Forgot password ?",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 17.0.sp,
+                                  color: Colors.black
+                              ),
+                            )
+                            ),
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(height: MediaQuery.of(context).size.height/55,),
                           Row(
                             children: [
                               Expanded(
                                 child: Container(
-                                  height: 1.0,
-                                  width: double.infinity,
+                                  height: 1.0.h,
+                                  width: double.infinity.w,
                                   color: Colors.black,
                                 ),
                               ),
@@ -258,21 +251,21 @@ class ConsultLogin extends StatelessWidget {
                                   child:
                                   Text('   OR   ',
                                     style: TextStyle(
-                                        fontSize: 16,
+                                        fontSize: 16.sp,
                                         fontWeight: FontWeight.w400,
                                         color: Colors.grey[500]),
                                   )
                               ),
                               Expanded(
                                 child: Container(
-                                  height: 1.0,
-                                  width: double.infinity,
+                                  height: 1.0.h,
+                                  width: double.infinity.w,
                                   color: Colors.black,
                                 ),
                               ),
                             ],
-
                           ),
+                          SizedBox(height: MediaQuery.of(context).size.height/55,),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -280,7 +273,7 @@ class ConsultLogin extends StatelessWidget {
                                 'Don\'t have an account ?',
                                 style: TextStyle(
                                     fontWeight: FontWeight.w400,
-                                    fontSize: 17.0,
+                                    fontSize: 17.0.sp,
                                     color: Colors.black
                                 ),
                               ),
@@ -292,7 +285,7 @@ class ConsultLogin extends StatelessWidget {
                                     "Register now ",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w400,
-                                        fontSize: 17.0,
+                                        fontSize: 17.0.sp,
                                         color: Colors.blue
                                     ),
                                   )

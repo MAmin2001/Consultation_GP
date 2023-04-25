@@ -7,6 +7,7 @@ import 'package:consultation_gp/modules/login/forgot_password/forgot_password.da
   import 'package:consultation_gp/modules/mentee/mentee_reg/mentee_reg.dart';
 import 'package:consultation_gp/modules/mentee/mentor_exploration/all_mentors.dart';
 import 'package:consultation_gp/modules/mentee/mentor_exploration/mentor_explore.dart';
+import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmentes.dart';
 import 'package:consultation_gp/modules/mentor/create_plan/create_plan.dart';
   import 'package:consultation_gp/modules/mentor/incvoices/invoice_view.dart';
   import 'package:consultation_gp/modules/mentor/incvoices/invoices.dart';
@@ -21,6 +22,7 @@ import 'package:consultation_gp/modules/mentor/view%20mentors/all_mentors_view.d
   import 'package:consultation_gp/shared/constants.dart';
   import 'package:flutter/material.dart';
   import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
   import 'package:get/get.dart';
 
 
@@ -71,9 +73,18 @@ import 'package:consultation_gp/modules/mentor/view%20mentors/all_mentors_view.d
     Widget build(BuildContext context) {
       return BlocProvider(
         create: (BuildContext context)=> MentorCubit(),
-        child: MaterialApp(
-          home: AllMentorsScreen(),
-          debugShowCheckedModeBanner: false,
+        child: ScreenUtilInit(
+          designSize: const Size(360, 690),
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (BuildContext context,child)
+          {
+            return MaterialApp(
+              home: ExploreMentor(),
+              debugShowCheckedModeBanner: false,
+            );
+          },
+
         ),
       );
     }

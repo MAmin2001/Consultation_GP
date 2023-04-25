@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Appointments extends StatelessWidget {
   const Appointments({Key? key}) : super(key: key);
@@ -8,15 +9,14 @@ class Appointments extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu,size: 33.0,),
-          onPressed: () {  },
-        ),
-        title:  const Text(
-          '                Appointments',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 22.0
+
+        title: Center(
+          child: Text(
+            'Appointments',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18.0.sp
+            ),
           ),
         ),
         elevation: 0.0,
@@ -43,12 +43,12 @@ class Appointments extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding:  EdgeInsets.all(20.0.r),
                   child: Container(
-                    height: 170.0,
+                    height: 145.0.h,
                     decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(10.0)
+                        borderRadius: BorderRadius.circular(10.0.r)
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,29 +56,30 @@ class Appointments extends StatelessWidget {
                         Row(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(10.0),
+                              padding:  EdgeInsets.all(10.0.r),
                               child: CircleAvatar(
-                                radius: 45.0,
+                                radius: 40.0.r,
                               ),
                             ),
                             Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   'Mahmoud Amin',
                                   style: TextStyle(
-                                      fontSize: 20.0,
+                                      fontSize: 17.0.sp,
                                       fontWeight: FontWeight.bold
                                   ),
                                 ),
-                                SizedBox(height: 3,),
+                                SizedBox(height: MediaQuery.of(context).size.height/150,),
                                 Text(
                                   'Software Engineer',
                                   style: TextStyle(
-                                      fontSize: 15.0,
+                                      fontSize: 13.0.sp,
                                       color: Colors.black
                                   ),
                                 ),
-                                SizedBox(height: 3,),
+                                SizedBox(height: MediaQuery.of(context).size.height/250,),
                                 RatingBar(
                                   initialRating: 0,
                                   direction: Axis.horizontal,
@@ -103,9 +104,9 @@ class Appointments extends StatelessWidget {
                             )
                           ],
                         ),
-                        SizedBox(height: 10.0,),
+                        SizedBox(height: MediaQuery.of(context).size.height/100,),
                         Padding(
-                          padding: const EdgeInsets.only(left: 12),
+                          padding:  EdgeInsets.only(left: 12.r),
                           child: Text(
                             'Complete your profile: 60%',
                             style: TextStyle(
@@ -114,12 +115,12 @@ class Appointments extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding:  EdgeInsets.all(9.0.r),
                           child: LinearProgressIndicator(
                             backgroundColor: Colors.grey[300],
                             color: Colors.blue,
                             value: 0.6,
-                            minHeight: 5.5,
+                            minHeight: 4.h,
                           ),
                         )
                       ],
