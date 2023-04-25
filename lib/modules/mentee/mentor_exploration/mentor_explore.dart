@@ -3,6 +3,7 @@ import 'package:consultation_gp/modules/mentee/mentor_exploration/all_mentors.da
 import 'package:flutter/material.dart';
 import 'package:flutter_hex_color/flutter_hex_color.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ExploreMentor extends StatelessWidget {
   const ExploreMentor({Key? key}) : super(key: key);
@@ -10,22 +11,6 @@ class ExploreMentor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu,size: 33.0,),
-          onPressed: () {  },
-        ),
-        centerTitle: true,
-        title:  const Text(
-          'MENTORUEST',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 22.0
-          ),
-        ),
-        elevation: 0.0,
-      ),
       body:
       Stack(
         children: [
@@ -47,134 +32,75 @@ class ExploreMentor extends StatelessWidget {
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding:  EdgeInsets.all(20.0.r),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
-                  child: Center(
-                    child: Image.asset('assets/metorquest logo.png',width: 230,height:90,
-                    fit:BoxFit.fitWidth, ),
+                  Center(
+                    child: Image.asset('assets/metorquest logo.png',
+                      width: 220.w,
+                      height:80.h,
+                    fit:BoxFit.cover, ),
                   ),
-
-
-                  ),
-                  Padding(padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 8),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                            style: TextStyle(
-                              fontFamily: 'Lexend Deca',
-                                fontWeight: FontWeight.w600,
-                                fontSize: 36,
-                                color: Colors.white
-                            ),
-                            "Welcome! "
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                            style: TextStyle(
-                                fontFamily: 'Lexend Deca',
-                                fontWeight: FontWeight.w400,
-                                fontSize: 22,
-                                color: Color(0xB3FFFFFF)
-                            ),
-                            "Search for your mentor "
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(padding: EdgeInsetsDirectional.fromSTEB(16, 16, 16, 0),
-                    child:Container(
-                      width: double.infinity,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(16),
-
+                  Text(
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 28.sp,
+                          color: Colors.white
                       ),
-                      alignment: AlignmentDirectional(0,0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
+                      "Welcome! "
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height/300,),
+                  Text(
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 18.sp,
+                        color: Colors.white
+                      ),
+                      "Search for your mentor "
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height/80,),
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 10.0.r),
+                    child:Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius:BorderRadius.circular(30.0.r),
+                              color: Colors.white,
+                            ),
                             child: TextFormField(
-                              obscureText: false,
                               decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.search),
                                 enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30.r),
                                   borderSide: BorderSide(
-                                    color: Colors.white,
-                                    width: 2,
+                                    color: Colors.grey,
                                   ),
-                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30.r),
                                   borderSide: BorderSide(
-                                    color: Color(000000000),
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-
+                                    color: Colors.blue,),
                                 ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(00000000),
-                                    width: 2,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                filled: true,
-                                fillColor: Colors.white,
-                                //prefixIcon: Icon(Icons.text,color: Color(0xFF57636C),),
-
-                              ),
-                              style: TextStyle(
-                                  fontFamily: 'Lexend Deca',
-                                  fontWeight: FontWeight.normal,
-                                  fontSize: 14,
-                                  color: Colors.black
-                              ),
-                              maxLines: null,
-
-                            ),
-                          ),
-
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
-                            child: Container(
-                              child:ElevatedButton.icon(
-                                onPressed: (){},
-                                label: Text('Search',
-                                  style: TextStyle(
-                                      color:Colors.blue,
-                                      fontSize: 17
-                                  ),
-                                ),
-                                icon: Icon(
-                                    Icons.search,
-                                    color:Colors.blue
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                    primary: Colors.white
+                                hintText: "Search",
+                                hintStyle: TextStyle(
+                                  color: Colors.grey,
                                 ),
                               ),
                             ),
                           ),
-
-                        ],
-                      ),
+                        ),
+                        IconButton(
+                            onPressed: (){},
+                            icon: Icon(Icons.filter_alt_outlined),
+                          iconSize: 35.0,
+                          color: Colors.blue,
+                        ),
+                      ],
                     ) ,
-
                   ),
                   // SizedBox(
                   //   child: SingleChildScrollView(
@@ -261,7 +187,7 @@ class ExploreMentor extends StatelessWidget {
                   //   ),
                   // )
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    padding:  EdgeInsets.symmetric(vertical: 15.r),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -269,7 +195,7 @@ class ExploreMentor extends StatelessWidget {
                         Text(
                             style: TextStyle(
                               fontWeight: FontWeight.w700,
-                              fontSize: 18,
+                              fontSize: 16.sp,
                               color: Colors.black,
                             ),
                             "Popular Mentors"
@@ -283,7 +209,7 @@ class ExploreMentor extends StatelessWidget {
                             child:  Text(
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 15,
+                                  fontSize: 13.sp,
                                   color: Colors.blue,
                                 ),
                                 "View All"
@@ -291,139 +217,128 @@ class ExploreMentor extends StatelessWidget {
                       ],
                     ),
                   ),
-                 SizedBox(
-                   height: MediaQuery.of(context).size.height*0.46,
-
-                   child: ListView.separated(
+                  //SizedBox(height: MediaQuery.of(context).size.height/10,),
+                  SizedBox(
+                      height: 350.0,
+                    child: ListView.separated(
                      scrollDirection: Axis.horizontal,
-                     //  shrinkWrap: true,
-                      // physics: NeverScrollableScrollPhysics(),
-                       itemBuilder:(context,index){
-                         return Container(
-                           width: 175,
-                           padding: EdgeInsets.all(8),
-                           clipBehavior: Clip.antiAliasWithSaveLayer,
-                           decoration: BoxDecoration(
-                             color: Colors.white,
-                             borderRadius: BorderRadius.circular(14),
-                           ),
-                           child: Column(
-                             crossAxisAlignment: CrossAxisAlignment.start,
-                             children: [
-                               Container(
-                                 height: 130,
-                                 width: double.infinity,
-                                 decoration: BoxDecoration(
-                                   color: Colors.blue,
-                                   borderRadius: BorderRadius.circular(12),
-                                 ),
-
-                               ),
-                               const SizedBox(
-                                 height: 10,
-                               ),
-                               Text(
-                                   style: TextStyle(
-                                       fontWeight: FontWeight.w500,
-                                       fontSize: 18,
-                                       color: Colors.black.withOpacity(0.7),
+                      padding: EdgeInsets.all(5.0),
+                      shrinkWrap: true,
+                       itemBuilder:(context,index)
+                       {
+                         return Column(
+                           children: [
+                             Container(
+                               width: 155.w,
+                               //padding: EdgeInsets.all(8),
+                               clipBehavior: Clip.antiAliasWithSaveLayer,
+                               decoration: BoxDecoration(
+                                 boxShadow: [
+                                   BoxShadow(
+                                     color: Colors.grey[300]!,
+                                     spreadRadius: 5,
+                                     blurRadius: 7,
+                                     offset: Offset(0, 3),
                                    ),
-                                   "Mohamed Hassanein"
-                               ),
-                               const SizedBox(
-                                 height: 10,
-                               ),
-                               Text(
-                                   style: TextStyle(
-                                     fontWeight: FontWeight.w500,
-                                     fontSize: 16,
-                                     color: Colors.black.withOpacity(0.4),
+                                   BoxShadow(
+                                     color: Colors.grey[300]!,
+                                     spreadRadius: 3,
+                                     blurRadius: 5,
+                                     offset: Offset(0, 3),
                                    ),
-                                   "calculas,\nTrignometry"
+                                 ],
+                                 color: Colors.white,
+                                 borderRadius: BorderRadius.circular(14.r),
                                ),
-                               SizedBox(height: 3,),
-                               Row(
-
-                                 children: [
-                                   RatingBar(
-                                     initialRating: 4,
-                                     direction: Axis.horizontal,
-                                     allowHalfRating: true,
-                                     itemCount: 5,
-                                     itemSize: 25.0,
-                                     ratingWidget: RatingWidget(
-                                         full: const Icon(Icons.star, color: Colors.amber),
-                                         half: const Icon(
-                                           Icons.star_half,
-                                           color: Colors.amber,
-                                         ),
-                                         empty: const Icon(
-                                           Icons.star_outline,
-                                           color: Colors.amber,
-                                         )
+                               child: Padding(
+                                 padding: EdgeInsets.all(5.0.r),
+                                 child: Column(
+                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                   children: [
+                                     Container(
+                                       height: 130.h,
+                                       width: double.infinity.w,
+                                       decoration: BoxDecoration(
+                                         color: Colors.blue,
+                                         borderRadius: BorderRadius.circular(12.r),
+                                       ),
                                      ),
-                                     ignoreGestures: true,
-                                     onRatingUpdate: (double value) {  },
-                                   ),
-                                   SizedBox(
-                                     width:5 ,
-
-                                   ),
-                                   Text(
-
-                                       style: TextStyle(
-                                         fontWeight: FontWeight.w500,
-                                         fontSize: 16,
-                                         color: Colors.black.withOpacity(0.7),
+                                     SizedBox(height: MediaQuery.of(context).size.height/80),
+                                     Text(
+                                         style: TextStyle(
+                                             fontWeight: FontWeight.w500,
+                                             fontSize: 15.sp,
+                                             color: Colors.black,
+                                         ),
+                                         "Mohamed Hassanein"
+                                     ),
+                                     SizedBox(height: MediaQuery.of(context).size.height/80),
+                                     Text(
+                                         style: TextStyle(
+                                           fontWeight: FontWeight.w500,
+                                           fontSize: 13.sp,
+                                           color: Colors.grey[500],
+                                         ),
+                                         "Software Engineer"
+                                     ),
+                                     SizedBox(height: MediaQuery.of(context).size.height/200),
+                                     RatingBar(
+                                       initialRating: 4,
+                                       direction: Axis.horizontal,
+                                       allowHalfRating: true,
+                                       itemCount: 5,
+                                       itemSize: 25.0,
+                                       ratingWidget: RatingWidget(
+                                           full: const Icon(Icons.star, color: Colors.amber),
+                                           half: const Icon(
+                                             Icons.star_half,
+                                             color: Colors.amber,
+                                           ),
+                                           empty: const Icon(
+                                             Icons.star_outline,
+                                             color: Colors.amber,
+                                           )
                                        ),
-                                       "4.0"
-                                   ),
-                                 ],
+                                       ignoreGestures: true,
+                                       onRatingUpdate: (double value) {  },
+                                     ),
+                                     SizedBox(height: MediaQuery.of(context).size.height/200),
+                                     Row(
+                                       children: [
+                                         Icon(Icons.location_on,color: Colors.grey,),
+                                         SizedBox(width: MediaQuery.of(context).size.width/200),
+                                         Text(
+                                             style: TextStyle(
+                                               fontWeight: FontWeight.w500,
+                                               fontSize: 13.sp,
+                                               color: Colors.grey[500],
+                                             ),
+                                             "Paris, France"
+                                         ),
+                                       ],
+                                     ),
+                                   ],
+                                 ),
                                ),
-                               const SizedBox(
-                                 height: 5,
-                               ),
-                               Row(
-                                 children: [
-                                   Icon(Icons.location_on,color: Colors.grey,),
-                                   const SizedBox(
-                                     width: 10,
-                                   ),
-                                   Text(
-                                       style: TextStyle(
-                                         fontWeight: FontWeight.w500,
-                                         fontSize: 14,
-                                         color: Colors.grey,
-                                       ),
-                                       "Paris, France"
-                                   ),
-                                 ],
-                               ),
-                             ],
-                           ),
+                             ),
+                           ],
                          );
                        } ,
                        separatorBuilder:(context,index){
-                         return SizedBox(
-                           width: 20,
-                         );
+                         return SizedBox(width: MediaQuery.of(context).size.width/25);
                        } ,
                        itemCount: 5
-                   ),
                  ),
-                  SizedBox(
-                    height: 20,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
+                    padding:  EdgeInsets.symmetric(vertical: 15.r),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-
                         Text(
                             style: TextStyle(
                               fontWeight: FontWeight.w700,
-                              fontSize: 18,
+                              fontSize: 16.sp,
                               color: Colors.black,
                             ),
                             "All Learning paths"
@@ -432,7 +347,7 @@ class ExploreMentor extends StatelessWidget {
                           child:  Text(
                               style: TextStyle(
                                 fontWeight: FontWeight.w500,
-                                fontSize: 15,
+                                fontSize: 13.sp,
                                 color: Colors.blue,
                               ),
                               "View All"
@@ -441,65 +356,67 @@ class ExploreMentor extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height*0.3,
-
+                    height: 150.0.h,
                     child: ListView.separated(
                         scrollDirection: Axis.horizontal,
                         //  shrinkWrap: true,
                         // physics: NeverScrollableScrollPhysics(),
                         itemBuilder:(context,index){
-                          return Container(
-                            width: 175,
-                            padding: EdgeInsets.all(8),
-                            clipBehavior: Clip.antiAliasWithSaveLayer,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(14),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 130,
-                                  width: double.infinity,
+                          return Stack(
+                            children: [
+                              Container(
+                                width: 140.w,
+                                height: 150.h,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey[100],
+                                    borderRadius: BorderRadius.circular(14.r)
+                                ),),
+                              Padding(
+                                padding:  EdgeInsets.all(5.0.r),
+                                child: Container(
+                                  width: 130.w,
+                                  height:140.h,
                                   decoration: BoxDecoration(
-                                    color: Colors.blue,
-                                    borderRadius: BorderRadius.circular(12),
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(14.r),
                                   ),
+                                  child: Padding(
+                                    padding:  EdgeInsets.all(5.0.r),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          height: 130,
+                                          width: double.infinity,
+                                          decoration: BoxDecoration(
+                                            color: Colors.blue,
+                                            borderRadius: BorderRadius.circular(14.r),
+                                          ),
 
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18,
-                                      color: Colors.black.withOpacity(0.7),
+                                        ),
+                                        SizedBox(height: MediaQuery.of(context).size.height/80),
+                                        Text(
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 15.sp,
+                                              color: Colors.black,
+                                            ),
+                                            "Cyper security"
+                                        ),
+                                      ],
                                     ),
-                                    "Cyper security"
+                                  ),
                                 ),
-
-
-                              ],
-                            ),
+                              ),
+                            ],
                           );
                         } ,
                         separatorBuilder:(context,index){
-                          return SizedBox(
-                            width: 20,
-                          );
+                          return SizedBox(width: MediaQuery.of(context).size.width/25);
                         } ,
                         itemCount: 5
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-
-
-
-
                 ],
 
               ),
