@@ -9,6 +9,7 @@ import 'package:consultation_gp/modules/mentee/mentor_exploration/all_mentors.da
 import 'package:consultation_gp/modules/mentee/mentor_exploration/mentor_explore.dart';
 import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmentes.dart';
 import 'package:consultation_gp/modules/mentor/create_plan/create_plan.dart';
+import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
   import 'package:consultation_gp/modules/mentor/incvoices/invoice_view.dart';
   import 'package:consultation_gp/modules/mentor/incvoices/invoices.dart';
   import 'package:consultation_gp/modules/mentor/mentor_profile/mentor_profile.dart';
@@ -80,7 +81,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
           builder: (BuildContext context,child)
           {
             return MaterialApp(
-              home: ExploreMentor(),
+              home: Dashboard(),
               debugShowCheckedModeBanner: false,
             );
           },

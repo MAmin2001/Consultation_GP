@@ -67,6 +67,7 @@ class ExploreMentor extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Container(
+                            height: 45.h,
                             decoration: BoxDecoration(
                               borderRadius:BorderRadius.circular(30.0.r),
                               color: Colors.white,
@@ -219,7 +220,7 @@ class ExploreMentor extends StatelessWidget {
                   ),
                   //SizedBox(height: MediaQuery.of(context).size.height/10,),
                   SizedBox(
-                      height: 350.0,
+                      height: 260.0,
                     child: ListView.separated(
                      scrollDirection: Axis.horizontal,
                       padding: EdgeInsets.all(5.0),
@@ -231,19 +232,18 @@ class ExploreMentor extends StatelessWidget {
                              Container(
                                width: 155.w,
                                //padding: EdgeInsets.all(8),
-                               clipBehavior: Clip.antiAliasWithSaveLayer,
                                decoration: BoxDecoration(
                                  boxShadow: [
                                    BoxShadow(
                                      color: Colors.grey[300]!,
-                                     spreadRadius: 5,
-                                     blurRadius: 7,
+                                     spreadRadius: 3.r,
+                                     blurRadius: 4.r,
                                      offset: Offset(0, 3),
                                    ),
                                    BoxShadow(
                                      color: Colors.grey[300]!,
-                                     spreadRadius: 3,
-                                     blurRadius: 5,
+                                     spreadRadius: 3.r,
+                                     blurRadius: 4.r,
                                      offset: Offset(0, 3),
                                    ),
                                  ],
@@ -287,7 +287,7 @@ class ExploreMentor extends StatelessWidget {
                                        direction: Axis.horizontal,
                                        allowHalfRating: true,
                                        itemCount: 5,
-                                       itemSize: 25.0,
+                                       itemSize: 15.0,
                                        ratingWidget: RatingWidget(
                                            full: const Icon(Icons.star, color: Colors.amber),
                                            half: const Icon(
@@ -305,7 +305,7 @@ class ExploreMentor extends StatelessWidget {
                                      SizedBox(height: MediaQuery.of(context).size.height/200),
                                      Row(
                                        children: [
-                                         Icon(Icons.location_on,color: Colors.grey,),
+                                         Icon(Icons.location_on,color: Colors.grey,size: 15.0,),
                                          SizedBox(width: MediaQuery.of(context).size.width/200),
                                          Text(
                                              style: TextStyle(
@@ -356,55 +356,59 @@ class ExploreMentor extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 150.0.h,
+                    height: 175.0,
                     child: ListView.separated(
+                        padding: EdgeInsets.all(5.0),
                         scrollDirection: Axis.horizontal,
-                        //  shrinkWrap: true,
+                        shrinkWrap: true,
                         // physics: NeverScrollableScrollPhysics(),
                         itemBuilder:(context,index){
-                          return Stack(
+                          return Column(
                             children: [
                               Container(
-                                width: 140.w,
-                                height: 150.h,
+                                width: 130.w,
                                 decoration: BoxDecoration(
-                                    color: Colors.grey[100],
-                                    borderRadius: BorderRadius.circular(14.r)
-                                ),),
-                              Padding(
-                                padding:  EdgeInsets.all(5.0.r),
-                                child: Container(
-                                  width: 130.w,
-                                  height:140.h,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(14.r),
-                                  ),
-                                  child: Padding(
-                                    padding:  EdgeInsets.all(5.0.r),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          height: 130,
-                                          width: double.infinity,
-                                          decoration: BoxDecoration(
-                                            color: Colors.blue,
-                                            borderRadius: BorderRadius.circular(14.r),
-                                          ),
-
-                                        ),
-                                        SizedBox(height: MediaQuery.of(context).size.height/80),
-                                        Text(
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 15.sp,
-                                              color: Colors.black,
-                                            ),
-                                            "Cyper security"
-                                        ),
-                                      ],
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey[300]!,
+                                      spreadRadius: 3.r,
+                                      blurRadius: 4.r,
+                                      offset: Offset(0, 3),
                                     ),
+                                    BoxShadow(
+                                      color: Colors.grey[300]!,
+                                      spreadRadius: 3.r,
+                                      blurRadius: 4.r,
+                                      offset: Offset(0, 3),
+                                    ),
+                                  ],
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(14.r),
+                                ),
+                                child: Padding(
+                                  padding:  EdgeInsets.all(5.0.r),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 100.h,
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                          color: Colors.blue,
+                                          borderRadius: BorderRadius.circular(14.r),
+                                        ),
+
+                                      ),
+                                      SizedBox(height: MediaQuery.of(context).size.height/80),
+                                      Text(
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 15.sp,
+                                            color: Colors.black,
+                                          ),
+                                          "Cyper security"
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
