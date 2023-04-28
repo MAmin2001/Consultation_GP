@@ -53,7 +53,7 @@ class _CreatePlanState extends State<CreatePlan> {
                         Padding(
                           padding:  EdgeInsets.all(5.0.r),
                           child: SizedBox(
-                            height: 580,
+                            height: 580.h,
                             child: Column(
                               children: [
                                 Container(
@@ -123,6 +123,7 @@ class _CreatePlanState extends State<CreatePlan> {
                                               ),
                                               hintText: "2 sessions",
                                               hintStyle: TextStyle(
+                                                fontSize: 15.sp,
                                                 color: Colors.grey,
                                               ),
                                             ),
@@ -162,6 +163,7 @@ class _CreatePlanState extends State<CreatePlan> {
                                               ),
                                               hintText: "3 days",
                                               hintStyle: TextStyle(
+                                                fontSize: 15.sp,
                                                 color: Colors.grey,
                                               ),
                                             ),
@@ -201,6 +203,7 @@ class _CreatePlanState extends State<CreatePlan> {
                                             ),
                                             hintText: " apply for my plan and improve your skills ",
                                             hintStyle: TextStyle(
+                                              fontSize: 15.sp,
                                               color: Colors.grey,
                                             ),
                                           ),
@@ -256,7 +259,7 @@ class _CreatePlanState extends State<CreatePlan> {
                         Padding(
                           padding: EdgeInsets.all(5.0.r),
                           child: SizedBox(
-                            height: 580,
+                            height: 580.h,
                             child: Column(
                               children: [
                                 Container(
@@ -325,6 +328,7 @@ class _CreatePlanState extends State<CreatePlan> {
                                               hintText: "2 sessions",
                                               hintStyle: TextStyle(
                                                 color: Colors.grey,
+                                                fontSize: 15.sp,
                                               ),
                                             ),
                                           ),
@@ -364,6 +368,7 @@ class _CreatePlanState extends State<CreatePlan> {
                                               hintText: "3 days",
                                               hintStyle: TextStyle(
                                                 color: Colors.grey,
+                                                fontSize: 15.sp,
                                               ),
                                             ),
                                           ),
@@ -403,6 +408,7 @@ class _CreatePlanState extends State<CreatePlan> {
                                             hintText: " apply for my plan and improve your skills ",
                                             hintStyle: TextStyle(
                                               color: Colors.grey,
+                                              fontSize: 15.sp,
                                             ),
                                           ),
                                         ),
@@ -456,7 +462,7 @@ class _CreatePlanState extends State<CreatePlan> {
                         Padding(
                           padding:  EdgeInsets.all(5.0.r),
                           child: SizedBox(
-                            height: 370,
+                            height: 370.h,
                             child: Column(
                               children: [
                                 Container(
@@ -525,6 +531,7 @@ class _CreatePlanState extends State<CreatePlan> {
                                             hintText: " apply for my plan and improve your skills ",
                                             hintStyle: TextStyle(
                                               color: Colors.grey,
+                                              fontSize: 15.sp,
                                             ),
                                           ),
                                         ),
@@ -542,8 +549,10 @@ class _CreatePlanState extends State<CreatePlan> {
                                           padding: EdgeInsets.only(bottom: 5.0.r),
                                           child: Center(
                                             child: SizedBox(
-                                              width: 240,
+                                              height: 70.0.h,
+                                              width: 240.w,
                                               child: DropdownButtonFormField<String>(
+
                                                 value: selectedprice,
                                                 items: prices.map((item) => DropdownMenuItem<String>(
                                                   value: item,
@@ -591,7 +600,8 @@ class _CreatePlanState extends State<CreatePlan> {
                                       fontSize: 17.0.sp
                                   ),
                                 ),
-                              )
+                              ),
+
                           ),
                         ),
                       ],

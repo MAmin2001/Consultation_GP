@@ -230,7 +230,7 @@ class ExploreMentor extends StatelessWidget {
                          return Column(
                            children: [
                              Container(
-                               width: 155.w,
+                               width: 135.w,
                                //padding: EdgeInsets.all(8),
                                decoration: BoxDecoration(
                                  boxShadow: [
@@ -366,7 +366,7 @@ class ExploreMentor extends StatelessWidget {
                           return Column(
                             children: [
                               Container(
-                                width: 130.w,
+                                width: 110.w,
                                 decoration: BoxDecoration(
                                   boxShadow: [
                                     BoxShadow(

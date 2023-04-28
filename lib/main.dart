@@ -81,7 +81,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
           builder: (BuildContext context,child)
           {
             return MaterialApp(
-              home: Dashboard(),
+              home: ExploreMentor(),
               debugShowCheckedModeBanner: false,
             );
           },
