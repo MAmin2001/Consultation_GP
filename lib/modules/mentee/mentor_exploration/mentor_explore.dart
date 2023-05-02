@@ -1,5 +1,6 @@
 import 'package:consultation_gp/modules/mentee/mentee_profile.dart';
 import 'package:consultation_gp/modules/mentee/mentor_exploration/all_mentors.dart';
+import 'package:consultation_gp/modules/mentee/mentor_exploration/search%20_for_mentor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hex_color/flutter_hex_color.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -62,45 +63,39 @@ class ExploreMentor extends StatelessWidget {
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height/80,),
                   Padding(padding: EdgeInsets.symmetric(horizontal: 10.0.r),
-                    child:Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            height: 45.h,
-                            decoration: BoxDecoration(
-                              borderRadius:BorderRadius.circular(30.0.r),
-                              color: Colors.white,
-                            ),
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                prefixIcon: Icon(Icons.search),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30.r),
-                                  borderSide: BorderSide(
-                                    color: Colors.grey,
-                                  ),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(30.r),
-                                  borderSide: BorderSide(
-                                    color: Colors.blue,),
-                                ),
-                                hintText: "Search",
-                                hintStyle: TextStyle(
-                                  color: Colors.grey,
-                                ),
+                    child:Expanded(
+                      child: Container(
+                        height: 45.h,
+                        decoration: BoxDecoration(
+                          borderRadius:BorderRadius.circular(30.0.r),
+                          color: Colors.white,
+                        ),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.search),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30.r),
+                              borderSide: BorderSide(
+                                color: Colors.grey,
                               ),
                             ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30.r),
+                              borderSide: BorderSide(
+                                color: Colors.blue,),
+                            ),
+                            hintText: "Search",
+                            hintStyle: TextStyle(
+                              color: Colors.grey,
+                            ),
                           ),
+                          onTap: ()
+                          {
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(builder: (context) => SearchScreen()));;
+                          },
                         ),
-                        IconButton(
-                            onPressed: (){},
-                            icon: Icon(Icons.filter_alt_outlined),
-                          iconSize: 35.0,
-                          color: Colors.blue,
-                        ),
-                      ],
+                      ),
                     ) ,
                   ),
                   // SizedBox(

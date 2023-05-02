@@ -10,6 +10,7 @@ import 'package:consultation_gp/modules/mentee/booking_steps/payment_details/pay
   import 'package:consultation_gp/modules/mentee/mentee_reg/mentee_reg.dart';
 import 'package:consultation_gp/modules/mentee/mentor_exploration/all_mentors.dart';
 import 'package:consultation_gp/modules/mentee/mentor_exploration/mentor_explore.dart';
+import 'package:consultation_gp/modules/mentee/mentor_exploration/search%20_for_mentor.dart';
 import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmentes.dart';
 import 'package:consultation_gp/modules/mentor/create_plan/create_plan.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
@@ -48,7 +49,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
   {
     if(isMentor)
     {
-      startScreen = MenteeProfile();
+      startScreen = ExploreMentor();
     }
     else
     {
@@ -84,7 +85,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
           builder: (BuildContext context,child)
           {
             return MaterialApp(
-              home: PaymentDetails(),
+              home: ExploreMentor(),
               debugShowCheckedModeBanner: false,
             );
           },

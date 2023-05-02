@@ -1,4 +1,5 @@
 import 'package:consultation_gp/modules/mentee/booking_steps/booking_details/booking_details.dart';
+import 'package:consultation_gp/modules/mentee/mentor_exploration/all_mentors.dart';
 import 'package:consultation_gp/modules/mentor/mentor_profile/mentor_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hex_color/flutter_hex_color.dart';
@@ -220,7 +221,7 @@ class _AvailableTimesState extends State<AvailableTimes> {
                     ),
                   ),
                   onTap: (){ Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => MentorProfile()));;},
+                      MaterialPageRoute(builder: (context) => AllMentorsScreen()));;},
                 ),
                 Spacer(),
                 InkWell(
