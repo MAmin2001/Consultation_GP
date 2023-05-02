@@ -5,6 +5,7 @@ import 'package:consultation_gp/modules/mentor/mentor_reg/register_cubit/registe
 import 'package:consultation_gp/modules/mentor/mentor_reg/register_screen/mentor_reg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 
@@ -36,7 +37,7 @@ class ConsultRegister extends StatelessWidget {
             if(state.loginModel.success!)
             {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => MenteeProfile()));
+                  MaterialPageRoute(builder: (context) => ConsultLogin()));
             }
             else
             {
@@ -47,7 +48,7 @@ class ConsultRegister extends StatelessWidget {
                 timeInSecForIosWeb: 10,
                 backgroundColor: Colors.red,
                 textColor: Colors.white,
-                fontSize: 20.0,
+                fontSize: 20.0.sp,
               );
             }
           }
@@ -57,10 +58,10 @@ class ConsultRegister extends StatelessWidget {
           return Scaffold(
 
             appBar: AppBar(
-              title: Text("Register as client"),
+              title: Center(child: Text("Register as client")),
             ),
             body: Padding(
-              padding:  EdgeInsets.all(20.0),
+              padding:  EdgeInsets.all(20.0.r),
               child: Form(
                 key: _formkey,
                 child: SingleChildScrollView(
@@ -91,7 +92,6 @@ class ConsultRegister extends StatelessWidget {
                       Text(style: TextStyle(fontSize: 17), "?"),
                     ],
                   ),*/
-                      SizedBox(height: 25.0,),
                       TextFormField(
                         validator: (value) {
                           if(value!.isEmpty)
@@ -103,7 +103,7 @@ class ConsultRegister extends StatelessWidget {
                         controller: fNameController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                             borderSide: BorderSide(
                               color: Colors.grey,
                             ),
@@ -116,7 +116,7 @@ class ConsultRegister extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 25.0,),
+                      SizedBox(height: MediaQuery.of(context).size.height/30,),
                       TextFormField(
                         validator: (value) {
                           if(value!.isEmpty)
@@ -128,7 +128,7 @@ class ConsultRegister extends StatelessWidget {
                         controller: lNameController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                             borderSide: BorderSide(
                               color: Colors.grey,
                             ),
@@ -141,7 +141,7 @@ class ConsultRegister extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 25.0,),
+                      SizedBox(height: MediaQuery.of(context).size.height/30,),
                       TextFormField(
                         validator: (value) {
                           if(value!.isEmpty)
@@ -153,7 +153,7 @@ class ConsultRegister extends StatelessWidget {
                         controller: userNameController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                             borderSide: BorderSide(
                               color: Colors.grey,
                             ),
@@ -166,7 +166,7 @@ class ConsultRegister extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 25.0,),
+                      SizedBox(height: MediaQuery.of(context).size.height/30,),
                       TextFormField(
                         validator: (value) {
                           if(value!.isEmpty)
@@ -182,7 +182,7 @@ class ConsultRegister extends StatelessWidget {
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                             borderSide: BorderSide(
                               color: Colors.grey,
                             ),
@@ -195,7 +195,7 @@ class ConsultRegister extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 25.0,),
+                      SizedBox(height: MediaQuery.of(context).size.height/30,),
                       TextFormField(
                         validator: (value) {
                           if(value!.isEmpty)
@@ -207,7 +207,7 @@ class ConsultRegister extends StatelessWidget {
                         controller: pNumController,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                             borderSide: BorderSide(
                               color: Colors.grey,
                             ),
@@ -220,7 +220,7 @@ class ConsultRegister extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 25.0,),
+                      SizedBox(height: MediaQuery.of(context).size.height/30,),
                       TextFormField(
                         validator: (value) {
                           if(value!.isEmpty)
@@ -241,7 +241,7 @@ class ConsultRegister extends StatelessWidget {
                                 .visibility),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                             borderSide: BorderSide(
                               color: Colors.grey,
                             ),
@@ -254,7 +254,7 @@ class ConsultRegister extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 25.0,),
+                      SizedBox(height: MediaQuery.of(context).size.height/30,),
                       TextFormField(
                         validator: (value) {
                           if(value!.isEmpty)
@@ -278,7 +278,7 @@ class ConsultRegister extends StatelessWidget {
                                 .visibility),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.r),
                             borderSide: BorderSide(
                               color: Colors.grey,
                             ),
@@ -291,42 +291,43 @@ class ConsultRegister extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Center(
-                        child: ElevatedButton(onPressed: () {
-                          if (_formkey.currentState!.validate())
-                          {
-                            RegisterCubit.get(context).clientRegister
-                              (
-                                fName: fNameController.text,
-                                lName: lNameController.text,
-                                userName: userNameController.text,
-                                pNumber: pNumController.text,
-                                email: emailController.text,
-                                password: passwordController.text,
-                                cPassword: cPasswordController.text
-                            );
+                      SizedBox(height: MediaQuery.of(context).size.height/20,),
 
-                          }
-                        }, child: Text("Sign Up")),
+                      Center(
+                        child: Container(
+                          width: 100.w,
+                          height: 35.h,
+                          child: ElevatedButton(onPressed: () {
+                            if (_formkey.currentState!.validate())
+                            {
+                              RegisterCubit.get(context).clientRegister
+                                (
+                                  fName: fNameController.text,
+                                  lName: lNameController.text,
+                                  userName: userNameController.text,
+                                  pNumber: pNumController.text,
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                  cPassword: cPasswordController.text
+                              );
+
+                            }
+                          }, child: Text("Sign Up",style: TextStyle(fontSize: 17.0.sp),)),
+                        ),
                       ),
+                      SizedBox(height: MediaQuery.of(context).size.height/80,),
                       Center(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text("Already have an account?"),
-                            SizedBox(
-                              width: 0,
-                            ),
                             TextButton(
                                 onPressed: () {
                                   Navigator.of(context).pushReplacement(MaterialPageRoute(
                                     builder: (context) => ConsultLogin(),
                                   ));
                                 },
-                                child: Text("Sign In",style: TextStyle(fontSize: 15.0),))
+                                child: Text("Sign In",style: TextStyle(fontSize: 13.0.sp),))
                           ],
                         ),
                       )

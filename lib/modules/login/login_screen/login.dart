@@ -9,6 +9,7 @@ import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart'
 import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:sliding_switch/sliding_switch.dart';
@@ -59,7 +60,7 @@ class ConsultLogin extends StatelessWidget {
               timeInSecForIosWeb: 10,
               backgroundColor: Colors.red,
               textColor: Colors.white,
-              fontSize: 20.0,
+              fontSize: 20.0.sp,
               );
               }
           }
@@ -72,235 +73,225 @@ class ConsultLogin extends StatelessWidget {
               key: _formKey,
               child: Center(
                 child: Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(20.0.w),
                   child: SingleChildScrollView(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Center(
-                            child: Text(
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 30,
-                                  color: Colors.blue
-                                ),
-                                "Welcome to MentorQuest"),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Text(
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25.sp,
+                                color: Colors.blue
+                              ),
+                              "Welcome to MentorQuest"),
+                        ),
+                        SizedBox(height: MediaQuery.of(context).size.height/45,),
+                        Center(
+                          child: Text(
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 20.sp,
+                                  color: Colors.grey[500]
+                              ),
+                              "Login as"),
+                        ),
+                        SizedBox(height: MediaQuery.of(context).size.height/45,),
+                        Center(
+                          child: SlidingSwitch(
+                            value: LoginCubit.get(context).isMentor,
+                            onChanged: (bool value) {
+                              LoginCubit.get(context).toggleLogin();
+                            },
+                            onSwipe: () {},
+                            onTap: () {},
+                            onDoubleTap: () {},
+                            textOff: 'Mentor',
+                            textOn: 'Client',
+                            colorOff: Colors.blue,
+                            colorOn: Colors.blue,
+                            animationDuration: const Duration(milliseconds: 300),
                           ),
-                          SizedBox(height: 20.0,),
-                          Center(
-                            child: Text(
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 20,
-                                    color: Colors.grey[500]
-                                ),
-                                "Login as"),
+                        ),
+                        SizedBox(height: MediaQuery.of(context).size.height/15,),
+                        TextFormField(
+                          controller: emailController,
+                          decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.r),
+                              borderSide: BorderSide(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            focusedBorder: OutlineInputBorder(),
+                            labelText: "E-mail",
+                            hintText: "enter your email",
+                            hintStyle: TextStyle(
+                              color: Colors.grey,
+                            ),
+                            prefixIcon: Icon(
+                              Icons.email,
+                            ),
                           ),
-                          SizedBox(height: 20,),
-                          Center(
-                            child: SlidingSwitch(
-                              value: LoginCubit.get(context).isMentor,
-                              onChanged: (bool value) {
-                                LoginCubit.get(context).toggleLogin();
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter an email';
+                            }
+                            if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                .hasMatch(value)) {
+                              return 'Please enter a valid Email';
+                            }
+                            return null;
+                          },
+                          onSaved: (value) => _email = value!,
+                        ),
+                        SizedBox(height: MediaQuery.of(context).size.height/20,),
+                        TextFormField(
+                          controller: passwordController,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter a password';
+                            }
+                            return null;
+                          },
+                          onSaved: (value) => _password = value!,
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.r),
+                              borderSide: BorderSide(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            labelText: "Password",
+                            hintText: "enter your Password",
+                            hintStyle: TextStyle(
+                              color: Colors.grey,
+                            ),
+                            prefixIcon: Icon(
+                              Icons.password,
+                            ),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                LoginCubit.get(context).obscureLogin();
                               },
-                              onSwipe: () {},
-                              onTap: () {},
-                              onDoubleTap: () {},
-                              textOff: 'Mentor',
-                              textOn: 'Client',
-                              colorOff: Colors.blue,
-                              colorOn: Colors.blue,
-                              animationDuration: const Duration(milliseconds: 300),
+                              icon: LoginCubit.get(context).isOb ? Icon(Icons.visibility_off) : Icon(Icons
+                                  .visibility),
                             ),
                           ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                          TextFormField(
-                            controller: emailController,
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(),
-                              labelText: "E-mail",
-                              hintText: "enter your email",
-                              hintStyle: TextStyle(
-                                color: Colors.grey,
-                              ),
-                              prefixIcon: Icon(
-                                Icons.email,
-                              ),
-                            ),
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Please enter an email';
-                              }
-                              if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                                  .hasMatch(value)) {
-                                return 'Please enter a valid Email';
-                              }
-                              return null;
-                            },
-                            onSaved: (value) => _email = value!,
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          TextFormField(
-                            controller: passwordController,
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return 'Please enter a password';
-                              }
-                              return null;
-                            },
-                            onSaved: (value) => _password = value!,
-                            decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              labelText: "Password",
-                              hintText: "enter your Password",
-                              hintStyle: TextStyle(
-                                color: Colors.grey,
-                              ),
-                              prefixIcon: Icon(
-                                Icons.password,
-                              ),
-                              suffixIcon: IconButton(
-                                onPressed: () {
-                                  LoginCubit.get(context).obscureLogin();
-                                },
-                                icon: LoginCubit.get(context).isOb ? Icon(Icons.visibility_off) : Icon(Icons
-                                    .visibility),
-                              ),
-                            ),
-                            obscureText: LoginCubit.get(context).isOb,
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          Container
-                            (
-                            width: double.infinity,
-                            height: 50.0,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  if (_formKey.currentState!.validate())
-                                  {
-                                    //_formKey.currentState!.save();
-                                    //print(' Email: $_email, Password: $_password');
-                                    if(LoginCubit.get(context).isMentor)
-                                    {
-                                      LoginCubit.get(context).clientLogin(email:emailController.text , password:passwordController.text);
-                                    }
-                                    else
-                                    {
-                                      LoginCubit.get(context).mentorLogin(email:emailController.text , password:passwordController.text);
-                                    }
-                                  }
-                                },
-                                child: Text("Login",
-                                  style: TextStyle
-                                    (
-                                    fontSize: 20.0, fontWeight: FontWeight.w500
-                                    ),
-                                )
-                            ),
-                          ),
-                          /*Center(
+                          obscureText: LoginCubit.get(context).isOb,
+                        ),
+                        SizedBox(height: MediaQuery.of(context).size.height/15,),
+                        Container
+                          (
+                          width: double.infinity.w,
+                          height: 50.0.h,
                           child: ElevatedButton(
                               onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => ConsultRegister(),
-                                ));
+                                if (_formKey.currentState!.validate())
+                                {
+                                  //_formKey.currentState!.save();
+                                  //print(' Email: $_email, Password: $_password');
+                                  if(LoginCubit.get(context).isMentor)
+                                  {
+                                    LoginCubit.get(context).clientLogin(email:emailController.text , password:passwordController.text);
+                                  }
+                                  else
+                                  {
+                                    LoginCubit.get(context).mentorLogin(email:emailController.text , password:passwordController.text);
+                                  }
+                                }
                               },
-                              child: Text("Sign Up")),
-                        ),*/
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              TextButton(onPressed: () {
-                                Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => ForgotPassword(),));
-                              }, child: Text(
-                                "Forgot password ?",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 17.0,
-                                    color: Colors.black
-                                ),
+                              child: Text("Login",
+                                style: TextStyle
+                                  (
+                                  fontSize: 20.0.sp, fontWeight: FontWeight.w500
+                                  ),
                               )
-                              )
-                            ],
                           ),
-                          SizedBox(height: 10,),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  height: 1.0,
-                                  width: double.infinity,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              Center(
-                                  child:
-                                  Text('   OR   ',
-                                    style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.grey[500]),
-                                  )
-                              ),
-                              Expanded(
-                                child: Container(
-                                  height: 1.0,
-                                  width: double.infinity,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ],
-
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Don\'t have an account ?',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 17.0,
-                                    color: Colors.black
-                                ),
-                              ),
-                              TextButton(
-                                  onPressed: () {
-                                    LoginCubit.get(context).isMentor?Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => ConsultRegister(),)):Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => MentorReg(),));
-                                  },
-                                  child: Text(
-                                    "Register now ",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 17.0,
-                                        color: Colors.blue
-                                    ),
-                                  )
-                              )
-                            ],
+                        ),
+                        /*Center(
+                        child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => ConsultRegister(),
+                              ));
+                            },
+                            child: Text("Sign Up")),
+                      ),*/
+                        SizedBox(height: MediaQuery.of(context).size.height/55,),
+                        Center(
+                          child: TextButton(onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ForgotPassword(),));
+                          }, child: Text(
+                            "Forgot password ?",
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 17.0.sp,
+                                color: Colors.black
+                            ),
                           )
-                        ],
-                      ),
+                          ),
+                        ),
+                        SizedBox(height: MediaQuery.of(context).size.height/55,),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                height: 1.0.h,
+                                width: double.infinity.w,
+                                color: Colors.black,
+                              ),
+                            ),
+                            Center(
+                                child:
+                                Text('   OR   ',
+                                  style: TextStyle(
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.grey[500]),
+                                )
+                            ),
+                            Expanded(
+                              child: Container(
+                                height: 1.0.h,
+                                width: double.infinity.w,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: MediaQuery.of(context).size.height/55,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Don\'t have an account ?',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 17.0.sp,
+                                  color: Colors.black
+                              ),
+                            ),
+                            TextButton(
+                                onPressed: () {
+                                  LoginCubit.get(context).isMentor?Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => ConsultRegister(),)):Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => MentorReg(),));
+                                },
+                                child: Text(
+                                  "Register now ",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 17.0.sp,
+                                      color: Colors.blue
+                                  ),
+                                )
+                            )
+                          ],
+                        )
+                      ],
                     ),
                   ),
                 ),
