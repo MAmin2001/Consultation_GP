@@ -4,6 +4,7 @@ import 'package:consultation_gp/modules/login/login_cubit/login_cubit.dart';
 import 'package:consultation_gp/modules/login/login_cubit/login_states.dart';
 import 'package:consultation_gp/modules/mentee/mentee_profile.dart';
 import 'package:consultation_gp/modules/mentee/mentee_reg/mentee_reg.dart';
+import 'package:consultation_gp/modules/mentee/mentor_exploration/mentor_explore.dart';
 import 'package:consultation_gp/modules/mentor/mentor_reg/register_screen/mentor_reg.dart';
 import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
 import 'package:consultation_gp/network/local/cache_helper.dart';
@@ -30,7 +31,7 @@ class ConsultLogin extends StatelessWidget {
       child: BlocConsumer<LoginCubit,LoginStates>(
         listener: (context,state)
         {
-          if(state is LoginSuccessState)
+          /*if(state is LoginSuccessState)
             {
              if(state.loginModel.success!)
              {
@@ -63,7 +64,7 @@ class ConsultLogin extends StatelessWidget {
               fontSize: 20.0.sp,
               );
               }
-          }
+          }*/
         },
         builder: (context,state)
         {
@@ -196,11 +197,15 @@ class ConsultLogin extends StatelessWidget {
                                   //print(' Email: $_email, Password: $_password');
                                   if(LoginCubit.get(context).isMentor)
                                   {
-                                    LoginCubit.get(context).clientLogin(email:emailController.text , password:passwordController.text);
+                                    //LoginCubit.get(context).clientLogin(email:emailController.text , password:passwordController.text);
+                                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                      builder: (context) => ExploreMentor(),));
                                   }
                                   else
                                   {
-                                    LoginCubit.get(context).mentorLogin(email:emailController.text , password:passwordController.text);
+                                    //LoginCubit.get(context).mentorLogin(email:emailController.text , password:passwordController.text);
+                                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                                      builder: (context) => MentorLayout(),));
                                   }
                                 }
                               },
