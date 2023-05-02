@@ -231,7 +231,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 children: [
                   InkWell(
                     child: Container(
-                      width: 80.0,
+                      width: 100.0,
                       height: 45.0,
                       decoration: BoxDecoration(
                           color: Colors.blue,
@@ -256,7 +256,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   Spacer(),
                   InkWell(
                     child: Container(
-                      width: 80.0,
+                      width: 100.0,
                       height: 45.0,
                       decoration: BoxDecoration(
                           color: Colors.blue,
@@ -266,7 +266,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Next',style: TextStyle(color: Colors.white,fontSize: 18.0),),
+                            Text('Confirm',style: TextStyle(color: Colors.white,fontSize: 18.0),),
                             SizedBox(width: 5.0,),
                             Icon(Icons.arrow_forward_ios_outlined,size: 17.0,color: Colors.white),
                           ],

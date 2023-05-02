@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ScheduleTimings extends StatefulWidget {
-   ScheduleTimings({Key? key}) : super(key: key);
+  ScheduleTimings({Key? key}) : super(key: key);
 
   @override
   State<ScheduleTimings> createState() => _ScheduleTimingsState();
 }
 
 class _ScheduleTimingsState extends State<ScheduleTimings> {
+  var selectedSlot= "09:00 Am - 10:00 Am";
   Color cont =Colors.white;
   int i = 0;
   List <String> days=
@@ -82,29 +83,29 @@ class _ScheduleTimingsState extends State<ScheduleTimings> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                    'Select A Day',
+                  'Select A Day',
                   style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold
                   ),
 
                 ),
                 SizedBox(height: 20.0,),
                 Container(
-                    height: 105.0,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                        shrinkWrap: true,
-                        itemBuilder:(context,index)=>
-                            GestureDetector(
-                             child: Container(
-                              width: 60,
-                              decoration: BoxDecoration(
+                  height: 105.0,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: true,
+                    itemBuilder:(context,index)=>
+                        GestureDetector(
+                          child: Container(
+                            width: 60,
+                            decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20.0),
                                 color: i==index?Colors.blue:Colors.white
                             ),
-                              child:Center(
+                            child:Center(
                               child: Text(
                                 days[index],
                                 style: TextStyle(
@@ -115,18 +116,18 @@ class _ScheduleTimingsState extends State<ScheduleTimings> {
                               ),
                             ),
                           ),
-                              onTap: ()
-                              {
-                                setState(() {
-                                  i=index;
-                                });
+                          onTap: ()
+                          {
+                            setState(() {
+                              i=index;
+                            });
 
-                              },
+                          },
                         ),
-                        separatorBuilder:(context,index)=>SizedBox(width: 10),
-                        itemCount:7 ,
-                    ),
+                    separatorBuilder:(context,index)=>SizedBox(width: 10),
+                    itemCount:7 ,
                   ),
+                ),
                 SizedBox(height: 20.0,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -134,26 +135,52 @@ class _ScheduleTimingsState extends State<ScheduleTimings> {
                     Text(
                       'Time Slots - ${day[i]}',
                       style:TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0,
-                        color: Colors.grey[700]
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0,
+                          color: Colors.grey[700]
                       ) ,
                     ),
                     ElevatedButton.icon(
-                        onPressed: (){},
-                        label: Text('Edit',
+                      onPressed: (){
+                        showDialog(context: context, builder: (context) => AlertDialog(
+                          actions: [
+                            TextButton(onPressed: (){}, child: Text("Save"))
+                          ],
+                          content: Column(
+                            children: [
+                              DropdownButton(
+                                  value: selectedSlot,
+                                  items: slots.map((e) => DropdownMenuItem(
+                                    child: Text("$e"),
+                                    value: e,
+                                  )).toList(),
+                                  onChanged: (val){
+                                    setState(() {
+                                      selectedSlot = val.toString();
+                                    });
+                                  }),
+                              FloatingActionButton(
+                                  child: Icon(Icons.add),
+                                  onPressed: (){
+
+                                  })
+                            ],
+                          ),
+                        ),);
+                      },
+                      label: Text('Edit',
                         style: TextStyle(
                             color:Colors.blue,
-                          fontSize: 17
+                            fontSize: 17
                         ),
-                        ),
-                        icon: Icon(
-                            Icons.edit,
-                            color:Colors.blue
-                        ),
-                        style: ElevatedButton.styleFrom(
+                      ),
+                      icon: Icon(
+                          Icons.edit,
+                          color:Colors.blue
+                      ),
+                      style: ElevatedButton.styleFrom(
                           primary: Colors.white
-                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -161,11 +188,11 @@ class _ScheduleTimingsState extends State<ScheduleTimings> {
                 Expanded(
                   child: GridView.count(
                       crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10,
-                    childAspectRatio: 1/0.25,
-                    children: List.generate(slots.length, (index) => TimeSlot(time: slots[index])
-                    )
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      childAspectRatio: 1/0.25,
+                      children: List.generate(slots.length, (index) => TimeSlot(time: slots[index])
+                      )
 
 
                   ),
@@ -183,8 +210,8 @@ class _ScheduleTimingsState extends State<ScheduleTimings> {
 
 
 class TimeSlot extends StatelessWidget {
-   TimeSlot({Key? key,required this.time}) : super(key: key);
-   late String time;
+  TimeSlot({Key? key,required this.time}) : super(key: key);
+  late String time;
 
   @override
   Widget build(BuildContext context) {
@@ -210,4 +237,3 @@ class TimeSlot extends StatelessWidget {
     );
   }
 }
-

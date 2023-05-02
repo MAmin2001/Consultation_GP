@@ -1,4 +1,3 @@
-
 import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/available_times/available_times.dart';
 import 'package:consultation_gp/modules/mentor/create_plan/create_plan.dart';
@@ -7,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hex_color/flutter_hex_color.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class MentorProfile extends StatelessWidget {
-  const MentorProfile({Key? key}) : super(key: key);
+class ViewMentorProfile extends StatelessWidget {
+  const ViewMentorProfile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class MentorProfile extends StatelessWidget {
               child: Text('Log out',
                 style: TextStyle(
                     color: Colors.white,
-                  fontSize: 17.0
+                    fontSize: 17.0
                 ),
               )
           )
@@ -64,7 +63,7 @@ class MentorProfile extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20),
                     child: Container(
-                      height: 170.0,
+                      height: 215.0,
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10.0)
@@ -124,6 +123,23 @@ class MentorProfile extends StatelessWidget {
                           ),
                           SizedBox(height: 10.0,),
                           Padding(
+                            padding: const EdgeInsets.only(right:12.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text('Chat Me',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16.0),),
+                                SizedBox(width: 8.0,),
+                                InkWell(
+                                  child: CircleAvatar(
+                                    radius: 15.0,
+                                  child:Icon(Icons.chat,color: Colors.white,size: 20.0,),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 10.0,),
+                          Padding(
                             padding: const EdgeInsets.only(left: 12),
                             child: Text(
                               'Complete your profile: 60%',
@@ -146,7 +162,7 @@ class MentorProfile extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 500.0,
+                    height: 550.0,
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.grey[100],
@@ -157,24 +173,11 @@ class MentorProfile extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Plans',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 23.0
-                                ),
-                              ),
-                              ElevatedButton.icon(
-                                  label: Text("Edit"),
-                                  onPressed: (){
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => CreatePlan()));
-                                  },
-                                  icon: Icon(Icons.edit)
-                              )
-                            ],
+                          Text('Plans',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 23.0
+                            ),
                           ),
                           SizedBox(height: 10,),
                           Padding(
@@ -188,7 +191,7 @@ class MentorProfile extends StatelessWidget {
                                 children: [
                                   Container(
                                     width: 300,
-                                    height: 400,
+                                    height: 450,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(20.0)
@@ -198,7 +201,6 @@ class MentorProfile extends StatelessWidget {
                                       padding: const EdgeInsets.all(16.0),
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.center,
@@ -209,7 +211,7 @@ class MentorProfile extends StatelessWidget {
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.bold,
                                                     fontSize: 35.0,
-                                                  color: HexColor('41a980')
+                                                    color: HexColor('41a980')
                                                 ),
                                               ),
                                               SizedBox(width: 8,),
@@ -242,7 +244,7 @@ class MentorProfile extends StatelessWidget {
                                             child: Container(
                                               height: 1.0,
                                               decoration: BoxDecoration(
-                                                color: Colors.grey[300]
+                                                  color: Colors.grey[300]
                                               ),
                                             ),
                                           ),
@@ -296,7 +298,13 @@ class MentorProfile extends StatelessWidget {
                                               Text('Response time in 24 hours',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
                                             ],
                                           ),
-
+                                          SizedBox(height: 30,),
+                                          Container(
+                                              width: double.infinity,
+                                              child: ElevatedButton(
+                                                  onPressed: (){Navigator.pushReplacement(context,
+                                                      MaterialPageRoute(builder: (context) => AvailableTimes()));;},
+                                                  child: Text('Apply',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),)))
                                         ],
                                       ),
                                     ),
@@ -304,7 +312,7 @@ class MentorProfile extends StatelessWidget {
                                   VerticalDivider(),
                                   Container(
                                     width: 300,
-                                    height: 400,
+                                    height: 450,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(20.0)
@@ -314,7 +322,6 @@ class MentorProfile extends StatelessWidget {
                                       padding: const EdgeInsets.all(16.0),
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           Row(
                                             mainAxisAlignment: MainAxisAlignment.center,
@@ -412,7 +419,13 @@ class MentorProfile extends StatelessWidget {
                                               Text('Response time in 12 hours',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
                                             ],
                                           ),
-
+                                          SizedBox(height: 30,),
+                                          Container(
+                                              width: double.infinity,
+                                              child: ElevatedButton(
+                                                  onPressed: (){Navigator.pushReplacement(context,
+                                                      MaterialPageRoute(builder: (context) => AvailableTimes()));;},
+                                                  child: Text('Apply',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),)))
                                         ],
                                       ),
                                     ),
@@ -420,7 +433,7 @@ class MentorProfile extends StatelessWidget {
                                   VerticalDivider(),
                                   Container(
                                     width: 300,
-                                    height: 400,
+                                    height: 450,
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius: BorderRadius.circular(20.0)
@@ -447,7 +460,7 @@ class MentorProfile extends StatelessWidget {
                                               SizedBox(width: 8,),
                                               Text(
                                                 textAlign: TextAlign.end,
-                                                '/session',
+                                                '/month',
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.bold,
                                                     fontSize: 15.0
@@ -469,7 +482,13 @@ class MentorProfile extends StatelessWidget {
                                                   fontSize: 20
                                               ),
                                               "Keep me on retainer as we meet sporadically, as your schedule allows it."),
-
+                                          SizedBox(height: 30,),
+                                          Container(
+                                              width: double.infinity,
+                                              child: ElevatedButton(
+                                                  onPressed: (){Navigator.pushReplacement(context,
+                                                      MaterialPageRoute(builder: (context) => AvailableTimes()));;},
+                                                  child: Text('Apply',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18.0),)))
 
                                         ],
                                       ),
@@ -511,16 +530,16 @@ class MentorProfile extends StatelessWidget {
                             children: [
                               Text('About Me',
                                 style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 23.0
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 23.0
                                 ),
                               ),
                               SizedBox(height: 7.0,),
                               Text(' I am a software engineer  I am a software engineer  I am a software engineer  I am a software engineer  I am a software engineer  I am a software engineer  I am a software engineer  I am a software engineer  ',
                                 maxLines: 5,
                                 style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 17.0,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 17.0,
                                 ),
 
                               )
@@ -528,7 +547,7 @@ class MentorProfile extends StatelessWidget {
                           ),
                         ),
 
-                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 20.0,),
@@ -576,15 +595,15 @@ class MentorProfile extends StatelessWidget {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text('Gender',
-                                      style: TextStyle(
-                                       fontSize: 20.0,
-                                        fontWeight: FontWeight.bold
-                                      ),
+                                        style: TextStyle(
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.bold
+                                        ),
                                       ),
                                       SizedBox(height: 3.0,),
                                       Text('Male',
                                         style: TextStyle(
-                                            fontSize: 17.0,
+                                          fontSize: 17.0,
                                         ),
                                       ),
                                     ],
@@ -669,7 +688,7 @@ class MentorProfile extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 7.0,),
-                                Text('Flutter , Dart , PHP , Larvel , Angular , Sql , MySql , Firebase , APIs , Flutter , Dart , PHP , Larvel , Angular , Sql , MySql , Firebase , APIs ,  Flutter , Dart , PHP , Larvel , Angular , Sql ',
+                              Text('Flutter , Dart , PHP , Larvel , Angular , Sql , MySql , Firebase , APIs , Flutter , Dart , PHP , Larvel , Angular , Sql , MySql , Firebase , APIs ,  Flutter , Dart , PHP , Larvel , Angular , Sql ',
                                 maxLines: 4,
                                 style: TextStyle(
                                   fontWeight: FontWeight.w400,
@@ -1030,4 +1049,3 @@ class MentorProfile extends StatelessWidget {
     );
   }
 }
-

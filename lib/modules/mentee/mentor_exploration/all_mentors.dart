@@ -1,4 +1,5 @@
 import 'package:consultation_gp/modules/mentee/booking_steps/available_times/available_times.dart';
+import 'package:consultation_gp/modules/mentee/view_mentor_profile/view_mentor_profile.dart';
 import 'package:consultation_gp/modules/mentor/mentor_profile/mentor_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -148,54 +149,29 @@ class AllMentorsScreen extends StatelessWidget {
                                     ],
                                   ),
                                   SizedBox(height: MediaQuery.of(context).size.height/40,),
-                                  Row(
-                                    children: [
-                                      Container(
-                                        width: 100.w,
-                                        height: 30.h,
-                                        child: MaterialButton(onPressed: (){
-                                          Navigator.of(context).push(MaterialPageRoute(
-                                            builder: (context) => MentorProfile(),
-                                          ));
-                                        },
-                                          color: Colors.blue,
-                                          child:Row(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            children: [
-                                            Icon(Icons.remove_red_eye_outlined,color: Colors.white,),
-                                              SizedBox(width: MediaQuery.of(context).size.width/50,),
-                                              Text(style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 14.sp,
-                                                color: Colors.white,
-                                              ),
-                                              "View"
-                                          )
-                                        ]),
-                                        ),
-                                      ),
-                                      Spacer(),
-                                      Container(
-                                        width: 100.w,
-                                        height: 30.h,
-                                        child: MaterialButton(onPressed: (){
-                                          Navigator.of(context).push(MaterialPageRoute(
-                                            builder: (context) => AvailableTimes(),
-                                          ));
-                                        },
-                                          color: Colors.blue,
-                                          child:Center(
-                                            child: Text(style: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              fontSize: 14.sp,
-                                              color: Colors.white,
-                                            ),
-                                                "Book"
-                                            ),
+                                  Container(
+                                    width: 100.w,
+                                    height: 30.h,
+                                    child: MaterialButton(onPressed: (){
+                                      Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context) => ViewMentorProfile(),
+                                      ));
+                                    },
+                                      color: Colors.blue,
+                                      child:Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                        Icon(Icons.remove_red_eye_outlined,color: Colors.white,),
+                                          SizedBox(width: MediaQuery.of(context).size.width/50,),
+                                          Text(style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 14.sp,
+                                            color: Colors.white,
                                           ),
-                                        ),
-                                      ),
-                                    ],
+                                          "View"
+                                      )
+                                    ]),
+                                    ),
                                   ),
                                 ],
                               ),
