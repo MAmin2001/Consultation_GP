@@ -31,6 +31,8 @@ import 'package:consultation_gp/modules/mentor/view%20mentors/all_mentors_view.d
 import 'package:flutter_screenutil/flutter_screenutil.dart';
   import 'package:get/get.dart';
 
+import 'modules/mentor/dashboard/view_mentee_request/view_mentee_request.dart';
+
 
 
   Future<void> main() async {
@@ -86,7 +88,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
           builder: (BuildContext context,child)
           {
             return MaterialApp(
-              home: ExploreMentor(),
+              home: ViewMentorProfile(),
               debugShowCheckedModeBanner: false,
             );
           },

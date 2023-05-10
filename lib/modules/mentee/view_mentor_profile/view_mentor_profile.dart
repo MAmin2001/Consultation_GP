@@ -261,7 +261,12 @@ class ViewMentorProfile extends StatelessWidget {
                                                 ],
                                               ),
                                               SizedBox(width:16 ,),
-                                              Text('2 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                              Column(
+                                                children: [
+                                                  Text('2 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                                  Text('Every session take 1 hour max',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
+                                                ],
+                                              ),
                                             ],
                                           ),
                                           SizedBox(height: 10.0,),
@@ -382,8 +387,12 @@ class ViewMentorProfile extends StatelessWidget {
                                                 ],
                                               ),
                                               SizedBox(width:16 ,),
-                                              Text('4 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                                            ],
+                                              Column(
+                                                children: [
+                                                  Text('4 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                                  Text('Every session take 1 hour max',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
+                                                ],
+                                              ),                                            ],
                                           ),
                                           SizedBox(height: 10.0,),
                                           Row(
@@ -469,12 +478,18 @@ class ViewMentorProfile extends StatelessWidget {
                                             ],
                                           ),
                                           SizedBox(height: 30,),
-                                          Text(
-                                            'Per Session Plan',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 25.0
-                                            ),
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Per Session Plan',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 25.0
+                                                ),
+                                              ),
+                                              Text('Every session take 1 hour max',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
+                                            ],
                                           ),
                                           SizedBox(height: 10,),
                                           Text(
@@ -482,6 +497,7 @@ class ViewMentorProfile extends StatelessWidget {
                                                   fontSize: 20
                                               ),
                                               "Keep me on retainer as we meet sporadically, as your schedule allows it."),
+
                                           SizedBox(height: 30,),
                                           Container(
                                               width: double.infinity,

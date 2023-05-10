@@ -1,7 +1,9 @@
 import 'package:consultation_gp/modules/mentee/mentee_profile.dart';
+import 'package:consultation_gp/modules/mentor/dashboard/view_mentee_request/view_mentee_request.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hex_color/flutter_hex_color.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -260,127 +262,7 @@ class Dashboard extends StatelessWidget {
                 ListView.separated(
                   physics: NeverScrollableScrollPhysics(),///مرلول على مرلول ميرولش
                   shrinkWrap: true,
-                  itemBuilder: (context,index)=>Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Stack(
-                      children: [
-                        Container(
-                          height: 155,
-                          decoration: BoxDecoration(
-                              color: Colors.grey[200],
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                        ),
-                        Container(
-                          height: 150.0,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-
-                                      radius: 35.0,
-                                    ),
-                                    SizedBox(width: 10.0,),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Hassanien',
-                                          style: TextStyle(
-                                              fontSize: 17.0,
-                                              fontWeight: FontWeight.bold
-                                          ),
-                                        ),
-                                        SizedBox(height: 3,),
-                                        Text(
-                                          'amin@gmail.com',
-                                          style: TextStyle(
-                                              fontSize: 15.0,
-                                              color: Colors.black
-                                          ),
-                                        ),
-                                        SizedBox(height: 3,),
-                                        Row(
-                                          children:
-                                          [
-                                            Icon(
-                                              Icons.date_range,
-                                              size: 20.0,
-                                              color: Colors.grey,
-                                            ),
-                                            SizedBox(width: 2.0,),
-                                            Text('10/2/2022'),
-                                          ],
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    IconButton(iconSize:42.0,  onPressed: (){}, icon:Icon(Icons.check_circle,color:Colors.green,)),
-
-                                    IconButton(iconSize:42.0,  onPressed: (){}, icon:Icon(Icons.cancel,color:Colors.red,)),
-
-                                    Container(
-                                        width: 100.0,
-                                        height: 37.0,
-
-                                        child:  Center(
-                                            child: ElevatedButton.icon(
-                                              onPressed: ()
-                                              {
-                                                Navigator.push(context, MaterialPageRoute(builder: (context)=>MenteeProfile()));
-                                              },
-                                              icon: Icon(Icons.flag),
-                                              label: Text('Pin',
-                                                style: TextStyle(
-                                                    fontSize: 15.0
-                                                ),),
-                                              style: ElevatedButton.styleFrom(
-                                                  primary:Colors.orange,
-                                                  elevation: 0.0
-                                              ),
-                                            )
-                                        )
-                                    ),
-                                    SizedBox(width: 20.0),
-                                    Container(
-                                        width: 100.0,
-                                        child:  ElevatedButton.icon(
-                                          onPressed: ()
-                                          {
-                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>MenteeProfile()));
-                                          },
-                                          icon: Icon(Icons.remove_red_eye_rounded),
-                                          label: Text('View',
-                                            style: TextStyle(
-                                                fontSize: 15.0
-                                            ),),
-                                          style: ElevatedButton.styleFrom(
-                                              primary: HexColor('#b6d0e7'),
-                                              elevation: 0.0
-                                          ),
-                                        )
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  itemBuilder: (context,index)=> clientRequestCard(context: context),
                   separatorBuilder: (context,index)=>SizedBox(height: 5.0,),
                   itemCount: 10,
 
@@ -395,6 +277,201 @@ class Dashboard extends StatelessWidget {
   }
 }
 
+
+/// هتبعت هنا ال index بتاع الكارت وااول ما يدوس على الصح تقبله من خلال الاندكس وكذلك مع ال كانسل
+Widget clientRequestCard({required context})=> Padding(
+  padding: const EdgeInsets.all(20.0),
+  child: Stack(
+    children: [
+      Container(
+        height: 155,
+        decoration: BoxDecoration(
+            color: Colors.grey[200],
+            borderRadius: BorderRadius.circular(10.0)
+        ),
+      ),
+      Container(
+        height: 150.0,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10.0)
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  CircleAvatar(
+
+                    radius: 35.0,
+                  ),
+                  SizedBox(width: 10.0,),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Hassanien',
+                        style: TextStyle(
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.bold
+                        ),
+                      ),
+                      SizedBox(height: 3,),
+                      Text(
+                        'amin@gmail.com',
+                        style: TextStyle(
+                            fontSize: 15.0,
+                            color: Colors.black
+                        ),
+                      ),
+                      SizedBox(height: 3,),
+                      Row(
+                        children:
+                        [
+                          Icon(
+                            Icons.date_range,
+                            size: 20.0,
+                            color: Colors.grey,
+                          ),
+                          SizedBox(width: 2.0,),
+                          Text('10/2/2022'),
+                        ],
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  IconButton(iconSize:42.0,  onPressed: (){}, icon:Icon(Icons.check_circle,color:Colors.green,)),
+
+                  IconButton(iconSize:42.0,  onPressed: (){
+                    cancelDialog(context: context);
+                  }, icon:Icon(Icons.cancel,color:Colors.red,)),
+
+                  Container(
+                      width: 100.0,
+                      height: 37.0,
+
+                      child:  Center(
+                          child: ElevatedButton.icon(
+                            onPressed: ()
+                            {
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>MenteeProfile()));
+                            },
+                            icon: Icon(Icons.flag),
+                            label: Text('Pin',
+                              style: TextStyle(
+                                  fontSize: 15.0
+                              ),),
+                            style: ElevatedButton.styleFrom(
+                                primary:Colors.orange,
+                                elevation: 0.0
+                            ),
+                          )
+                      )
+                  ),
+                  SizedBox(width: 20.0),
+                  Container(
+                      width: 100.0,
+                      child:  ElevatedButton.icon(
+                        onPressed: ()
+                        {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ViewMenteeRequestScreen()));
+                        },
+                        icon: Icon(Icons.remove_red_eye_rounded),
+                        label: Text('View',
+                          style: TextStyle(
+                              fontSize: 15.0
+                          ),),
+                        style: ElevatedButton.styleFrom(
+                            primary: HexColor('#b6d0e7'),
+                            elevation: 0.0
+                        ),
+                      )
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    ],
+  ),
+);
+
+
+Future<dynamic> cancelDialog({
+  required context,
+
+}) => showDialog(
+  context: context,
+  builder: (context){
+    return AlertDialog(
+
+
+      contentPadding: const EdgeInsets.all(0.0),
+      content:  Container(
+        height: 300,
+        padding: EdgeInsets.all(8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            TextFormField(
+              maxLines: 4,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.grey,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.blue,),
+                ),
+                label:Text( "Enter the cancellation reason"),
+                hintStyle: TextStyle(
+                  color: Colors.grey,
+                ),
+              ),
+              onTap: ()
+              {
+
+              },
+            ),
+
+            SizedBox(height: 20,),
+            Container(
+                width: 100.0,
+                height: 37.0,
+
+                child:  Center(
+                    child: ElevatedButton.icon(
+                      onPressed: ()
+                      {
+
+                      },
+                      icon: Icon(Icons.send),
+                      label: Text('Send',
+                        style: TextStyle(
+                            fontSize: 15.0
+                        ),),
+                      style: ElevatedButton.styleFrom(
+                          primary:Colors.blue,
+                          elevation: 0.0
+                      ),
+                    )
+                )
+            ),
+          ],
+        ),
+      ),
+    );
+  },
+);
 
 
 
