@@ -1,4 +1,4 @@
-import 'package:consultation_gp/layout/mentor_layout.dart';
+import 'package:consultation_gp/layout/mentor/mentor_layout/mentor_layout.dart';
 import 'package:consultation_gp/modules/login/forgot_password/forgot_password.dart';
 import 'package:consultation_gp/modules/login/login_cubit/login_cubit.dart';
 import 'package:consultation_gp/modules/login/login_cubit/login_states.dart';

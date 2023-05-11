@@ -1,11 +1,16 @@
   import 'package:consultation_gp/bloc_observer/observer.dart';
-  import 'package:consultation_gp/layout/mentor_cubit/mentor_cubit.dart';
-  import 'package:consultation_gp/layout/mentor_layout.dart';
+import 'package:consultation_gp/layout/mentee/mentee_cubit/mentee_cubit.dart';
+import 'package:consultation_gp/layout/mentee/mentee_layout/mentee_layout.dart';
+import 'package:consultation_gp/layout/mentor/mentor_cubit/mentor_cubit.dart';
+import 'package:consultation_gp/layout/mentor/mentor_layout/mentor_layout.dart';
 import 'package:consultation_gp/modules/login/forgot_password/forgot_password.dart';
   import 'package:consultation_gp/modules/login/login_screen/login.dart';
+import 'package:consultation_gp/modules/mentee/applications/applications.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/available_times/available_times.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/booking_details/booking_details.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/payment_details/payment_details.dart';
+import 'package:consultation_gp/modules/mentee/bookings/mentee_bookings.dart';
+import 'package:consultation_gp/modules/mentee/favourites/favourites.dart';
   import 'package:consultation_gp/modules/mentee/mentee_profile.dart';
   import 'package:consultation_gp/modules/mentee/mentee_reg/mentee_reg.dart';
 import 'package:consultation_gp/modules/mentee/mentor_exploration/all_mentors.dart';
@@ -77,21 +82,27 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
       @override
     Widget build(BuildContext context) {
-      return BlocProvider(
-        create: (BuildContext context)=> MentorCubit(),
-        child: ScreenUtilInit(
-          designSize: const Size(360, 690),
-          minTextAdapt: true,
-          splitScreenMode: true,
-          builder: (BuildContext context,child)
-          {
-            return MaterialApp(
-              home: ExploreMentor(),
-              debugShowCheckedModeBanner: false,
-            );
-          },
-
-        ),
+      return MultiBlocProvider(
+        providers: [
+          BlocProvider<MentorCubit>(
+          create: (BuildContext context)=> MentorCubit(),
+          ),
+          BlocProvider<MenteeCubit>(
+            create: (BuildContext context)=> MenteeCubit(),
+          )
+        ],
+          child: ScreenUtilInit(
+            designSize: const Size(360, 690),
+            minTextAdapt: true,
+            splitScreenMode: true,
+            builder: (BuildContext context,child)
+            {
+              return MaterialApp(
+                home: MenteeLayout(),
+                debugShowCheckedModeBanner: false,
+              );
+            },
+          ),
       );
     }
   }

@@ -285,7 +285,6 @@ class Dashboard extends StatelessWidget {
                                 Row(
                                   children: [
                                     CircleAvatar(
-
                                       radius: 35.0,
                                     ),
                                     SizedBox(width: 10.0,),
