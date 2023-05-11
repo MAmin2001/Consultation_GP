@@ -31,9 +31,8 @@ class _CreatePlanState extends State<CreatePlan> {
     '5',
   ];
   List<String> responseTimes =[
+    'Within 12 Hour',
     'Within 24 Hour',
-    'Within 48 Hour',
-    'Within 72 Hour',
   ];
   String? selectedPrice = '100';
   String? selectedNumberOfSessions= '1';

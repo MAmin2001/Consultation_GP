@@ -15,7 +15,7 @@ class ViewMenteeRequestScreen extends StatelessWidget {
         ),
         centerTitle: true,
         title:  const Text(
-          'Appointment Details',
+          'Client Request Details ',
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 22.0

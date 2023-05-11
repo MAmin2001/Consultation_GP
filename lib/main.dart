@@ -18,6 +18,7 @@ import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
   import 'package:consultation_gp/modules/mentor/incvoices/invoice_view.dart';
   import 'package:consultation_gp/modules/mentor/incvoices/invoices.dart';
   import 'package:consultation_gp/modules/mentor/mentor_profile/mentor_profile.dart';
+import 'package:consultation_gp/modules/mentor/mentor_profile_setting/profile_setting.dart';
   import 'package:consultation_gp/modules/mentor/mentor_reg/register_screen/mentor_reg.dart';
   import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
   import 'package:consultation_gp/modules/mentor/reviews/reviews.dart';
@@ -88,7 +89,7 @@ import 'modules/mentor/dashboard/view_mentee_request/view_mentee_request.dart';
           builder: (BuildContext context,child)
           {
             return MaterialApp(
-              home: ViewMentorProfile(),
+              home: PaymentDetails(),
               debugShowCheckedModeBanner: false,
             );
           },

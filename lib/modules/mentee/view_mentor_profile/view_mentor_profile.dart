@@ -264,7 +264,7 @@ class ViewMentorProfile extends StatelessWidget {
                                               Column(
                                                 children: [
                                                   Text('2 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                                                  Text('Every session take 1 hour max',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
+                                                  Text('Every session will be 1 hour',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
                                                 ],
                                               ),
                                             ],
@@ -390,7 +390,7 @@ class ViewMentorProfile extends StatelessWidget {
                                               Column(
                                                 children: [
                                                   Text('4 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                                                  Text('Every session take 1 hour max',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
+                                                  Text('Every session will be 1 hour ',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
                                                 ],
                                               ),                                            ],
                                           ),
@@ -488,7 +488,6 @@ class ViewMentorProfile extends StatelessWidget {
                                                     fontSize: 25.0
                                                 ),
                                               ),
-                                              Text('Every session take 1 hour max',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
                                             ],
                                           ),
                                           SizedBox(height: 10,),
