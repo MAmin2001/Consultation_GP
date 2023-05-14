@@ -1,23 +1,22 @@
-
-import 'package:consultation_gp/layout/mentor_cubit/mentor_cubit.dart';
-import 'package:consultation_gp/layout/mentor_cubit/mentor_states.dart';
+import 'package:consultation_gp/layout/mentee/mentee_cubit/mentee_cubit.dart';
+import 'package:consultation_gp/layout/mentee/mentee_cubit/mentee_states.dart';
 import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:consultation_gp/modules/mentor/schedule_timings/schedule_time.dart';
 import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MentorLayout extends  StatelessWidget {
-  const MentorLayout({Key? key}) : super(key: key);
+class MenteeLayout extends  StatelessWidget {
+  const MenteeLayout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<MentorCubit,ConsultStates>(
+    return BlocConsumer<MenteeCubit,MenteeStates>(
       listener: (context,state){},
       builder: (context,state){
-        var cubit = MentorCubit.get(context);
+        var cubit = MenteeCubit.get(context);
         return Scaffold(
-          body: cubit.screens[cubit.currentIndex],
+          body: cubit.menteeScreens[cubit.currentIndex],
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: Colors.grey[100],
             selectedItemColor: Colors.blue,
@@ -30,24 +29,20 @@ class MentorLayout extends  StatelessWidget {
             currentIndex: cubit.currentIndex,
             items: const [
               BottomNavigationBarItem(
-                  icon:Icon(Icons.dashboard,),
-                  label: 'Dashboard'
+                  icon:Icon(Icons.home_filled,),
+                  label: 'Home'
               ),
               BottomNavigationBarItem(
-                  icon:Icon(Icons.book,),
-                  label: 'Appointments'
+                  icon:Icon(Icons.request_page,),
+                  label: 'Applications'
               ),
               BottomNavigationBarItem(
-                  icon:Icon(Icons.file_copy,),
-                  label: 'Invoices'
+                  icon:Icon(Icons.book_outlined,),
+                  label: 'Bookings'
               ),
               BottomNavigationBarItem(
-                  icon:Icon(Icons.reviews_outlined,),
-                  label: 'Reviews'
-              ),
-              BottomNavigationBarItem(
-                  icon:Icon(Icons.person,),
-                  label: 'Profile'
+                  icon:Icon(Icons.star,),
+                  label: 'Favourites'
               ),
             ],
           ),
