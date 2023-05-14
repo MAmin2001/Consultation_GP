@@ -265,7 +265,12 @@ class MentorProfile extends StatelessWidget {
                                                 ],
                                               ),
                                               SizedBox(width:16 ,),
-                                              Text('2 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                              Column(
+                                                children: [
+                                                  Text('2 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                                  Text('Every session will be 1 hour',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
+                                                ],
+                                              ),
                                             ],
                                           ),
                                           SizedBox(height: 10.0,),
@@ -381,8 +386,12 @@ class MentorProfile extends StatelessWidget {
                                                 ],
                                               ),
                                               SizedBox(width:16 ,),
-                                              Text('4 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                                            ],
+                                              Column(
+                                                children: [
+                                                  Text('4 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                                  Text('Every session will be 1 hour',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
+                                                ],
+                                              ),                                            ],
                                           ),
                                           SizedBox(height: 10.0,),
                                           Row(
@@ -462,12 +471,19 @@ class MentorProfile extends StatelessWidget {
                                             ],
                                           ),
                                           SizedBox(height: 30,),
-                                          Text(
-                                            'Per Session Plan',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 25.0
-                                            ),
+
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Per Session Plan',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 25.0
+                                                ),
+                                              ),
+                                              Text('Every session will be 1 hour',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
+                                            ],
                                           ),
                                           SizedBox(height: 10,),
                                           Text(

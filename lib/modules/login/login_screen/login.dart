@@ -40,7 +40,7 @@ class ConsultLogin extends StatelessWidget {
                CacheHelper.saveData(key: 'token', value: state.loginModel.token.toString()).then((value)
                {
                Navigator.pushReplacement(context,
-               MaterialPageRoute(builder: (context) => MenteeProfile()));
+               MaterialPageRoute(builder: (context) => ExploreMentor()));
                });
               }
               else

@@ -23,7 +23,27 @@ class _CreatePlanState extends State<CreatePlan> {
     '450',
     '500',
   ];
-  String? selectedprice = '100';
+  List<String> numberOfSessions =[
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+  ];
+  List<String> responseTimes =[
+    'Within 12 Hour',
+    'Within 24 Hour',
+  ];
+  String? selectedPrice = '100';
+  String? selectedNumberOfSessions= '1';
+  String? selectedResponseTime= 'Within 24 Hour';
+
+  String? selectedPriceProPlan = '100';
+  String? selectedNumberOfSessionsProPlan= '1';
+  String? selectedResponseTimeProPlan= 'Within 24 Hour';
+
+  String? selectedPricePerSession = '100';
+
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -97,35 +117,22 @@ class _CreatePlanState extends State<CreatePlan> {
                                           ),
                                         ),
                                         SizedBox(height:MediaQuery.of(context).size.height/60),
-                                        Container(
-                                          height: 45.0.h,
-                                          child: TextFormField(
-                                            keyboardType: TextInputType.number,
-                                            validator: (value) {
-                                              if(value!.isEmpty)
-                                              {
-                                                return "Please enter Num of sessions";
-                                              }
-                                              return null;
-                                            },
-                                            decoration: InputDecoration(
-                                              enabledBorder: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(10.r),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.grey
-                                                  )
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(10.r),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.blue
-                                                  )
-                                              ),
-                                              hintText: "2 sessions",
-                                              hintStyle: TextStyle(
-                                                fontSize: 15.sp,
-                                                color: Colors.grey,
-                                              ),
+                                        DropdownButtonFormField<String>(
+                                          value: selectedNumberOfSessions,
+                                          items: numberOfSessions.map((item) => DropdownMenuItem<String>(
+                                            value: item,
+                                            child: Text(item,style: TextStyle(fontSize: 20.sp),),
+                                          ))
+                                              .toList(),
+                                          onChanged: (item)=>setState(()=>selectedNumberOfSessions = item),
+                                          decoration: InputDecoration(
+                                            enabledBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                              borderSide: BorderSide(width: 3,color: Colors.blue),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                              borderSide: BorderSide(width: 3,color: Colors.blue),
                                             ),
                                           ),
                                         ),
@@ -137,35 +144,22 @@ class _CreatePlanState extends State<CreatePlan> {
                                           ),
                                         ),
                                         SizedBox(height:MediaQuery.of(context).size.height/60),
-                                        Container(
-                                          height: 45.0.h,
-                                          child: TextFormField(
-                                            keyboardType: TextInputType.number,
-                                            validator: (value) {
-                                              if(value!.isEmpty)
-                                              {
-                                                return "Please enter response time";
-                                              }
-                                              return null;
-                                            },
-                                            decoration: InputDecoration(
-                                              enabledBorder: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(10),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.grey
-                                                  )
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(10),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.blue
-                                                  )
-                                              ),
-                                              hintText: "3 days",
-                                              hintStyle: TextStyle(
-                                                fontSize: 15.sp,
-                                                color: Colors.grey,
-                                              ),
+                                        DropdownButtonFormField<String>(
+                                          value: selectedResponseTime,
+                                          items: responseTimes.map((item) => DropdownMenuItem<String>(
+                                            value: item,
+                                            child: Text(item,style: TextStyle(fontSize: 20.sp),),
+                                          ))
+                                              .toList(),
+                                          onChanged: (item)=>setState(()=>selectedResponseTime = item),
+                                          decoration: InputDecoration(
+                                            enabledBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                              borderSide: BorderSide(width: 3,color: Colors.blue),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                              borderSide: BorderSide(width: 3,color: Colors.blue),
                                             ),
                                           ),
                                         ),
@@ -224,13 +218,13 @@ class _CreatePlanState extends State<CreatePlan> {
                                             child: SizedBox(
                                               width: 240,
                                               child: DropdownButtonFormField<String>(
-                                                value: selectedprice,
+                                                value: selectedPrice,
                                                 items: prices.map((item) => DropdownMenuItem<String>(
                                                   value: item,
                                                   child: Text(item,style: TextStyle(fontSize: 20.sp),),
                                                 ))
                                                     .toList(),
-                                                onChanged: (item)=>setState(()=>selectedprice = item),
+                                                onChanged: (item)=>setState(()=>selectedPrice = item),
                                                 decoration: InputDecoration(
                                                     enabledBorder: OutlineInputBorder(
                                                       borderRadius: BorderRadius.circular(10),
@@ -301,37 +295,25 @@ class _CreatePlanState extends State<CreatePlan> {
                                           ),
                                         ),
                                         SizedBox(height:MediaQuery.of(context).size.height/60),
-                                        Container(
-                                          height: 45.0.h,
-                                          child: TextFormField(
-                                            keyboardType: TextInputType.number,
-                                            validator: (value) {
-                                              if(value!.isEmpty)
-                                              {
-                                                return "Please enter Num of sessions";
-                                              }
-                                              return null;
-                                            },
-                                            decoration: InputDecoration(
-                                              enabledBorder: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(10.r),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.grey
-                                                  )
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(10.r),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.blue
-                                                  )
-                                              ),
-                                              hintText: "2 sessions",
-                                              hintStyle: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 15.sp,
-                                              ),
+                                        DropdownButtonFormField<String>(
+                                          value: selectedNumberOfSessionsProPlan,
+                                          items: numberOfSessions.map((item) => DropdownMenuItem<String>(
+                                            value: item,
+                                            child: Text(item,style: TextStyle(fontSize: 20.sp),),
+                                          ))
+                                              .toList(),
+                                          onChanged: (item)=>setState(()=>selectedNumberOfSessionsProPlan = item),
+                                          decoration: InputDecoration(
+                                            enabledBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(12),
+                                              borderSide: BorderSide(width: 3,color: Colors.blue),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                              borderSide: BorderSide(width: 3,color: Colors.blue),
                                             ),
                                           ),
+
                                         ),
                                         SizedBox(height:MediaQuery.of(context).size.height/40),
                                         Text('Chat response time in : ',
@@ -341,37 +323,25 @@ class _CreatePlanState extends State<CreatePlan> {
                                           ),
                                         ),
                                         SizedBox(height:MediaQuery.of(context).size.height/60),
-                                        Container(
-                                          height: 45.0.h,
-                                          child: TextFormField(
-                                            keyboardType: TextInputType.number,
-                                            validator: (value) {
-                                              if(value!.isEmpty)
-                                              {
-                                                return "Please enter response time";
-                                              }
-                                              return null;
-                                            },
-                                            decoration: InputDecoration(
-                                              enabledBorder: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(10),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.grey
-                                                  )
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(10),
-                                                  borderSide: BorderSide(
-                                                      color: Colors.blue
-                                                  )
-                                              ),
-                                              hintText: "3 days",
-                                              hintStyle: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 15.sp,
-                                              ),
+                                        DropdownButtonFormField<String>(
+                                          value: selectedResponseTimeProPlan,
+                                          items: responseTimes.map((item) => DropdownMenuItem<String>(
+                                            value: item,
+                                            child: Text(item,style: TextStyle(fontSize: 20.sp),),
+                                          ))
+                                              .toList(),
+                                          onChanged: (item)=>setState(()=>selectedResponseTimeProPlan = item),
+                                          decoration: InputDecoration(
+                                            enabledBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(12),
+                                              borderSide: BorderSide(width: 3,color: Colors.blue),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                              borderSide: BorderSide(width: 3,color: Colors.blue),
                                             ),
                                           ),
+
                                         ),
                                         SizedBox(height:MediaQuery.of(context).size.height/40),
                                         Text('Plan description : ',
@@ -428,13 +398,13 @@ class _CreatePlanState extends State<CreatePlan> {
                                             child: SizedBox(
                                               width: 240,
                                               child: DropdownButtonFormField<String>(
-                                                value: selectedprice,
+                                                value: selectedPriceProPlan,
                                                 items: prices.map((item) => DropdownMenuItem<String>(
                                                   value: item,
                                                   child: Text(item,style: TextStyle(fontSize: 20.sp),),
                                                 ))
                                                     .toList(),
-                                                onChanged: (item)=>setState(()=>selectedprice = item),
+                                                onChanged: (item)=>setState(()=>selectedPriceProPlan = item),
                                                 decoration: InputDecoration(
                                                     enabledBorder: OutlineInputBorder(
                                                       borderRadius: BorderRadius.circular(12),
@@ -553,13 +523,13 @@ class _CreatePlanState extends State<CreatePlan> {
                                               width: 240.w,
                                               child: DropdownButtonFormField<String>(
 
-                                                value: selectedprice,
+                                                value: selectedPricePerSession,
                                                 items: prices.map((item) => DropdownMenuItem<String>(
                                                   value: item,
                                                   child: Text(item,style: TextStyle(fontSize: 20.sp),),
                                                 ))
                                                     .toList(),
-                                                onChanged: (item)=>setState(()=>selectedprice = item),
+                                                onChanged: (item)=>setState(()=>selectedPricePerSession = item),
                                                 decoration: InputDecoration(
                                                     enabledBorder: OutlineInputBorder(
                                                       borderRadius: BorderRadius.circular(10.r),
