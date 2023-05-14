@@ -98,7 +98,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
             builder: (BuildContext context,child)
             {
               return MaterialApp(
-                home: MenteeLayout(),
+                home: Dashboard(),
                 debugShowCheckedModeBanner: false,
               );
             },

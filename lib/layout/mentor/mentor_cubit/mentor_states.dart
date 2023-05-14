@@ -11,4 +11,6 @@ class ConsultSuccessState extends ConsultStates{}
 
 class ChangeBottomNavBarState extends ConsultStates{}
 
+class ChangePinIconState extends ConsultStates{}
+
 

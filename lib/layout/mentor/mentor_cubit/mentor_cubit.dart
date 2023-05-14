@@ -30,6 +30,16 @@ List<Widget> screens=
   MentorProfile(),
 ];
 
+bool isPinned=false;
+int i =0;
+
+void changePinIcon(int index)
+{
+  i=index;
+  isPinned=!isPinned;
+emit((ChangePinIconState()));
+}
+
 
 
 
