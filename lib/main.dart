@@ -3,6 +3,7 @@
   import 'package:consultation_gp/layout/mentor_layout.dart';
 import 'package:consultation_gp/modules/login/forgot_password/forgot_password.dart';
   import 'package:consultation_gp/modules/login/login_screen/login.dart';
+import 'package:consultation_gp/modules/mentee/booking_steps/appointment_cost/appointment_cost.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/available_times/available_times.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/booking_details/booking_details.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/payment_details/payment_details.dart';
@@ -89,7 +90,7 @@ import 'modules/mentor/dashboard/view_mentee_request/view_mentee_request.dart';
           builder: (BuildContext context,child)
           {
             return MaterialApp(
-              home: PaymentDetails(),
+              home: AppointmentCost(),
               debugShowCheckedModeBanner: false,
             );
           },

@@ -27,7 +27,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: const Text('Profile setup',)),
+        title: Center(child: const Text('Profile Setting',)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),

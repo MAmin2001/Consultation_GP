@@ -1,4 +1,5 @@
 import 'package:consultation_gp/modules/mentee/booking_steps/booking_details/booking_details.dart';
+import 'package:consultation_gp/modules/mentor/incvoices/invoice_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hex_color/flutter_hex_color.dart';
 
@@ -28,16 +29,36 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 15.0,
+                        radius: 14.0,
                         backgroundColor: HexColor('60CD6A'),
                         child: Icon(Icons.check_circle_outline_rounded,size: 25,color: Colors.white,),
 
                       ),
                       SizedBox(height: 5,),
-                      Text('Appointment',style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A')),)
+                      Text('Appointment',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A')),)
                     ],
                   ),
-                  SizedBox(width:7.0 ,),
+                  SizedBox(width:5.0 ,),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: Container(
+                      height: 3.0,
+                      width: 40.0,
+                      color:HexColor('60CD6A'),
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 14.0,
+                        backgroundColor:HexColor('60CD6A'),
+                        child: Icon(Icons.check_circle_outline_rounded,size: 25,color: Colors.white,),
+                      ),
+                      SizedBox(height: 5,),
+                      Text('Details',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
+                    ],
+                  ),
+                  SizedBox(width:5.0 ,),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 20.0),
                     child: Container(
@@ -46,17 +67,19 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                       color:HexColor('60CD6A'),
                     ),
                   ),
+                  SizedBox(width:5.0 ,),
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 15.0,
+                        radius: 14.0,
                         backgroundColor:HexColor('60CD6A'),
                         child: Icon(Icons.check_circle_outline_rounded,size: 25,color: Colors.white,),
                       ),
                       SizedBox(height: 5,),
-                      Text('Details',style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
+                      Text('Cost',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
                     ],
                   ),
+                  SizedBox(width:5.0 ,),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 20.0),
                     child: Container(
@@ -68,12 +91,12 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 18.0,
-                        backgroundColor:HexColor('60CD6A'),
+                        radius: 14.0,
+                        backgroundColor: HexColor('60CD6A'),
 
                       ),
                       SizedBox(height: 5,),
-                      Text('Payment',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
+                      Text('Payment',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold)),
                     ],
                   ),
 
@@ -251,7 +274,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                       ),
                     ),
                     onTap: (){ Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => BookingDetails()));;},
+                        MaterialPageRoute(builder: (context) => BookingDetails()));},
                   ),
                   Spacer(),
                   InkWell(
@@ -275,7 +298,9 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                         ),
                       ),
                     ),
-                    onTap: (){},
+                    onTap: (){
+                      successfulPaymentDialog(context: context);
+                    },
                   ),
                 ],
               )
@@ -290,3 +315,66 @@ class _PaymentDetailsState extends State<PaymentDetails> {
     );
   }
 }
+
+
+
+
+Future<dynamic> successfulPaymentDialog({
+  required context,
+
+}) => showDialog(
+  context: context,
+  builder: (context){
+    return AlertDialog(
+
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12.0),
+      ),
+      contentPadding: const EdgeInsets.all(0.0),
+      content: Container(
+        height: 300,
+        padding: EdgeInsets.all(10),
+        child: Center(child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Icon(Icons.check_circle, color: Colors.blue,size: 70,),
+            Text(
+              'Appointment booked successfully',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20.0,
+                fontWeight: FontWeight.bold
+              ),),
+            Text(
+              'Waiting for mentor confirmation',
+              style: TextStyle(
+                color: Colors.black.withOpacity(0.7),
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600
+              ),),
+            InkWell(
+              child: Container(
+                width: double.infinity,
+                height: 45.0,
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(5.0)
+                ),
+                child: Center(
+                  child: Text('View Invoice', style: TextStyle(color: Colors.white,fontSize: 18.0),),
+                ),
+              ),
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => InvoiceView()));
+              },
+            ),
+          ],
+        )),
+      ),
+    );
+  },
+);
+
+

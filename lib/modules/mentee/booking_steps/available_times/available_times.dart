@@ -64,12 +64,31 @@ class _AvailableTimesState extends State<AvailableTimes> {
                 Column(
                   children: [
                     CircleAvatar(
-                      radius: 18.0,
+                      radius: 14.0,
                       backgroundColor: HexColor('60CD6A'),
 
                     ),
                     SizedBox(height: 5,),
-                    Text('Appointment',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A')),)
+                    Text('Appointment',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A')),)
+                  ],
+                ),
+                SizedBox(width:5.0 ,),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 20.0),
+                  child: Container(
+                    height: 3.0,
+                    width: 40.0,
+                    color: Colors.grey[300],
+                  ),
+                ),
+                Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 14.0,
+                      backgroundColor: Colors.grey[300],
+                    ),
+                    SizedBox(height: 5,),
+                    Text('Details',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,)),
                   ],
                 ),
                 SizedBox(width:7.0 ,),
@@ -78,17 +97,17 @@ class _AvailableTimesState extends State<AvailableTimes> {
                   child: Container(
                     height: 3.0,
                     width: 46.0,
-                    color:Colors.grey[300],
+                    color: Colors.grey[300],
                   ),
                 ),
                 Column(
                   children: [
                     CircleAvatar(
-                      radius: 15.0,
+                      radius: 14.0,
                       backgroundColor: Colors.grey[300],
                     ),
                     SizedBox(height: 5,),
-                    Text('Details',style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.bold,color: Colors.grey[700])),
+                    Text('Cost',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,)),
                   ],
                 ),
                 Padding(
@@ -102,12 +121,12 @@ class _AvailableTimesState extends State<AvailableTimes> {
                 Column(
                   children: [
                     CircleAvatar(
-                      radius: 15.0,
+                      radius: 14.0,
                       backgroundColor: Colors.grey[300],
 
                     ),
                     SizedBox(height: 5,),
-                    Text('Payment',style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.bold,color: Colors.grey[700])),
+                    Text('Payment',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold)),
                   ],
                 ),
 

@@ -1,3 +1,4 @@
+import 'package:consultation_gp/modules/mentee/booking_steps/appointment_cost/appointment_cost.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/available_times/available_times.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/payment_details/payment_details.dart';
 import 'package:flutter/material.dart';
@@ -21,13 +22,32 @@ class BookingDetails extends StatelessWidget {
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 15.0,
+                        radius: 14.0,
                         backgroundColor: HexColor('60CD6A'),
                         child: Icon(Icons.check_circle_outline_rounded,size: 25,color: Colors.white,),
 
                       ),
                       SizedBox(height: 5,),
-                      Text('Appointment',style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A')),)
+                      Text('Appointment',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A')),)
+                    ],
+                  ),
+                  SizedBox(width:5.0 ,),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20.0),
+                    child: Container(
+                      height: 3.0,
+                      width: 40.0,
+                      color:HexColor('60CD6A'),
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 14.0,
+                        backgroundColor:HexColor('60CD6A'),
+                      ),
+                      SizedBox(height: 5,),
+                      Text('Details',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
                     ],
                   ),
                   SizedBox(width:7.0 ,),
@@ -36,17 +56,17 @@ class BookingDetails extends StatelessWidget {
                     child: Container(
                       height: 3.0,
                       width: 46.0,
-                      color:HexColor('60CD6A'),
+                      color: Colors.grey[300],
                     ),
                   ),
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 18.0,
-                        backgroundColor:HexColor('60CD6A'),
+                        radius: 14.0,
+                        backgroundColor: Colors.grey[300],
                       ),
                       SizedBox(height: 5,),
-                      Text('Details',style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
+                      Text('Cost',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,)),
                     ],
                   ),
                   Padding(
@@ -60,12 +80,12 @@ class BookingDetails extends StatelessWidget {
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 15.0,
+                        radius: 14.0,
                         backgroundColor: Colors.grey[300],
 
                       ),
                       SizedBox(height: 5,),
-                      Text('Payment',style: TextStyle(fontSize: 17.0,fontWeight: FontWeight.bold)),
+                      Text('Payment',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold)),
                     ],
                   ),
 
@@ -247,7 +267,7 @@ class BookingDetails extends StatelessWidget {
                       ),
                     ),
                     onTap: (){Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => PaymentDetails()));},
+                        MaterialPageRoute(builder: (context) => AppointmentCost()));},
                   ),
                 ],
               )
