@@ -106,7 +106,7 @@ import 'modules/mentor/reviews/review_page.dart';
             builder: (BuildContext context,child)
             {
               return MaterialApp(
-                home: ReviewPage(),
+                home: Reviews(),
                 debugShowCheckedModeBanner: false,
               );
             },
