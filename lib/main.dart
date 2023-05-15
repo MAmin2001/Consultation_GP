@@ -5,6 +5,7 @@ import 'package:consultation_gp/layout/mentor/mentor_cubit/mentor_cubit.dart';
 import 'package:consultation_gp/layout/mentor/mentor_layout/mentor_layout.dart';
 import 'package:consultation_gp/modules/login/forgot_password/forgot_password.dart';
   import 'package:consultation_gp/modules/login/login_screen/login.dart';
+import 'package:consultation_gp/modules/mentee/applications/applications.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/appointment_cost/appointment_cost.dart';
 
 import 'package:consultation_gp/modules/mentee/booking_steps/available_times/available_times.dart';
@@ -17,6 +18,7 @@ import 'package:consultation_gp/modules/mentee/favourites/favourites.dart';
 import 'package:consultation_gp/modules/mentee/mentor_exploration/all_mentors.dart';
 import 'package:consultation_gp/modules/mentee/mentor_exploration/mentor_explore.dart';
 import 'package:consultation_gp/modules/mentee/mentor_exploration/search%20_for_mentor.dart';
+import 'package:consultation_gp/modules/mentee/profile_setting/mentee_profile_setting.dart';
 import 'package:consultation_gp/modules/mentee/view_mentor_profile/view_mentor_profile.dart';
 import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmentes.dart';
 import 'package:consultation_gp/modules/mentor/create_plan/create_plan.dart';
@@ -27,7 +29,6 @@ import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
 import 'package:consultation_gp/modules/mentor/mentor_profile_setting/profile_setting.dart';
   import 'package:consultation_gp/modules/mentor/mentor_reg/register_screen/mentor_reg.dart';
   import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
-  import 'package:consultation_gp/modules/mentor/reviews/reviews.dart';
   import 'package:consultation_gp/modules/mentor/schedule_timings/schedule_time.dart';
 import 'package:consultation_gp/modules/mentor/view%20mentors/all_mentors_view.dart';
   import 'package:consultation_gp/network/local/cache_helper.dart';
@@ -39,6 +40,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
   import 'package:get/get.dart';
 
 import 'modules/mentor/dashboard/view_mentee_request/view_mentee_request.dart';
+import 'modules/mentor/reviews/review_page.dart';
 
 
 
@@ -104,7 +106,7 @@ import 'modules/mentor/dashboard/view_mentee_request/view_mentee_request.dart';
             builder: (BuildContext context,child)
             {
               return MaterialApp(
-                home: Dashboard(),
+                home: ReviewPage(),
                 debugShowCheckedModeBanner: false,
               );
             },
@@ -113,7 +115,7 @@ import 'modules/mentor/dashboard/view_mentee_request/view_mentee_request.dart';
     }
   }
 
-//a7a 
+//a7a
 
 
 
