@@ -41,10 +41,10 @@ class MentorLayout extends  StatelessWidget {
                   icon:Icon(Icons.file_copy,),
                   label: 'Invoices'
               ),
-              BottomNavigationBarItem(
+              /*BottomNavigationBarItem(
                   icon:Icon(Icons.reviews_outlined,),
                   label: 'Reviews'
-              ),
+              ),*/
               BottomNavigationBarItem(
                   icon:Icon(Icons.person,),
                   label: 'Profile'

@@ -3,7 +3,7 @@ import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmente
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
 import 'package:consultation_gp/modules/mentor/incvoices/invoices.dart';
 import 'package:consultation_gp/modules/mentor/mentor_profile/mentor_profile.dart';
-import 'package:consultation_gp/modules/mentor/reviews/reviews.dart';
+//import 'package:consultation_gp/modules/mentor/reviews/reviews.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +26,7 @@ List<Widget> screens=
   Dashboard(),
   Appointments(),
   Invoice(),
-  Reviews(),
+ // Reviews(),
   MentorProfile(),
 ];
 

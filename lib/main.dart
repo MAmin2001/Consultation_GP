@@ -19,6 +19,7 @@ import 'package:consultation_gp/modules/mentee/mentor_exploration/all_mentors.da
 import 'package:consultation_gp/modules/mentee/mentor_exploration/mentor_explore.dart';
 import 'package:consultation_gp/modules/mentee/mentor_exploration/search%20_for_mentor.dart';
 import 'package:consultation_gp/modules/mentee/profile_setting/mentee_profile_setting.dart';
+import 'package:consultation_gp/modules/mentee/review_a_mentor/review.dart';
 import 'package:consultation_gp/modules/mentee/view_mentor_profile/view_mentor_profile.dart';
 import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmentes.dart';
 import 'package:consultation_gp/modules/mentor/create_plan/create_plan.dart';
@@ -40,7 +41,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
   import 'package:get/get.dart';
 
 import 'modules/mentor/dashboard/view_mentee_request/view_mentee_request.dart';
-import 'modules/mentor/reviews/review_page.dart';
 
 
 
@@ -106,7 +106,7 @@ import 'modules/mentor/reviews/review_page.dart';
             builder: (BuildContext context,child)
             {
               return MaterialApp(
-                home: ReviewPage(),
+                home: MenteeSetting(),
                 debugShowCheckedModeBanner: false,
               );
             },
@@ -115,7 +115,7 @@ import 'modules/mentor/reviews/review_page.dart';
     }
   }
 
-//a7a
+
 
 
 
