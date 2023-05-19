@@ -40,6 +40,7 @@ import 'package:consultation_gp/modules/mentor/view%20mentors/all_mentors_view.d
 import 'package:flutter_screenutil/flutter_screenutil.dart';
   import 'package:get/get.dart';
 
+import 'modules/chat/chat-screen.dart';
 import 'modules/mentor/dashboard/view_mentee_request/view_mentee_request.dart';
 
 
@@ -106,7 +107,7 @@ import 'modules/mentor/dashboard/view_mentee_request/view_mentee_request.dart';
             builder: (BuildContext context,child)
             {
               return MaterialApp(
-                home: MenteeSetting(),
+                home: ChatScreen(),
                 debugShowCheckedModeBanner: false,
               );
             },
