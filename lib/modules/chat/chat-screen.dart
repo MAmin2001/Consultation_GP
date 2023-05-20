@@ -24,17 +24,17 @@ class _ChatScreenState extends State<ChatScreen> {
   List<Message> messages = [
     Message(
       text: "hey",
-      date: DateTime.now().subtract(Duration(minutes: 1)),
+      date: DateTime.now().subtract(Duration(minutes: 33)),
       isSentByMe: false
     ),
     Message(
         text: "hii",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(Duration(minutes: 53)),
         isSentByMe: true
     ),
     Message(
         text: "How are u?",
-        date: DateTime.now().subtract(Duration(minutes: 1)),
+        date: DateTime.now().subtract(Duration(minutes: 23)),
         isSentByMe: false
     ),
     Message(
@@ -43,6 +43,7 @@ class _ChatScreenState extends State<ChatScreen> {
         isSentByMe: true
     ),
   ];
+  var text = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -97,27 +98,40 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
             )
             ,),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100),
-              color: Colors.grey.shade300,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                width: 330,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  color: Colors.grey.shade200,
+                ),
 
-            child: TextField(
-              onSubmitted: (text){
-                final message = Message(
-                    text: text,
-                    date: DateTime.now(),
-                    isSentByMe: true);
-                setState(() {
-                  messages.add(message);
-                });
-              },
-              decoration: InputDecoration(
-                contentPadding: EdgeInsetsDirectional.all(12),
-                hintText: "Type your message here...",
+                child: TextField(
+                  onSubmitted: (text){
+                    final message = Message(
+                        text: text,
+                        date: DateTime.now(),
+                        isSentByMe: true);
+                    setState(() {
+                      text = text;
+                      messages.add(message);
+                    });
+                  },
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsetsDirectional.all(12),
+                    hintText: "Type your message here...",
+                  ),
+                ),
               ),
-            ),
+              IconButton(onPressed: (){
+
+              }, icon: Icon(
+                color: Theme.of(context).primaryColor,
+                Icons.send
+              ))
+            ],
           )
         ],
       ),
