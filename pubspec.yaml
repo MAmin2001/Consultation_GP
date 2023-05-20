@@ -43,7 +43,7 @@ dependencies:
   flutter_screenutil: ^5.7.0
   grouped_list:
   intl:
-
+  provider:
 
 
 

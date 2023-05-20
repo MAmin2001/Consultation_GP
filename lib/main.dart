@@ -3,6 +3,7 @@ import 'package:consultation_gp/layout/mentee/mentee_cubit/mentee_cubit.dart';
 import 'package:consultation_gp/layout/mentee/mentee_layout/mentee_layout.dart';
 import 'package:consultation_gp/layout/mentor/mentor_cubit/mentor_cubit.dart';
 import 'package:consultation_gp/layout/mentor/mentor_layout/mentor_layout.dart';
+import 'package:consultation_gp/modules/chat/get-users.dart';
 import 'package:consultation_gp/modules/login/forgot_password/forgot_password.dart';
   import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:consultation_gp/modules/mentee/applications/applications.dart';
@@ -107,7 +108,7 @@ import 'modules/mentor/dashboard/view_mentee_request/view_mentee_request.dart';
             builder: (BuildContext context,child)
             {
               return MaterialApp(
-                home: ChatScreen(),
+                home: GetUsersScreen(),
                 debugShowCheckedModeBanner: false,
               );
             },
