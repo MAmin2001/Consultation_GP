@@ -1,3 +1,4 @@
+import 'package:consultation_gp/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
@@ -43,13 +44,35 @@ class _ChatScreenState extends State<ChatScreen> {
         isSentByMe: true
     ),
   ];
-  var text = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chat'),
+        backgroundColor: Colors.white,
+        title: Row(
+          children: [
+            CircleAvatar(
+              backgroundColor: Colors.white10,
+              backgroundImage: NetworkImage("https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png"),
+
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                style: TextStyle(
+                  color: Colors.blue
+                ),
+                  'Mohamed Selim'),
+            ),
+          ],
+        ),
+        leading: IconButton(
+          onPressed: (){},
+          icon: Icon(
+            color: Colors.blue,
+              Icons.arrow_back),
+        ),
       ),
       body: Column(
         children: [
@@ -89,6 +112,9 @@ class _ChatScreenState extends State<ChatScreen> {
                 ? Alignment.centerRight
                 : Alignment.centerLeft,
                 child: Card(
+                  color: message.isSentByMe
+                      ? Theme.of(context).primaryColor
+                      : Colors.white  ,
                   elevation: 8,
                   child: Padding(
                     padding: EdgeInsetsDirectional.all(12),
@@ -101,8 +127,14 @@ class _ChatScreenState extends State<ChatScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              IconButton(onPressed: (){
+
+              }, icon: Icon(
+                  color: Theme.of(context).primaryColor,
+                  Icons.emoji_emotions_rounded
+              )),
               Container(
-                width: 330,
+                width: 250,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
                   color: Colors.grey.shade200,
@@ -115,7 +147,6 @@ class _ChatScreenState extends State<ChatScreen> {
                         date: DateTime.now(),
                         isSentByMe: true);
                     setState(() {
-                      text = text;
                       messages.add(message);
                     });
                   },
