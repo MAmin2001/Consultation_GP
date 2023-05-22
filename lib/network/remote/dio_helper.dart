@@ -1,5 +1,6 @@
 
 
+import 'package:consultation_gp/shared/constants.dart';
 import 'package:dio/dio.dart';
 
 class DioHelper
@@ -10,12 +11,18 @@ class DioHelper
   {
     dio= Dio(
       BaseOptions(
-        baseUrl: 'http://create-env.eba-ejruuqh8.us-east-1.elasticbeanstalk.com/api/v1',
+        baseUrl: 'http://grad-cs-cons-sys.northeurope.cloudapp.azure.com/api/v1',
         receiveDataWhenStatusError: true,
-        headers: {
-          'Content-Type':'application/json',
-          'Accept':'application/json'
-        }
+          validateStatus: (statusCode){
+            if(statusCode == null){
+              return false;
+            }
+            if(statusCode == 422||statusCode==401){ // your http status code
+              return true;
+            }else{
+              return statusCode >= 200 && statusCode < 300;
+            }
+          },
         // receiveTimeout: ,
         // connectTimeout: ,
       )
@@ -37,10 +44,18 @@ class DioHelper
 
     required String url,
      Map<String,dynamic>? query,
-     required Map<String,dynamic> data
+     required Map<String,dynamic> data,
+     String? tkn
 
   })async
   {
+    dio.options.headers=
+    {
+      'Content-Type':'application/json',
+      'Accept':'application/json',
+      'Authorization': 'Bearer $tkn'
+
+    };
     return await dio.post
       (
         url,
