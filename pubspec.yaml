@@ -41,7 +41,17 @@ dependencies:
   shared_preferences: ^2.1.0
   flutter_hex_color: ^2.0.0
   flutter_screenutil: ^5.7.0
-
+  grouped_list:
+  intl:
+  provider:
+  flutter_form_builder:
+  json_serializable:
+  url_launcher:
+  flutter_animate:
+  #firbase
+  firebase_core:
+  firebase_auth:
+  cloud_firestore:
 
 
 
