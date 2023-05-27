@@ -15,9 +15,9 @@ class LoginSuccessState extends LoginStates
 
 class LoginErrorState extends LoginStates
 {
-  final String error;
+  /*final String error;
 
-  LoginErrorState(this.error);}
+  LoginErrorState(this.error);*/}
 
 class LoginObscureState extends LoginStates{}
 

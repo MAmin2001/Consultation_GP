@@ -27,12 +27,12 @@ class _MentorRegState extends State<MentorReg> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => RegisterCubit(),
+      create: (BuildContext context)=>RegisterCubit(),
       child: BlocConsumer<RegisterCubit,RegisterStates>
         (
         listener:(context,state)
         {
-          if(state is RegisterSuccessState)
+          /*if(state is RegisterSuccessState)
           {
            if(state.loginModel.success!)
            {
@@ -51,7 +51,7 @@ class _MentorRegState extends State<MentorReg> {
                fontSize: 20.0,
              );
            }
-          }
+          }*/
         } ,
         builder:(context,state)
         {
@@ -361,12 +361,13 @@ class _MentorRegState extends State<MentorReg> {
                                   if (_formkey.currentState!.validate())
                                   {
                                     RegisterCubit.get(context).mentorRegister(
-                                        fName: fNameController.text,
-                                        lName: lNameController.text,
-                                        email: emailController.text,
-                                        pNumber: pNumController.text,
-                                        password: passwordController.text,
-                                        cPassword: cPasswordController.text
+                                        fName: fNameController.text.trim(),
+                                        lName: lNameController.text.trim(),
+                                        email: emailController.text.trim(),
+                                        pNumber: pNumController.text.trim(),
+                                        password: passwordController.text.trim(),
+                                        cPassword: cPasswordController.text.trim(),
+                                        context: context
                                     );
 
                                   }
@@ -397,7 +398,7 @@ class _MentorRegState extends State<MentorReg> {
                 ),
               ));
         },
-      )
+      ),
     );
   }
 }
