@@ -27,12 +27,12 @@ class ConsultRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => RegisterCubit(),
+      create: (BuildContext context)=>RegisterCubit(),
       child: BlocConsumer<RegisterCubit,RegisterStates>
         (
         listener: (context,state)
         {
-          if(state is RegisterSuccessState)
+          /*if(state is RegisterSuccessState)
           {
             if(state.loginModel.success!)
             {
@@ -51,7 +51,7 @@ class ConsultRegister extends StatelessWidget {
                 fontSize: 20.0.sp,
               );
             }
-          }
+          }*/
         },
         builder: (context,state)
         {
@@ -302,13 +302,14 @@ class ConsultRegister extends StatelessWidget {
                             {
                               RegisterCubit.get(context).clientRegister
                                 (
-                                  fName: fNameController.text,
-                                  lName: lNameController.text,
-                                  userName: userNameController.text,
-                                  pNumber: pNumController.text,
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                  cPassword: cPasswordController.text
+                                  fName: fNameController.text.trim(),
+                                  lName: lNameController.text.trim(),
+                                  userName: userNameController.text.trim(),
+                                  pNumber: pNumController.text.trim(),
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text.trim(),
+                                  cPassword: cPasswordController.text.trim(),
+                                  context: context
                               );
 
                             }
@@ -338,8 +339,7 @@ class ConsultRegister extends StatelessWidget {
             ),
           );
         },
-      )
-
+      ),
     );
   }
 }

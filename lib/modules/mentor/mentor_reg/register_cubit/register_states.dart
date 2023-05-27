@@ -15,9 +15,9 @@ class RegisterSuccessState extends RegisterStates
 
 class RegisterErrorState extends RegisterStates
 {
-  final String error;
+  /*final String error;
 
-  RegisterErrorState(this.error);}
+  RegisterErrorState(this.error);*/}
 
 class RegisterObscureState extends RegisterStates{}
 
