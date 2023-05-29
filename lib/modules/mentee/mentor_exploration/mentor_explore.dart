@@ -63,38 +63,36 @@ class ExploreMentor extends StatelessWidget {
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height/80,),
                   Padding(padding: EdgeInsets.symmetric(horizontal: 10.0.r),
-                    child:Expanded(
-                      child: Container(
-                        height: 45.h,
-                        decoration: BoxDecoration(
-                          borderRadius:BorderRadius.circular(30.0.r),
-                          color: Colors.white,
-                        ),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.search),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30.r),
-                              borderSide: BorderSide(
-                                color: Colors.grey,
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30.r),
-                              borderSide: BorderSide(
-                                color: Colors.blue,),
-                            ),
-                            hintText: "Search",
-                            hintStyle: TextStyle(
+                    child:Container(
+                      height: 45,
+                      decoration: BoxDecoration(
+                        borderRadius:BorderRadius.circular(30.0.r),
+                        color: Colors.white,
+                      ),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(Icons.search),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.r),
+                            borderSide: BorderSide(
                               color: Colors.grey,
                             ),
                           ),
-                          onTap: ()
-                          {
-                            Navigator.pushReplacement(context,
-                                MaterialPageRoute(builder: (context) => SearchScreen()));;
-                          },
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.r),
+                            borderSide: BorderSide(
+                              color: Colors.blue,),
+                          ),
+                          hintText: "Search",
+                          hintStyle: TextStyle(
+                            color: Colors.grey,
+                          ),
                         ),
+                        onTap: ()
+                        {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) => SearchScreen()));;
+                        },
                       ),
                     ) ,
                   ),

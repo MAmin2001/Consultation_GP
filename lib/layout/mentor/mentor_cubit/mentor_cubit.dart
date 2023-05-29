@@ -7,6 +7,7 @@ import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmente
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
 import 'package:consultation_gp/modules/mentor/incvoices/invoices.dart';
 import 'package:consultation_gp/modules/mentor/mentor_profile/mentor_profile.dart';
+import 'package:consultation_gp/modules/mentor/mentor_setting/mentor_settings.dart';
 import 'package:consultation_gp/modules/mentor/reviews/view_reviews.dart';
 import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:consultation_gp/network/remote/dio_helper.dart';
@@ -37,8 +38,9 @@ List<Widget> screens=
   Dashboard(),
   Appointments(),
   Invoice(),
-  Reviews(),
+
   MentorProfile(),
+  MentorSettings(),
 ];
 
 
