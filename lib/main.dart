@@ -110,7 +110,7 @@ import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
             builder: (BuildContext context,child)
             {
               return MaterialApp(
-                home: ChatScreen(),
+                home: AvailableTimes(),
                 debugShowCheckedModeBanner: false,
               );
             },

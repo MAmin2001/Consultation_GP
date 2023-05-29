@@ -852,8 +852,6 @@ class MentorProfile extends StatelessWidget {
                                     )
                                   ],
                                 ),
-
-
                               ],
                             ),
                           ),

@@ -3,6 +3,7 @@ import 'package:consultation_gp/layout/mentee/mentee_layout/mentee_layout.dart';
 import 'package:consultation_gp/layout/mentor/mentor_layout/mentor_layout.dart';
 import 'package:consultation_gp/models/login/login_model.dart';
 import 'package:consultation_gp/modules/mentor/mentor_reg/register_cubit/register_states.dart';
+import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
 import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:consultation_gp/network/remote/dio_helper.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +61,7 @@ void mentorRegister({
     CacheHelper.saveData(key: 'token', value: loginModel.token.toString());
     emit(RegisterSuccessState(loginModel));
     Navigator.of(context).pushReplacement(MaterialPageRoute(
-      builder: (context) => MentorLayout(),));
+      builder: (context) => ProfileSetup(),));
     print(loginModel.message);
     print(loginModel.token);
   }
