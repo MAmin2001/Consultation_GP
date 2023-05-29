@@ -30,29 +30,7 @@ class ConsultRegister extends StatelessWidget {
       create: (BuildContext context)=>RegisterCubit(),
       child: BlocConsumer<RegisterCubit,RegisterStates>
         (
-        listener: (context,state)
-        {
-          /*if(state is RegisterSuccessState)
-          {
-            if(state.loginModel.success!)
-            {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => ConsultLogin()));
-            }
-            else
-            {
-              Fluttertoast.showToast(
-                msg: state.loginModel.message!,
-                toastLength: Toast.LENGTH_LONG,
-                gravity: ToastGravity.BOTTOM,
-                timeInSecForIosWeb: 10,
-                backgroundColor: Colors.red,
-                textColor: Colors.white,
-                fontSize: 20.0.sp,
-              );
-            }
-          }*/
-        },
+        listener: (context,state) {},
         builder: (context,state)
         {
           return Scaffold(

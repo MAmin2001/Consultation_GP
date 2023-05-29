@@ -1,3 +1,4 @@
+import 'package:consultation_gp/modules/mentee/booking_steps/appointment_cost/appointment_cost.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/booking_details/booking_details.dart';
 import 'package:consultation_gp/modules/mentor/incvoices/invoice_view.dart';
 import 'package:flutter/material.dart';
@@ -274,7 +275,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                       ),
                     ),
                     onTap: (){ Navigator.pushReplacement(context,
-                        MaterialPageRoute(builder: (context) => BookingDetails()));},
+                        MaterialPageRoute(builder: (context) => AppointmentCost()));},
                   ),
                   Spacer(),
                   InkWell(

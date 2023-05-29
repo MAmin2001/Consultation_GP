@@ -144,7 +144,7 @@ void genderDropDown({
     var response=
     await DioHelper.postData(
         url: '/mentor/profile',
-        tkn: token,
+        tkn: CacheHelper.sharedPreferences.getString('token'),
         data:
         {
           'job_title': jobTitle,
