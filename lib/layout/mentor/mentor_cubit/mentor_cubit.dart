@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:consultation_gp/layout/mentor/mentor_cubit/mentor_states.dart';
 import 'package:consultation_gp/layout/mentor/mentor_layout/mentor_layout.dart';
+import 'package:consultation_gp/models/mentor/get_times.dart';
+import 'package:consultation_gp/models/mentor/mentor_times_model/mentor_times_model.dart';
 import 'package:consultation_gp/models/mentor/profile_setup_model/profile_setup_model.dart';
 import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmentes.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
@@ -43,10 +45,10 @@ List<Widget> screens=
 
 
 bool isPinned=false;
-int i =0;
+int iPin =0;
 void changePinIcon(int index)
 {
-  i=index;
+  iPin=index;
   isPinned=!isPinned;
 emit((ChangePinIconState()));
 }
@@ -230,6 +232,167 @@ void genderDropDown({
       zipCode: CacheHelper.sharedPreferences.getString( 'zip_code').toString()
     );
      print(mentorProfileModel.toString());
+  }
+
+
+  int iDay =0 ;
+  String selectedDay='su';
+  void daySelection(int index)
+  {
+    iDay=index;
+    print(iDay);
+    switch(iDay) {
+      case 0: { selectedDay='su'; }
+      break;
+
+      case 1: {  selectedDay='mo' ;}
+      break;
+
+      case 2: {  selectedDay = 'tu' ;}
+      break;
+
+      case 3: {  selectedDay = 'we' ;}
+      break;
+
+      case 4: {  selectedDay = 'th' ;}
+      break;
+
+      case 5: {  selectedDay = 'fr'; }
+      break;
+
+      case 6: {  selectedDay = 'sa' ;}
+      break;
+    }
+    print(selectedDay);
+    emit(DaySelectionState());
+  }
+
+
+
+
+  late MentorStoreTimesModel storeTimesModel;
+  void storeTimes({
+    required String from,
+    required String to,
+
+  })
+  {
+    emit(StoreTimesLoadingState());
+
+    DioHelper.postData(
+        url: '/mentor/times',
+        tkn: CacheHelper.sharedPreferences.getString('token'),
+        data:
+        {
+          'day': selectedDay.toString().trim(),
+          'from':from,
+          'to':to
+
+        }).then((value)
+    {
+      storeTimesModel=MentorStoreTimesModel.fromJson(value.data);
+      if(storeTimesModel.success==true)
+      {
+        emit(StoreTimesSuccessState(storeTimesModel));
+        Fluttertoast.showToast(
+            msg: storeTimesModel.message!,
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 5,
+            backgroundColor: Colors.green,
+            textColor: Colors.white,
+            fontSize: 16.0
+        );
+        print(storeTimesModel.message);
+        print(storeTimesModel.data!.day);
+      }
+      else if(storeTimesModel.success==false) {
+        emit(StoreTimesErrorState());
+        Fluttertoast.showToast(
+            msg: storeTimesModel.message!,
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 5,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0
+        );
+        print(storeTimesModel.message);
+      }
+    });
+    /*.catchError((error)
+  {
+    emit(LoginErrorState(*//*error*//*));
+    print(error.toString());
+  });*/
+  }
+
+ MentorGetTimesModel? getTimesModel;
+  void getTimes()async
+  {
+    emit(GetTimesLoadingState());
+    await DioHelper.getData(
+      url: '/mentor/times',
+      tkn: CacheHelper.sharedPreferences.getString('token'),
+    ).then((value)
+    {
+      getTimesModel=MentorGetTimesModel.fromJson(value.data);
+      print(getTimesModel!.data![0].day);
+      emit(GetTimesSuccessState(getTimesModel!));
+    }).catchError((error)
+    {
+      emit(GetTimesErrorState());
+      print(error.toString());
+    });
+
+  }
+
+  void deleteTime({
+    required String timeID,
+  })
+  {
+    emit(DeleteTimesLoadingState());
+
+    DioHelper.postData(
+        url: '/mentor/times$timeID',
+        tkn: CacheHelper.sharedPreferences.getString('token'),
+        ).then((value)
+    {
+      getTimesModel=MentorGetTimesModel.fromJson(value.data);
+      if(getTimesModel!.success==true)
+      {
+        emit(DeleteTimesSuccessState(getTimesModel!));
+        Fluttertoast.showToast(
+            msg: getTimesModel!.message!,
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 5,
+            backgroundColor: Colors.green,
+            textColor: Colors.white,
+            fontSize: 16.0
+        );
+        print(getTimesModel!.message);
+        print(getTimesModel!.success);
+      }
+      else if(storeTimesModel.success==false) {
+        emit(DeleteTimesErrorState());
+        Fluttertoast.showToast(
+            msg: getTimesModel!.message!,
+            toastLength: Toast.LENGTH_LONG,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 5,
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            fontSize: 16.0
+        );
+        print(getTimesModel!.message);
+      }
+    });
+    /*.catchError((error)
+  {
+    emit(LoginErrorState(*//*error*//*));
+    print(error.toString());
+  });*/
   }
 
 

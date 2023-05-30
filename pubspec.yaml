@@ -44,6 +44,7 @@ dependencies:
   grouped_list:
   intl:
   provider:
+  conditional_builder_null_safety: ^0.0.6
   flutter_form_builder:
   json_serializable:
   url_launcher:

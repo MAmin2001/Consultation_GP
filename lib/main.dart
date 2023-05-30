@@ -25,6 +25,7 @@ import 'package:consultation_gp/modules/mentee/view_mentor_profile/view_mentor_p
 import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmentes.dart';
 import 'package:consultation_gp/modules/mentor/create_plan/create_plan.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
+import 'package:consultation_gp/modules/mentor/dashboard/refuse%20message/refuse_message.dart';
   import 'package:consultation_gp/modules/mentor/incvoices/invoice_view.dart';
   import 'package:consultation_gp/modules/mentor/incvoices/invoices.dart';
   import 'package:consultation_gp/modules/mentor/mentor_profile/mentor_profile.dart';
@@ -83,6 +84,7 @@ import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
       startScreen:startScreen,
     ));
 
+
   }
 
   class MyApp extends StatelessWidget {
@@ -97,7 +99,7 @@ import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
       return MultiBlocProvider(
         providers: [
           BlocProvider<MentorCubit>(
-          create: (BuildContext context)=> MentorCubit(),
+          create: (BuildContext context)=> MentorCubit()..getTimes(),
           ),
           BlocProvider<MenteeCubit>(
             create: (BuildContext context)=> MenteeCubit(),
@@ -110,7 +112,7 @@ import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
             builder: (BuildContext context,child)
             {
               return MaterialApp(
-                home: AvailableTimes(),
+                home: ScheduleTimings(),
                 debugShowCheckedModeBanner: false,
               );
             },
@@ -118,6 +120,8 @@ import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
       );
     }
   }
+
+
 
 
 
