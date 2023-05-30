@@ -141,7 +141,6 @@ class _PaymentInfoState extends State<PaymentInfo> {
                       ),
                     ),
                     onTap: (){
-                      successfulPaymentDialog(context: context);
                     },
                   ),
                 ],

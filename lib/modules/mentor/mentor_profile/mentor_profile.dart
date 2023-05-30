@@ -22,24 +22,24 @@ class MentorProfile extends StatelessWidget {
       builder: (context,state) {
         MentorCubit cubit= MentorCubit.get(context);
         return Scaffold(
-        body: SafeArea(
-          child: Stack(
-            children: [
-              Container(
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomLeft,
-                          colors: <Color>
-                          [
-                            Colors.blue,
-                            Colors.white10
-                          ],
-                          tileMode: TileMode.mirror
-                      )
-                  )
-              ),
-              SingleChildScrollView(
+        body: Stack(
+          children: [
+            Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomLeft,
+                        colors: <Color>
+                        [
+                          Colors.blue,
+                          Colors.white10
+                        ],
+                        tileMode: TileMode.mirror
+                    )
+                )
+            ),
+            SafeArea(
+              child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -1017,8 +1017,8 @@ class MentorProfile extends StatelessWidget {
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
       },
