@@ -114,7 +114,7 @@ import 'package:consultation_gp/modules/mentor/reviews/view_reviews.dart';
             builder: (BuildContext context,child)
             {
               return MaterialApp(
-                home: Dashboard(),
+                home: Reviews(),
                 debugShowCheckedModeBanner: false,
               );
             },

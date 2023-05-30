@@ -48,10 +48,7 @@ class _ScheduleTimingsState extends State<ScheduleTimings> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu,size: 33.0,),
-          onPressed: () {  },
-        ),
+
         title:  const Text(
           '            Schedule Timing',
           style: TextStyle(
