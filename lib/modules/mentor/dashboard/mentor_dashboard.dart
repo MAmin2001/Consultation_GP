@@ -311,7 +311,7 @@ class Dashboard extends StatelessWidget {
                                                   {
                                                     MentorCubit.get(context).changePinIcon(index);
                                                   },
-                                                  icon: MentorCubit.get(context).isPinned&&MentorCubit.get(context).i==index?Icon(Icons.push_pin_rounded,size: 22.0,color: Colors.blue,):Icon(Icons.push_pin_outlined,size: 22.0,color: Colors.grey,)
+                                                  icon: MentorCubit.get(context).isPinned&&MentorCubit.get(context).iPin==index?Icon(Icons.push_pin_rounded,size: 22.0,color: Colors.blue,):Icon(Icons.push_pin_outlined,size: 22.0,color: Colors.grey,)
                                               )
                                             ],
                                           ),

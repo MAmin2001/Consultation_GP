@@ -1,3 +1,4 @@
+import 'package:consultation_gp/modules/mentee/mentor_exploration/mentor_explore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -17,7 +18,7 @@ class SearchScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios,size: 28.0,),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>ExploreMentor()));
           },
         ),
         centerTitle: true,

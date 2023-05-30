@@ -17,7 +17,7 @@ class DioHelper
             if(statusCode == null){
               return false;
             }
-            if(statusCode == 422||statusCode==401){ // your http status code
+            if(statusCode == 422||statusCode==401||statusCode==404){ // your http status code
               return true;
             }else{
               return statusCode >= 200 && statusCode < 300;
@@ -33,9 +33,18 @@ class DioHelper
   static Future <Response> getData({
 
      required String url,
-     required  Map<String,dynamic> query
-})async
+       Map<String,dynamic>? query,
+     String? tkn
+
+  })async
   {
+    dio.options.headers=
+    {
+      'Content-Type':'application/json',
+      'Accept':'application/json',
+      'Authorization': 'Bearer $tkn'
+
+    };
     return await dio.get(url,queryParameters: query);
   }
 
@@ -44,7 +53,7 @@ class DioHelper
 
     required String url,
      Map<String,dynamic>? query,
-     required Map<String,dynamic> data,
+      Map<String,dynamic>? data,
      String? tkn
 
   })async
