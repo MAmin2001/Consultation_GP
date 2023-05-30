@@ -8,12 +8,9 @@ class Invoice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu,size: 33.0,),
-          onPressed: () {  },
-        ),
+        centerTitle: true,
         title:  const Text(
-          '                  Invoices',
+          'Invoices',
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 22.0

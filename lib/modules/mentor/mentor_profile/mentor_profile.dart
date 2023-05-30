@@ -22,37 +22,6 @@ class MentorProfile extends StatelessWidget {
       builder: (context,state) {
         MentorCubit cubit= MentorCubit.get(context);
         return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'Profile',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 22.0
-            ),
-          ),
-          centerTitle: true,
-          actions: [
-            TextButton(
-                onPressed: ()
-                {
-                  CacheHelper.sharedPreferences.remove('token').then((value) =>
-                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ConsultLogin()), (route) => false));
-                },
-                child: Text('Log out',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17.0
-                  ),
-                )
-            ),
-            IconButton(
-                onPressed: (){Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => ScheduleTimings()));
-                },
-                icon: Icon(Icons.access_time))
-          ],
-          elevation: 0.0,
-        ),
         body: Stack(
           children: [
             Container(
@@ -69,981 +38,983 @@ class MentorProfile extends StatelessWidget {
                     )
                 )
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20),
-                      child: Container(
-                        height: 170.0,
+            SafeArea(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Container(
+                          height: 170.0,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10.0)
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: CircleAvatar(
+                                      radius: 45.0,
+                                    ),
+                                  ),
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'Mahmoud Amin',
+                                        style: TextStyle(
+                                            fontSize: 20.0,
+                                            fontWeight: FontWeight.bold
+                                        ),
+                                      ),
+                                      SizedBox(height: 3,),
+                                      Text(
+                                        'Software Engineer',
+                                        style: TextStyle(
+                                            fontSize: 15.0,
+                                            color: Colors.black
+                                        ),
+                                      ),
+                                      SizedBox(height: 3,),
+                                      RatingBar(
+                                        initialRating: 0,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemSize: 25.0,
+                                        ratingWidget: RatingWidget(
+                                            full: const Icon(Icons.star, color: Colors.orange),
+                                            half: const Icon(
+                                              Icons.star_half,
+                                              color: Colors.orange,
+                                            ),
+                                            empty: const Icon(
+                                              Icons.star_outline,
+                                              color: Colors.orange,
+                                            )
+                                        ),
+                                        ignoreGestures: true,
+                                        onRatingUpdate: (double value) {  },
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                              SizedBox(height: 10.0,),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 12),
+                                child: Text(
+                                  'Complete your profile: 60%',
+                                  style: TextStyle(
+                                      color: Colors.grey[500]
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(12.0),
+                                child: LinearProgressIndicator(
+                                  backgroundColor: Colors.grey[300],
+                                  color: Colors.blue,
+                                  value: 0.6,
+                                  minHeight: 5.5,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        height: 500.0,
+                        width: double.infinity,
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Colors.grey[100],
                             borderRadius: BorderRadius.circular(10.0)
                         ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: CircleAvatar(
-                                    radius: 45.0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('Plans',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 23.0
+                                    ),
+                                  ),
+                                  ElevatedButton.icon(
+                                      label: Text("Edit"),
+                                      onPressed: (){
+                                        Navigator.of(context).push(MaterialPageRoute(
+                                            builder: (context) => CreatePlan()));
+                                      },
+                                      icon: Icon(Icons.edit)
+                                  )
+                                ],
+                              ),
+                              SizedBox(height: 10,),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: SingleChildScrollView(
+                                  scrollDirection: Axis.horizontal,
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width: 300,
+                                        height: 400,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(20.0)
+
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    textAlign: TextAlign.center,
+                                                    '\$240',
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 35.0,
+                                                        color: HexColor('41a980')
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 8,),
+                                                  Text(
+                                                    textAlign: TextAlign.end,
+                                                    '/month',
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 15.0
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(height: 30,),
+                                              Text(
+                                                'Standard Plan',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 25.0
+                                                ),
+                                              ),
+                                              SizedBox(height: 10,),
+                                              Text(
+                                                  style: TextStyle(
+                                                      fontSize: 20
+                                                  ),
+                                                  "Keep me on retainer as we meet sporadically, as your schedule allows it."),
+                                              Padding(
+                                                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                                                child: Container(
+                                                  height: 1.0,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.grey[300]
+                                                  ),
+                                                ),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Stack(
+                                                    children: [
+                                                      Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
+                                                      Padding(
+                                                        padding: const EdgeInsets.all(2.0),
+                                                        child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
+                                                      ),
+
+                                                    ],
+                                                  ),
+                                                  SizedBox(width:16 ,),
+                                                  Column(
+                                                    children: [
+                                                      Text('2 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                                      Text('Every session will be 1 hour',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(height: 10.0,),
+                                              Row(
+                                                children: [
+                                                  Stack(
+                                                    children: [
+                                                      Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
+                                                      Padding(
+                                                        padding: const EdgeInsets.all(2.0),
+                                                        child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
+                                                      ),
+
+                                                    ],
+                                                  ),
+                                                  SizedBox(width:16 ,),
+                                                  Text('Unlimited Q&A chat',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                                ],
+                                              ),
+                                              SizedBox(height: 10.0,),
+                                              Row(
+                                                children: [
+                                                  Stack(
+                                                    children: [
+                                                      Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
+                                                      Padding(
+                                                        padding: const EdgeInsets.all(2.0),
+                                                        child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
+                                                      ),
+
+                                                    ],
+                                                  ),
+                                                  SizedBox(width:16 ,),
+                                                  Text('Response time in 24 hours',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                                ],
+                                              ),
+
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      VerticalDivider(),
+                                      Container(
+                                        width: 300,
+                                        height: 400,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(20.0)
+
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    textAlign: TextAlign.center,
+                                                    '\$450',
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 35.0,
+                                                        color: HexColor('41a980')
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 8,),
+                                                  Text(
+                                                    textAlign: TextAlign.end,
+                                                    '/month',
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 15.0
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(height: 30,),
+                                              Text(
+                                                'ProPlan',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 25.0
+                                                ),
+                                              ),
+                                              SizedBox(height: 10,),
+                                              Text(
+                                                  style: TextStyle(
+                                                      fontSize: 20
+                                                  ),
+                                                  "Keep me on retainer as we meet sporadically, as your schedule allows it."),
+                                              Padding(
+                                                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                                                child: Container(
+                                                  height: 1.0,
+                                                  decoration: BoxDecoration(
+                                                      color: Colors.grey[300]
+                                                  ),
+                                                ),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Stack(
+                                                    children: [
+                                                      Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
+                                                      Padding(
+                                                        padding: const EdgeInsets.all(2.0),
+                                                        child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
+                                                      ),
+
+                                                    ],
+                                                  ),
+                                                  SizedBox(width:16 ,),
+                                                  Column(
+                                                    children: [
+                                                      Text('4 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                                      Text('Every session will be 1 hour',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
+                                                    ],
+                                                  ),                                            ],
+                                              ),
+                                              SizedBox(height: 10.0,),
+                                              Row(
+                                                children: [
+                                                  Stack(
+                                                    children: [
+                                                      Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
+                                                      Padding(
+                                                        padding: const EdgeInsets.all(2.0),
+                                                        child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
+                                                      ),
+
+                                                    ],
+                                                  ),
+                                                  SizedBox(width:16 ,),
+                                                  Text('Unlimited Q&A chat',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                                ],
+                                              ),
+                                              SizedBox(height: 10.0,),
+                                              Row(
+                                                children: [
+                                                  Stack(
+                                                    children: [
+                                                      Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
+                                                      Padding(
+                                                        padding: const EdgeInsets.all(2.0),
+                                                        child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
+                                                      ),
+
+                                                    ],
+                                                  ),
+                                                  SizedBox(width:16 ,),
+                                                  Text('Response time in 12 hours',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
+                                                ],
+                                              ),
+
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      VerticalDivider(),
+                                      Container(
+                                        width: 300,
+                                        height: 400,
+                                        decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius: BorderRadius.circular(20.0)
+
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              Row(
+                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    textAlign: TextAlign.center,
+                                                    '\$200',
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 35.0,
+                                                        color: HexColor('41a980')
+                                                    ),
+                                                  ),
+                                                  SizedBox(width: 8,),
+                                                  Text(
+                                                    textAlign: TextAlign.end,
+                                                    '/session',
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 15.0
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              SizedBox(height: 30,),
+
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Per Session Plan',
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 25.0
+                                                    ),
+                                                  ),
+                                                  Text('Every session will be 1 hour',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
+                                                ],
+                                              ),
+                                              SizedBox(height: 10,),
+                                              Text(
+                                                  style: TextStyle(
+                                                      fontSize: 20
+                                                  ),
+                                                  "Keep me on retainer as we meet sporadically, as your schedule allows it."),
+
+
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                Column(
-                                  children: [
-                                    Text(
-                                      'Mahmoud Amin',
-                                      style: TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight: FontWeight.bold
-                                      ),
-                                    ),
-                                    SizedBox(height: 3,),
-                                    Text(
-                                      'Software Engineer',
-                                      style: TextStyle(
-                                          fontSize: 15.0,
-                                          color: Colors.black
-                                      ),
-                                    ),
-                                    SizedBox(height: 3,),
-                                    RatingBar(
-                                      initialRating: 0,
-                                      direction: Axis.horizontal,
-                                      allowHalfRating: true,
-                                      itemCount: 5,
-                                      itemSize: 25.0,
-                                      ratingWidget: RatingWidget(
-                                          full: const Icon(Icons.star, color: Colors.orange),
-                                          half: const Icon(
-                                            Icons.star_half,
-                                            color: Colors.orange,
-                                          ),
-                                          empty: const Icon(
-                                            Icons.star_outline,
-                                            color: Colors.orange,
-                                          )
-                                      ),
-                                      ignoreGestures: true,
-                                      onRatingUpdate: (double value) {  },
-                                    ),
-                                  ],
-                                )
-                              ],
+                              )
+
+
+                            ],
+                          ),
+                        ),
+
+                      ),
+                      SizedBox(height: 20.0,),
+                      Stack(
+                        children: [
+                          Container(
+                            height: 155.0,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10.0)
                             ),
-                            SizedBox(height: 10.0,),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 12),
-                              child: Text(
-                                'Complete your profile: 60%',
-                                style: TextStyle(
-                                    color: Colors.grey[500]
-                                ),
+                          ),
+                          Container(
+                            height: 150.0,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10.0)
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('About Me',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 23.0
+                                    ),
+                                  ),
+                                  SizedBox(height: 7.0,),
+                                  Text(cubit.mentorProfileModel!.bio!,
+                                    maxLines: 5,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 17.0,
+                                    ),
+
+                                  )
+                                ],
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(12.0),
-                              child: LinearProgressIndicator(
-                                backgroundColor: Colors.grey[300],
-                                color: Colors.blue,
-                                value: 0.6,
-                                minHeight: 5.5,
+
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20.0,),
+                      Stack(
+                        children: [
+                          Container(
+                            height: 175.0,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10.0)
+                            ),
+                          ),
+                          Container(
+                            height: 170.0,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10.0)
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Personal Details',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 23.0
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 22.0,
+                                        backgroundColor: HexColor('#a7d5fe'),
+                                        child:Icon(
+                                          Icons.person_outline_rounded,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      SizedBox(width: 20.0,),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Gender',
+                                            style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          SizedBox(height: 3.0,),
+                                          Text(cubit.mentorProfileModel!.gender!,
+                                            style: TextStyle(
+                                              fontSize: 17.0,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Container(
+                                    height: 1.0,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[300]
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 22.0,
+                                        backgroundColor: HexColor('#a0aaff'),
+                                        child:Icon(
+                                          Icons.calendar_today_outlined,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      SizedBox(width: 20.0,),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Date Of birth',
+                                            style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          SizedBox(height: 3.0,),
+                                          Text(cubit.mentorProfileModel!.birthDate!,
+                                            style: TextStyle(
+                                              fontSize: 17.0,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+
+
+                                ],
                               ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 500.0,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: Colors.grey[100],
-                          borderRadius: BorderRadius.circular(10.0)
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text('Plans',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 23.0
-                                  ),
-                                ),
-                                ElevatedButton.icon(
-                                    label: Text("Edit"),
-                                    onPressed: (){
-                                      Navigator.of(context).push(MaterialPageRoute(
-                                          builder: (context) => CreatePlan()));
-                                    },
-                                    icon: Icon(Icons.edit)
-                                )
-                              ],
                             ),
-                            SizedBox(height: 10,),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      width: 300,
-                                      height: 400,
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.circular(20.0)
 
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(16.0),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  textAlign: TextAlign.center,
-                                                  '\$240',
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 35.0,
-                                                      color: HexColor('41a980')
-                                                  ),
-                                                ),
-                                                SizedBox(width: 8,),
-                                                Text(
-                                                  textAlign: TextAlign.end,
-                                                  '/month',
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 15.0
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 30,),
-                                            Text(
-                                              'Standard Plan',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 25.0
-                                              ),
-                                            ),
-                                            SizedBox(height: 10,),
-                                            Text(
-                                                style: TextStyle(
-                                                    fontSize: 20
-                                                ),
-                                                "Keep me on retainer as we meet sporadically, as your schedule allows it."),
-                                            Padding(
-                                              padding: const EdgeInsets.symmetric(vertical: 16.0),
-                                              child: Container(
-                                                height: 1.0,
-                                                decoration: BoxDecoration(
-                                                    color: Colors.grey[300]
-                                                ),
-                                              ),
-                                            ),
-                                            Row(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
-                                                    Padding(
-                                                      padding: const EdgeInsets.all(2.0),
-                                                      child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
-                                                    ),
-
-                                                  ],
-                                                ),
-                                                SizedBox(width:16 ,),
-                                                Column(
-                                                  children: [
-                                                    Text('2 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                                                    Text('Every session will be 1 hour',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 10.0,),
-                                            Row(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
-                                                    Padding(
-                                                      padding: const EdgeInsets.all(2.0),
-                                                      child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
-                                                    ),
-
-                                                  ],
-                                                ),
-                                                SizedBox(width:16 ,),
-                                                Text('Unlimited Q&A chat',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                                              ],
-                                            ),
-                                            SizedBox(height: 10.0,),
-                                            Row(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
-                                                    Padding(
-                                                      padding: const EdgeInsets.all(2.0),
-                                                      child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
-                                                    ),
-
-                                                  ],
-                                                ),
-                                                SizedBox(width:16 ,),
-                                                Text('Response time in 24 hours',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                                              ],
-                                            ),
-
-                                          ],
-                                        ),
-                                      ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20.0,),
+                      Stack(
+                        children: [
+                          Container(
+                            height: 155.0,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10.0)
+                            ),
+                          ),
+                          Container(
+                            height: 150.0,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10.0)
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Skills',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 23.0
                                     ),
-                                    VerticalDivider(),
-                                    Container(
-                                      width: 300,
-                                      height: 400,
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.circular(20.0)
-
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(16.0),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  textAlign: TextAlign.center,
-                                                  '\$450',
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 35.0,
-                                                      color: HexColor('41a980')
-                                                  ),
-                                                ),
-                                                SizedBox(width: 8,),
-                                                Text(
-                                                  textAlign: TextAlign.end,
-                                                  '/month',
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 15.0
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 30,),
-                                            Text(
-                                              'ProPlan',
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 25.0
-                                              ),
-                                            ),
-                                            SizedBox(height: 10,),
-                                            Text(
-                                                style: TextStyle(
-                                                    fontSize: 20
-                                                ),
-                                                "Keep me on retainer as we meet sporadically, as your schedule allows it."),
-                                            Padding(
-                                              padding: const EdgeInsets.symmetric(vertical: 16.0),
-                                              child: Container(
-                                                height: 1.0,
-                                                decoration: BoxDecoration(
-                                                    color: Colors.grey[300]
-                                                ),
-                                              ),
-                                            ),
-                                            Row(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
-                                                    Padding(
-                                                      padding: const EdgeInsets.all(2.0),
-                                                      child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
-                                                    ),
-
-                                                  ],
-                                                ),
-                                                SizedBox(width:16 ,),
-                                                Column(
-                                                  children: [
-                                                    Text('4 Sessions per month',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                                                    Text('Every session will be 1 hour',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
-                                                  ],
-                                                ),                                            ],
-                                            ),
-                                            SizedBox(height: 10.0,),
-                                            Row(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
-                                                    Padding(
-                                                      padding: const EdgeInsets.all(2.0),
-                                                      child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
-                                                    ),
-
-                                                  ],
-                                                ),
-                                                SizedBox(width:16 ,),
-                                                Text('Unlimited Q&A chat',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                                              ],
-                                            ),
-                                            SizedBox(height: 10.0,),
-                                            Row(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Icon(Icons.circle,size: 33.0,color: HexColor('e1f4ed'),),
-                                                    Padding(
-                                                      padding: const EdgeInsets.all(2.0),
-                                                      child: Icon(Icons.check,color: HexColor('7cb69e'),size: 27.0,),
-                                                    ),
-
-                                                  ],
-                                                ),
-                                                SizedBox(width:16 ,),
-                                                Text('Response time in 12 hours',style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),),
-                                              ],
-                                            ),
-
-                                          ],
-                                        ),
-                                      ),
+                                  ),
+                                  SizedBox(height: 7.0,),
+                                  Text( cubit.mentorProfileModel!.skills!,
+                                    maxLines: 4,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 17.0,
                                     ),
-                                    VerticalDivider(),
-                                    Container(
-                                      width: 300,
-                                      height: 400,
-                                      decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius: BorderRadius.circular(20.0)
 
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(16.0),
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                Text(
-                                                  textAlign: TextAlign.center,
-                                                  '\$200',
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 35.0,
-                                                      color: HexColor('41a980')
-                                                  ),
-                                                ),
-                                                SizedBox(width: 8,),
-                                                Text(
-                                                  textAlign: TextAlign.end,
-                                                  '/session',
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 15.0
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(height: 30,),
-
-                                            Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  'Per Session Plan',
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 25.0
-                                                  ),
-                                                ),
-                                                Text('Every session will be 1 hour',style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.w500, color: Colors.grey),),
-                                              ],
-                                            ),
-                                            SizedBox(height: 10,),
-                                            Text(
-                                                style: TextStyle(
-                                                    fontSize: 20
-                                                ),
-                                                "Keep me on retainer as we meet sporadically, as your schedule allows it."),
-
-
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                  )
+                                ],
                               ),
-                            )
+                            ),
 
-
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-
-                    ),
-                    SizedBox(height: 20.0,),
-                    Stack(
-                      children: [
-                        Container(
-                          height: 155.0,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.grey[200],
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                        ),
-                        Container(
-                          height: 150.0,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('About Me',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 23.0
-                                  ),
-                                ),
-                                SizedBox(height: 7.0,),
-                                Text(cubit.mentorProfileModel!.bio!,
-                                  maxLines: 5,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 17.0,
-                                  ),
-
-                                )
-                              ],
+                      SizedBox(height: 20.0,),
+                      Stack(
+                        children: [
+                          Container(
+                            height: 245.0,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10.0)
                             ),
                           ),
-
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20.0,),
-                    Stack(
-                      children: [
-                        Container(
-                          height: 175.0,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.grey[200],
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                        ),
-                        Container(
-                          height: 170.0,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Personal Details',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 23.0
-                                  ),
-                                ),
-                                SizedBox(height: 10.0,),
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 22.0,
-                                      backgroundColor: HexColor('#a7d5fe'),
-                                      child:Icon(
-                                        Icons.person_outline_rounded,
-                                        color: Colors.white,
-                                      ),
+                          Container(
+                            height: 240.0,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10.0)
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Qualification',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 23.0
                                     ),
-                                    SizedBox(width: 20.0,),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Gender',
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold
-                                          ),
-                                        ),
-                                        SizedBox(height: 3.0,),
-                                        Text(cubit.mentorProfileModel!.gender!,
-                                          style: TextStyle(
-                                            fontSize: 17.0,
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                SizedBox(height: 10.0,),
-                                Container(
-                                  height: 1.0,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      color: Colors.grey[300]
                                   ),
-                                ),
-                                SizedBox(height: 10.0,),
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 22.0,
-                                      backgroundColor: HexColor('#a0aaff'),
-                                      child:Icon(
-                                        Icons.calendar_today_outlined,
-                                        color: Colors.white,
+                                  SizedBox(height: 10.0,),
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 22.0,
+                                        backgroundColor: HexColor('#e77751'),
+                                        child:Icon(
+                                          Icons.maps_home_work_outlined,
+                                          color: Colors.white,
+                                        ),
                                       ),
+                                      SizedBox(width: 20.0,),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Company',
+                                            style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          SizedBox(height: 3.0,),
+                                          Text(cubit.mentorProfileModel!.company!,
+                                            style: TextStyle(
+                                              fontSize: 17.0,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Container(
+                                    height: 1.0,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[300]
                                     ),
-                                    SizedBox(width: 20.0,),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Date Of birth',
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold
-                                          ),
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 22.0,
+                                        backgroundColor: HexColor('#fbcd14'),
+                                        child:Icon(
+                                          Icons.star_outline_outlined,
+                                          color: Colors.white,
                                         ),
-                                        SizedBox(height: 3.0,),
-                                        Text(cubit.mentorProfileModel!.birthDate!,
-                                          style: TextStyle(
-                                            fontSize: 17.0,
+                                      ),
+                                      SizedBox(width: 20.0,),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Experience',
+                                            style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold
+                                            ),
                                           ),
+                                          SizedBox(height: 3.0,),
+                                          Text(cubit.mentorProfileModel!.experience!,
+                                            style: TextStyle(
+                                              fontSize: 17.0,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Container(
+                                    height: 1.0,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[300]
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 22.0,
+                                        backgroundColor: HexColor('#e0a144'),
+                                        child:Icon(
+                                          Icons.numbers_outlined,
+                                          color: Colors.white,
                                         ),
-                                      ],
-                                    )
-                                  ],
-                                ),
+                                      ),
+                                      SizedBox(width: 20.0,),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Years Of Experience',
+                                            style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          SizedBox(height: 3.0,),
+                                          Text('${cubit.mentorProfileModel!.yearsOfExperience!} years',
+                                            style: TextStyle(
+                                              fontSize: 17.0,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
 
-
-                              ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20.0,),
+                      Stack(
+                        children: [
+                          Container(
+                            height: 310.0,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10.0)
                             ),
                           ),
-
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20.0,),
-                    Stack(
-                      children: [
-                        Container(
-                          height: 155.0,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.grey[200],
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                        ),
-                        Container(
-                          height: 150.0,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Skills',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 23.0
+                          Container(
+                            height: 305.0,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10.0)
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Location',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 23.0
+                                    ),
                                   ),
-                                ),
-                                SizedBox(height: 7.0,),
-                                Text( cubit.mentorProfileModel!.skills!,
-                                  maxLines: 4,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 17.0,
+                                  SizedBox(height: 10.0,),
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 22.0,
+                                        backgroundColor: HexColor('#8660d2'),
+                                        child:Icon(
+                                          Icons.flag,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      SizedBox(width: 20.0,),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Country',
+                                            style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          SizedBox(height: 3.0,),
+                                          Text(cubit.mentorProfileModel!.country!,
+                                            style: TextStyle(
+                                              fontSize: 17.0,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
                                   ),
-
-                                )
-                              ],
+                                  SizedBox(height: 10.0,),
+                                  Container(
+                                    height: 1.0,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[300]
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 22.0,
+                                        backgroundColor: HexColor('#ff9cab'),
+                                        child:Icon(
+                                          Icons.location_city_outlined,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      SizedBox(width: 20.0,),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('City',
+                                            style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          SizedBox(height: 3.0,),
+                                          Text(cubit.mentorProfileModel!.city!,
+                                            style: TextStyle(
+                                              fontSize: 17.0,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Container(
+                                    height: 1.0,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[300]
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 22.0,
+                                        backgroundColor: HexColor('#a8b7cd'),
+                                        child:Icon(
+                                          Icons.location_on_outlined,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      SizedBox(width: 20.0,),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Address',
+                                            style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          SizedBox(height: 3.0,),
+                                          Text(cubit.mentorProfileModel!.address!,
+                                            style: TextStyle(
+                                              fontSize: 17.0,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Container(
+                                    height: 1.0,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        color: Colors.grey[300]
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.0,),
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 22.0,
+                                        backgroundColor: HexColor('#326172'),
+                                        child:Icon(
+                                          Icons.markunread_mailbox_outlined,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      SizedBox(width: 20.0,),
+                                      Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Zip Code',
+                                            style: TextStyle(
+                                                fontSize: 20.0,
+                                                fontWeight: FontWeight.bold
+                                            ),
+                                          ),
+                                          SizedBox(height: 3.0,),
+                                          Text(cubit.mentorProfileModel!.zipCode!,
+                                            style: TextStyle(
+                                              fontSize: 17.0,
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20.0,),
-                    Stack(
-                      children: [
-                        Container(
-                          height: 245.0,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.grey[200],
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                        ),
-                        Container(
-                          height: 240.0,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Qualification',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 23.0
-                                  ),
-                                ),
-                                SizedBox(height: 10.0,),
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 22.0,
-                                      backgroundColor: HexColor('#e77751'),
-                                      child:Icon(
-                                        Icons.maps_home_work_outlined,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(width: 20.0,),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Company',
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold
-                                          ),
-                                        ),
-                                        SizedBox(height: 3.0,),
-                                        Text(cubit.mentorProfileModel!.company!,
-                                          style: TextStyle(
-                                            fontSize: 17.0,
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                SizedBox(height: 10.0,),
-                                Container(
-                                  height: 1.0,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      color: Colors.grey[300]
-                                  ),
-                                ),
-                                SizedBox(height: 10.0,),
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 22.0,
-                                      backgroundColor: HexColor('#fbcd14'),
-                                      child:Icon(
-                                        Icons.star_outline_outlined,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(width: 20.0,),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Experience',
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold
-                                          ),
-                                        ),
-                                        SizedBox(height: 3.0,),
-                                        Text(cubit.mentorProfileModel!.experience!,
-                                          style: TextStyle(
-                                            fontSize: 17.0,
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                SizedBox(height: 10.0,),
-                                Container(
-                                  height: 1.0,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      color: Colors.grey[300]
-                                  ),
-                                ),
-                                SizedBox(height: 10.0,),
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 22.0,
-                                      backgroundColor: HexColor('#e0a144'),
-                                      child:Icon(
-                                        Icons.numbers_outlined,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(width: 20.0,),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Years Of Experience',
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold
-                                          ),
-                                        ),
-                                        SizedBox(height: 3.0,),
-                                        Text('${cubit.mentorProfileModel!.yearsOfExperience!} years',
-                                          style: TextStyle(
-                                            fontSize: 17.0,
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20.0,),
-                    Stack(
-                      children: [
-                        Container(
-                          height: 310.0,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.grey[200],
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                        ),
-                        Container(
-                          height: 305.0,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0)
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text('Location',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 23.0
-                                  ),
-                                ),
-                                SizedBox(height: 10.0,),
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 22.0,
-                                      backgroundColor: HexColor('#8660d2'),
-                                      child:Icon(
-                                        Icons.flag,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(width: 20.0,),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Country',
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold
-                                          ),
-                                        ),
-                                        SizedBox(height: 3.0,),
-                                        Text(cubit.mentorProfileModel!.country!,
-                                          style: TextStyle(
-                                            fontSize: 17.0,
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                SizedBox(height: 10.0,),
-                                Container(
-                                  height: 1.0,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      color: Colors.grey[300]
-                                  ),
-                                ),
-                                SizedBox(height: 10.0,),
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 22.0,
-                                      backgroundColor: HexColor('#ff9cab'),
-                                      child:Icon(
-                                        Icons.location_city_outlined,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(width: 20.0,),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('City',
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold
-                                          ),
-                                        ),
-                                        SizedBox(height: 3.0,),
-                                        Text(cubit.mentorProfileModel!.city!,
-                                          style: TextStyle(
-                                            fontSize: 17.0,
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                SizedBox(height: 10.0,),
-                                Container(
-                                  height: 1.0,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      color: Colors.grey[300]
-                                  ),
-                                ),
-                                SizedBox(height: 10.0,),
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 22.0,
-                                      backgroundColor: HexColor('#a8b7cd'),
-                                      child:Icon(
-                                        Icons.location_on_outlined,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(width: 20.0,),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Address',
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold
-                                          ),
-                                        ),
-                                        SizedBox(height: 3.0,),
-                                        Text(cubit.mentorProfileModel!.address!,
-                                          style: TextStyle(
-                                            fontSize: 17.0,
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                                SizedBox(height: 10.0,),
-                                Container(
-                                  height: 1.0,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      color: Colors.grey[300]
-                                  ),
-                                ),
-                                SizedBox(height: 10.0,),
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 22.0,
-                                      backgroundColor: HexColor('#326172'),
-                                      child:Icon(
-                                        Icons.markunread_mailbox_outlined,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    SizedBox(width: 20.0,),
-                                    Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Zip Code',
-                                          style: TextStyle(
-                                              fontSize: 20.0,
-                                              fontWeight: FontWeight.bold
-                                          ),
-                                        ),
-                                        SizedBox(height: 3.0,),
-                                        Text(cubit.mentorProfileModel!.zipCode!,
-                                          style: TextStyle(
-                                            fontSize: 17.0,
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 20.0,),
-                  ],
+                        ],
+                      ),
+                      SizedBox(height: 20.0,),
+                    ],
+                  ),
                 ),
               ),
             ),

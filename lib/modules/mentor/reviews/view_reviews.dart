@@ -8,13 +8,10 @@ class Reviews extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu,size: 33.0,),
-          onPressed: () {  },
-        ),
+      appBar: AppBar(centerTitle: true,
+
         title:  const Text(
-          '                   Reviews',
+          'Reviews',
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 22.0
@@ -134,14 +131,14 @@ class Reviews extends StatelessWidget {
                       child: Stack(
                         children: [
                           Container(
-                            height: 235,
+                            height: 215,
                             decoration: BoxDecoration(
                                 color: Colors.grey[200],
                                 borderRadius: BorderRadius.circular(10.0)
                             ),
                           ),
                           Container(
-                            height: 230.0,
+                            height: 210.0,
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(10.0)
@@ -190,63 +187,7 @@ class Reviews extends StatelessWidget {
 
                                   ),
                                 ),
-                                SizedBox(height: 10,),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Text(
-                                        'Recommend ?',
-                                        style: TextStyle(
-                                            color: Colors.grey[600]
-                                        ),
-                                      ),
-                                      SizedBox(width: 10.0,),
-                                      Container(
-                                        width: 85.0,
-                                        height: 40.0,
-                                        child: ElevatedButton.icon(
-                                          onPressed: (){},
-                                          icon: Icon(Icons.thumb_up_alt_outlined,
-                                              color: Colors.grey[700]
-                                          ),
-                                          label: Text('Yes',
-                                            style: TextStyle(
-                                                color: Colors.grey[700]
-                                            ),
-                                          ),
-                                          style: ElevatedButton.styleFrom(
-                                            primary: Colors.white,
-                                            elevation: 0.0,
 
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 5.0,),
-                                      Container(
-                                        width: 85.0,
-                                        height: 40.0,
-                                        child: ElevatedButton.icon(
-                                          onPressed: (){},
-                                          icon: Icon(Icons.thumb_down_alt_outlined,
-                                              color: Colors.grey[700]
-                                          ),
-                                          label: Text('No',
-                                            style: TextStyle(
-                                                color: Colors.grey[700]
-                                            ),
-                                          ),
-                                          style: ElevatedButton.styleFrom(
-                                            primary: Colors.white,
-                                            elevation: 0.0,
-
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                )
                               ],
                             ),
                           ),

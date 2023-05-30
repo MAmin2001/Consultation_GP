@@ -17,12 +17,9 @@ class Dashboard extends StatelessWidget {
       listener: (context,state){},
       builder: (context,state)=>Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.menu,size: 33.0,),
-            onPressed: () {  },
-          ),
+          centerTitle: true,
           title:  const Text(
-            '                Dashboard',
+            'Dashboard',
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 22.0
