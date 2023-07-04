@@ -33,7 +33,7 @@ class ExploreMentor extends StatelessWidget {
           SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Padding(
-              padding:  EdgeInsets.all(20.0.r),
+              padding:  EdgeInsets.all(30.0.r),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -213,10 +213,10 @@ class ExploreMentor extends StatelessWidget {
                   ),
                   //SizedBox(height: MediaQuery.of(context).size.height/10,),
                   SizedBox(
-                      height: 260.0,
+                      height: 280.0,
                     child: ListView.separated(
                      scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.all(5.0),
+                      padding: EdgeInsets.all(5.0.r),
                       shrinkWrap: true,
                        itemBuilder:(context,index)
                        {

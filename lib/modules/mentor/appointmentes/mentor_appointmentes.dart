@@ -40,12 +40,12 @@ class Appointments extends StatelessWidget {
           ),
           SingleChildScrollView(
             child: Padding(
-              padding:  EdgeInsets.all(20.0.r),
+              padding:  EdgeInsets.symmetric(horizontal: 30.0.r, vertical: 20.0.r),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 200,
+                    height: 200.h,
                     child: Column(
                       children: [
                         Container(

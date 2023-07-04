@@ -41,7 +41,7 @@ class AllMentorsScreen extends StatelessWidget {
               )
           ),
           Padding(
-            padding:  EdgeInsets.all(20.0.r),
+            padding:  EdgeInsets.all(30.0.r),
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: ListView.separated(
@@ -111,7 +111,7 @@ class AllMentorsScreen extends StatelessWidget {
                                             direction: Axis.horizontal,
                                             allowHalfRating: true,
                                             itemCount: 5,
-                                            itemSize: 25.0,
+                                            itemSize: 25.0.r,
                                             ratingWidget: RatingWidget(
                                                 full: const Icon(Icons.star, color: Colors.amber),
                                                 half: const Icon(

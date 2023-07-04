@@ -42,13 +42,13 @@ class ScheduleTimings extends StatelessWidget {
         (
         condition: MentorCubit.get(context).getTimesModel !=null,
         builder: (context)=>Scaffold(
-          appBar: AppBar(
+          appBar: AppBar(centerTitle: true,
             leading: IconButton(
               icon: Icon(Icons.menu,size: 33.0,),
               onPressed: () {  },
             ),
-            title:  const Text(
-              '            Schedule Timing',
+            title:   Text(
+              'Schedule Timing',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22.0
@@ -73,7 +73,7 @@ class ScheduleTimings extends StatelessWidget {
                   )
               ),
               Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding:  EdgeInsets.symmetric(horizontal: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

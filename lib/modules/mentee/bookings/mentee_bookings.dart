@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MenteeBookings extends StatelessWidget {
   const MenteeBookings({Key? key}) : super(key: key);
@@ -23,11 +24,11 @@ class MenteeBookings extends StatelessWidget {
               )
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 20.0,right: 20.0,top: 40.0,bottom: 20.0),
+            padding:  EdgeInsets.only(left: 30.0.w,right: 30.0.w,top: 40.0.h,bottom: 20.0.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children:[
-                Text('Bookings',style: TextStyle(fontSize: 24.0,fontWeight: FontWeight.bold,color: Colors.white),),
+                Text('Bookings',style: TextStyle(fontSize: 24.0.sp,fontWeight: FontWeight.bold,color: Colors.white),),
                 ListView.separated(
                   physics: NeverScrollableScrollPhysics(),///مرلول على مرلول ميرولش
                   shrinkWrap: true,
@@ -38,19 +39,19 @@ class MenteeBookings extends StatelessWidget {
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey[300]!,
-                                spreadRadius: 3,
-                                blurRadius: 4,
+                                spreadRadius: 3.r,
+                                blurRadius: 4.r,
                                 offset: Offset(0, 3),
                               ),
                               BoxShadow(
                                 color: Colors.grey[300]!,
-                                spreadRadius: 3,
-                                blurRadius: 4,
+                                spreadRadius: 3.r,
+                                blurRadius: 4.r,
                                 offset: Offset(0, 3),
                               ),
                             ],
                             color: Colors.white,
-                            borderRadius: BorderRadius.circular(10.0)
+                            borderRadius: BorderRadius.circular(10.0.r)
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,9 +59,9 @@ class MenteeBookings extends StatelessWidget {
                             Row(
                               children: [
                                 Padding(
-                                  padding:  EdgeInsets.all(10.0),
+                                  padding:  EdgeInsets.all(10.0.r),
                                   child: CircleAvatar(
-                                    radius: 40.0,
+                                    radius: 40.0.r,
                                   ),
                                 ),
                                 Column(
@@ -69,7 +70,7 @@ class MenteeBookings extends StatelessWidget {
                                     Text(
                                       'Hassona',
                                       style: TextStyle(
-                                          fontSize: 15.0,
+                                          fontSize: 15.0.sp,
                                           fontWeight: FontWeight.bold
                                       ),
                                     ),
@@ -77,18 +78,18 @@ class MenteeBookings extends StatelessWidget {
                                     Text(
                                       'Software Engineer',
                                       style: TextStyle(
-                                          fontSize: 13.0,
+                                          fontSize: 13.0.sp,
                                           color: Colors.black
                                       ),
                                     ),
                                     SizedBox(height: MediaQuery.of(context).size.height/300,),
                                   ],
                                 ),
-                                SizedBox(width: 90,),
+                                SizedBox(width: 90.w,),
                                 InkWell(
                                   child: CircleAvatar(
-                                    radius: 15.0,
-                                    child:Icon(Icons.chat,color: Colors.white,size: 20.0,),
+                                    radius: 15.0.r,
+                                    child:Icon(Icons.chat,color: Colors.white,size: 20.0.r,),
                                   ),
                                 )
                               ],
@@ -96,29 +97,29 @@ class MenteeBookings extends StatelessWidget {
 
                             Center(
                               child: Padding(
-                                padding:  EdgeInsets.only(bottom: 15.0),
+                                padding:  EdgeInsets.only(bottom: 15.0.h),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
                                       Icons.date_range,
-                                      size: 20.0,
+                                      size: 20.0.r,
                                       color: Colors.grey,
                                     ),
                                     SizedBox(width: MediaQuery.of(context).size.width/150,),
-                                    Text('10/2/2022',style: TextStyle(fontSize: 16.0),),
+                                    Text('10/2/2022',style: TextStyle(fontSize: 16.0.sp),),
                                     SizedBox(width: MediaQuery.of(context).size.width/30,),
                                     Container(
-                                      width: 170.0,
-                                      height: 30.0,
+                                      width: 170.0.w,
+                                      height: 30.0.h,
                                       decoration: BoxDecoration(
                                           color: Colors.orange,
-                                          borderRadius: BorderRadius.circular(10.0)
+                                          borderRadius: BorderRadius.circular(10.0.r)
                                       ),
                                       child: Center(child: Text(
                                         '09:00 AM  -  10:00AM',
                                         style: TextStyle(
-                                          fontSize: 13.0,
+                                          fontSize: 13.0.sp,
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,
                                         ),

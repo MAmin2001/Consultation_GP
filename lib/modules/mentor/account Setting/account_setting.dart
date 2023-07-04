@@ -1,6 +1,7 @@
 import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AccountSettingsScreen extends StatefulWidget {
   @override
@@ -33,7 +34,7 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
       builder: (BuildContext context) {
         return SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.symmetric(horizontal: 16.0.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -41,31 +42,31 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
                   'Change Password',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
+                    fontSize: 18.0.sp,
                   ),
                 ),
-                SizedBox(height: 16.0),
+                SizedBox(height: 16.0.h),
                 TextField(
                   controller: _oldPasswordController,
                   decoration: InputDecoration(
                     labelText: 'Old Password',
                   ),
                 ),
-                SizedBox(height: 10.0),
+                SizedBox(height: 10.0.h),
                 TextField(
                   controller: _newPasswordController,
                   decoration: InputDecoration(
                     labelText: 'New Password',
                   ),
                 ),
-                SizedBox(height: 10.0),
+                SizedBox(height: 10.0.h),
                 TextField(
                   controller: _confirmPasswordController,
                   decoration: InputDecoration(
                     labelText: 'Confirm Password',
                   ),
                 ),
-                SizedBox(height: 16.0),
+                SizedBox(height: 16.0.h),
                 ElevatedButton(
                   onPressed: () {
                     // Perform password change logic here
@@ -110,56 +111,58 @@ class _AccountSettingsScreenState extends State<AccountSettingsScreen> {
               )
           ),
           Container(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                TextField(
-                  controller: _emailController,
-                  decoration: InputDecoration(
-                    labelText: 'Email',
+            padding: EdgeInsets.symmetric(horizontal: 28.0.w, vertical: 16.h),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  TextField(
+                    controller: _emailController,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                    ),
                   ),
-                ),
-                SizedBox(height: 10.0),
-                TextField(
-                  controller: _phoneNumberController,
-                  decoration: InputDecoration(
-                    labelText: 'Phone Number',
+                  SizedBox(height: 10.0.h),
+                  TextField(
+                    controller: _phoneNumberController,
+                    decoration: InputDecoration(
+                      labelText: 'Phone Number',
+                    ),
                   ),
-                ),
-                SizedBox(height: 20.0),
-                ElevatedButton.icon(
-                  onPressed: _showPasswordChangeBottomSheet,
-                  icon: Icon(Icons.lock),
-                  label: Text('Reset Password'),
-                ),
-                SizedBox(height: 20.0),
-                ElevatedButton(
-                  onPressed: () {
-                    // Perform logout logic here
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('Logged out successfully'),
-                      ),
-                    );
-                    CacheHelper.sharedPreferences.remove('token').then((value) =>
-                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ConsultLogin()), (route) => false));
-                  },
-                  child: Text('Logout'),
-                ),
-                SizedBox(height: 10.0),
-                ElevatedButton(
-                  onPressed: () {
-                    // Perform save changes logic here
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('Changes saved successfully'),
-                      ),
-                    );
-                  },
-                  child: Text('Save Changes'),
-                ),
-              ],
+                  SizedBox(height: 20.0.h),
+                  ElevatedButton.icon(
+                    onPressed: _showPasswordChangeBottomSheet,
+                    icon: Icon(Icons.lock),
+                    label: Text('Reset Password'),
+                  ),
+                  SizedBox(height: 20.0.h),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Perform logout logic here
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Logged out successfully'),
+                        ),
+                      );
+                      CacheHelper.sharedPreferences.remove('token').then((value) =>
+                          Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>ConsultLogin()), (route) => false));
+                    },
+                    child: Text('Logout'),
+                  ),
+                  SizedBox(height: 10.0.h),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Perform save changes logic here
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Changes saved successfully'),
+                        ),
+                      );
+                    },
+                    child: Text('Save Changes'),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

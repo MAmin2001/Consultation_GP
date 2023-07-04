@@ -4,6 +4,7 @@ import 'package:consultation_gp/modules/mentor/mentor_reg/register_cubit/registe
 import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class MentorReg extends StatefulWidget {
@@ -57,11 +58,14 @@ class _MentorRegState extends State<MentorReg> {
         {
           return Scaffold(
               appBar: AppBar(
-                title: Text("Mentor Register"),
+                title: Padding(
+                  padding:  EdgeInsets.only(left: 12.0.r),
+                  child: Text("Mentor Register"),
+                ),
               ),
               body: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(17.0),
+                  padding:  EdgeInsets.all(30.0.r),
                   child: Form(
                     key: _formkey,
                     child: Column(
@@ -69,7 +73,7 @@ class _MentorRegState extends State<MentorReg> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding:  EdgeInsets.all(8.0.r),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -96,12 +100,12 @@ class _MentorRegState extends State<MentorReg> {
                           Text(
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 19,
+                                fontSize: 19.sp,
                                 color: Colors.grey,
                               ),
                               "First Name: "),
                           SizedBox(
-                            height: 5,
+                            height: 5.h,
                           ),
                           TextFormField(
                             validator: (value) {
@@ -114,7 +118,7 @@ class _MentorRegState extends State<MentorReg> {
                             controller: fNameController,
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(10.r),
                                 borderSide: BorderSide(
                                   color: Colors.grey,
                                 ),
@@ -130,12 +134,12 @@ class _MentorRegState extends State<MentorReg> {
                           Text(
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 19,
+                                fontSize: 19.sp,
                                 color: Colors.grey,
                               ),
                               "Last Name: "),
                           SizedBox(
-                            height: 5,
+                            height: 5.h,
                           ),
                           TextFormField(
                             validator: (value) {
@@ -148,7 +152,7 @@ class _MentorRegState extends State<MentorReg> {
                             controller: lNameController,
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(10.r),
                                 borderSide: BorderSide(
                                   color: Colors.grey,
                                 ),
@@ -164,13 +168,13 @@ class _MentorRegState extends State<MentorReg> {
                           Text(
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 19,
+                                fontSize: 19.sp,
                                 color: Colors.grey,
                               ),
                               "E-mail: "
                           ),
                           SizedBox(
-                            height: 5,
+                            height: 5.h,
                           ),
                           TextFormField(
                             validator: (value)
@@ -188,7 +192,7 @@ class _MentorRegState extends State<MentorReg> {
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(10.r),
                                 borderSide: BorderSide(
                                   color: Colors.grey,
                                 ),
@@ -204,12 +208,12 @@ class _MentorRegState extends State<MentorReg> {
                           Text(
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 19,
+                                fontSize: 19.sp,
                                 color: Colors.grey,
                               ),
                               "Phone Number: "),
                           SizedBox(
-                            height: 5,
+                            height: 5.h,
                           ),
                           TextFormField(
                             validator: (value)
@@ -224,7 +228,7 @@ class _MentorRegState extends State<MentorReg> {
                             keyboardType: TextInputType.phone,
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(10.r),
                                 borderSide: BorderSide(
                                   color: Colors.grey,
                                 ),
@@ -240,12 +244,12 @@ class _MentorRegState extends State<MentorReg> {
                           Text(
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 19,
+                                fontSize: 19.sp,
                                 color: Colors.grey,
                               ),
                               "Password: "),
                           SizedBox(
-                            height: 5,
+                            height: 5.h,
                           ),
                           TextFormField(
                             validator: (value)
@@ -269,7 +273,7 @@ class _MentorRegState extends State<MentorReg> {
                                     .visibility),
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(10.r),
                                 borderSide: BorderSide(
                                   color: Colors.grey,
                                 ),
@@ -285,12 +289,12 @@ class _MentorRegState extends State<MentorReg> {
                           Text(
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 19,
+                                fontSize: 19.sp,
                                 color: Colors.grey,
                               ),
                               "Confirm Password: "),
                           SizedBox(
-                            height: 5,
+                            height: 5.h,
                           ),
                           TextFormField(
                             validator: (value)
@@ -316,7 +320,7 @@ class _MentorRegState extends State<MentorReg> {
                                     .visibility),
                               ),
                               enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(10.r),
                                 borderSide: BorderSide(
                                   color: Colors.grey,
                                 ),
@@ -330,7 +334,7 @@ class _MentorRegState extends State<MentorReg> {
                             ),
                           ),
                           SizedBox(
-                            height: 15,
+                            height: 15.h,
                           ),
 /*              Text(
                       style: TextStyle(
@@ -379,7 +383,7 @@ class _MentorRegState extends State<MentorReg> {
                               children: [
                                 Text("Already have an account?"),
                                 SizedBox(
-                                  width: 0,
+                                  width: 0.w,
                                 ),
                                 TextButton(
                                     onPressed: ()
@@ -388,7 +392,7 @@ class _MentorRegState extends State<MentorReg> {
                                         builder: (context) => ConsultLogin(),
                                       ));
                                     },
-                                    child: Text("Sign In",style: TextStyle(fontSize: 15.0),))
+                                    child: Text("Sign In",style: TextStyle(fontSize: 15.0.sp),))
                               ],
                             ),
                           )
