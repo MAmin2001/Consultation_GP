@@ -9,20 +9,24 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Dashboard extends StatelessWidget {
+
   const Dashboard({Key? key}) : super(key: key);
 
+
   @override
+
   Widget build(BuildContext context) {
     return BlocConsumer<MentorCubit,ConsultStates>(
       listener: (context,state){},
       builder: (context,state)=>Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title:  const Text(
+          title:   Text(
             'Dashboard',
             style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 22.0
+                fontSize: 22.0.sp
+
             ),
           ),
           elevation: 0.0,
@@ -47,326 +51,204 @@ class Dashboard extends StatelessWidget {
             ),
             SingleChildScrollView(
               scrollDirection: Axis.vertical,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children:
-                [
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
-                      height: 170.0,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10.0)
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: CircleAvatar(
-                                  radius: 45.0,
-                                ),
-                              ),
-                              Column(
-                                children: [
-                                  Text(
-                                    'Mahmoud Amin',
-                                    style: TextStyle(
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold
-                                    ),
-                                  ),
-                                  SizedBox(height: 3,),
-                                  Text(
-                                    'Software Engineer',
-                                    style: TextStyle(
-                                        fontSize: 15.0,
-                                        color: Colors.black
-                                    ),
-                                  ),
-                                  SizedBox(height: 3,),
-                                  RatingBar(
-                                    initialRating: 0,
-                                    direction: Axis.horizontal,
-                                    allowHalfRating: true,
-                                    itemCount: 5,
-                                    itemSize: 25.0,
-                                    ratingWidget: RatingWidget(
-                                        full: const Icon(Icons.star, color: Colors.orange),
-                                        half: const Icon(
-                                          Icons.star_half,
-                                          color: Colors.orange,
-                                        ),
-                                        empty: const Icon(
-                                          Icons.star_outline,
-                                          color: Colors.orange,
-                                        )
-                                    ),
-                                    ignoreGestures: true,
-                                    onRatingUpdate: (double value) {  },
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                          SizedBox(height: 10.0,),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 12),
-                            child: Text(
-                              'Complete your profile: 60%',
-                              style: TextStyle(
-                                  color: Colors.grey[500]
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: LinearProgressIndicator(
-                              backgroundColor: Colors.grey[300],
-                              color: Colors.blue,
-                              value: 0.6,
-                              minHeight: 4.0,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child:
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            height: 120.0,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                color: HexColor('#dce8ff'),
-                                borderRadius: BorderRadius.circular(10.0)
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children:
-                              [
-                                Icon(
-                                  Icons.group,
-                                  size: 30.0,
-                                ),
-                                SizedBox(height: 5.0,),
-                                Text(
-                                  '60',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 25.0
-                                  ),
-                                ),
-                                SizedBox(height: 5.0,),
-
-                                Text('Members')
-                              ],
-                            ),
-                          ),
+              child: SafeArea(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children:
+                  [
+                    Padding(
+                      padding:  EdgeInsets.all(24.2.w),
+                      child: Container(
+                        height: 170.0.h,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10.0.r)
                         ),
-                        SizedBox(width: 9.0,),
-                        Expanded(
-                          child: Container(
-                            height: 120.0,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                color: HexColor('#fcf6d4'),
-                                borderRadius: BorderRadius.circular(10.0)
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children:
-                              [
-                                Icon(
-                                  Icons.date_range,
-                                  size: 30.0,
-                                ),
-                                SizedBox(height: 5.0,),
-                                Text(
-                                  '45',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 25.0
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Padding(
+                                  padding:  EdgeInsets.all(10.0.w),
+                                  child: CircleAvatar(
+                                    radius: 45.0.r,
                                   ),
                                 ),
-                                SizedBox(height: 5.0,),
-
-                                Text('Appointments')
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 9.0,),
-                        Expanded(
-                          child: Container(
-                            height: 120.0,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                color: HexColor('#fedde6'),
-                                borderRadius: BorderRadius.circular(10.0)
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children:
-                              [
-                                Icon(
-                                  Icons.account_balance_wallet,
-                                  size: 30.0,
-                                ),
-                                SizedBox(height: 5.0,),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                Column(
                                   children: [
                                     Text(
-                                      '\$',
+                                      'Mahmoud Amin',
                                       style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 25.0
+                                          fontSize: 20.0.sp,
+                                          fontWeight: FontWeight.bold
                                       ),
                                     ),
+                                    SizedBox(height: 3.h,),
                                     Text(
-                                      '400',
+                                      'Software Engineer',
                                       style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 25.0
+                                          fontSize: 15.0.sp,
+                                          color: Colors.black
                                       ),
                                     ),
-
-                                  ],
-                                ),
-                                SizedBox(height: 5.0,),
-                                Text('Total Earned')
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 20.0,),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Text(
-                      'Clients List',
-                      style: TextStyle(
-                          fontSize: 25.0,
-                          fontWeight: FontWeight.w400
-                      ),
-                    ),
-                  ),
-                  ListView.separated(
-                    physics: NeverScrollableScrollPhysics(),///مرلول على مرلول ميرولش
-                    shrinkWrap: true,
-                    itemBuilder: (context,index)=>Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Stack(
-                        children: [
-                          Container(
-                            height: 175,
-                            decoration: BoxDecoration(
-                                color: Colors.grey[200],
-                                borderRadius: BorderRadius.circular(10.0)
-                            ),
-                          ),
-                          Container(
-                            height: 170.0,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10.0)
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      CircleAvatar(
-                                        radius: 35.0,
-                                      ),
-                                      SizedBox(width: 10.0,),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Text(
-                                                'Hassanien',
-                                                style: TextStyle(
-                                                    fontSize: 17.0,
-                                                    fontWeight: FontWeight.bold
-                                                ),
-                                              ),
-                                              SizedBox(width:140.0 ),
-                                              IconButton(
-                                                  onPressed: ()
-                                                  {
-                                                    MentorCubit.get(context).changePinIcon(index);
-                                                  },
-                                                  icon: MentorCubit.get(context).isPinned&&MentorCubit.get(context).iPin==index?Icon(Icons.push_pin_rounded,size: 22.0,color: Colors.blue,):Icon(Icons.push_pin_outlined,size: 22.0,color: Colors.grey,)
-                                              )
-                                            ],
+                                    SizedBox(height: 3.h,),
+                                    RatingBar(
+                                      initialRating: 0,
+                                      direction: Axis.horizontal,
+                                      allowHalfRating: true,
+                                      itemCount: 5,
+                                      itemSize: 25.0,
+                                      ratingWidget: RatingWidget(
+                                          full: const Icon(Icons.star, color: Colors.orange),
+                                          half: const Icon(
+                                            Icons.star_half,
+                                            color: Colors.orange,
                                           ),
-                                          //SizedBox(height: 3,),
-                                          Text(
-                                            'amin@gmail.com',
-                                            style: TextStyle(
-                                                fontSize: 15.0,
-                                                color: Colors.black
-                                            ),
-                                          ),
-                                          SizedBox(height: 3,),
-                                          Row(
-                                            children:
-                                            [
-                                              Icon(
-                                                Icons.date_range,
-                                                size: 20.0,
-                                                color: Colors.grey,
-                                              ),
-                                              SizedBox(width: 2.0,),
-                                              Text('10/2/2022'),
-                                            ],
-                                          ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(height: 3,),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      IconButton(iconSize:42.0,  onPressed: (){}, icon:Icon(Icons.cancel,color:Colors.red,)),
-                                      IconButton(iconSize:42.0,  onPressed: (){}, icon:Icon(Icons.check_circle,color:Colors.green,)),
-                                      SizedBox(width: 70.0),
-                                      Container(
-                                          width: 100.0,
-                                          child:  ElevatedButton.icon(
-                                            onPressed: ()
-                                            {
-                                              Navigator.push(context, MaterialPageRoute(builder: (context)=>MenteeProfile()));
-                                            },
-                                            icon: Icon(Icons.remove_red_eye_rounded),
-                                            label: Text('View',
-                                              style: TextStyle(
-                                                  fontSize: 15.0
-                                              ),),
-                                            style: ElevatedButton.styleFrom(
-                                                primary: HexColor('#b6d0e7'),
-                                                elevation: 0.0
-                                            ),
+                                          empty: const Icon(
+                                            Icons.star_outline,
+                                            color: Colors.orange,
                                           )
                                       ),
+                                      ignoreGestures: true,
+                                      onRatingUpdate: (double value) {  },
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 10.0.h,),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 12),
+                              child: Text(
+                                'Complete your profile: 60%',
+                                style: TextStyle(
+                                    color: Colors.grey[500]
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: LinearProgressIndicator(
+                                backgroundColor: Colors.grey[300],
+                                color: Colors.blue,
+                                value: 0.6,
+                                minHeight: 4.0.h,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 25.0.w),
+                      child:
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: 120.0.h,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: HexColor('#dce8ff'),
+                                  borderRadius: BorderRadius.circular(10.0.r)
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children:
+                                [
+                                  Icon(
+                                    Icons.group,
+                                    size: 30.0,
+                                  ),
+                                  SizedBox(height: 5.0.h,),
+                                  Text(
+                                    '60',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25.0.sp
+                                    ),
+                                  ),
+                                  SizedBox(height: 5.0.h,),
+
+                                  Text('Members')
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 9.0.w,),
+                          Expanded(
+                            child: Container(
+                              height: 120.0.h,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: HexColor('#fcf6d4'),
+                                  borderRadius: BorderRadius.circular(10.0)
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children:
+                                [
+                                  Icon(
+                                    Icons.date_range,
+                                    size: 30.0,
+                                  ),
+                                  SizedBox(height: 5.0.h,),
+                                  Text(
+                                    '45',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 25.0.sp
+                                    ),
+                                  ),
+                                  SizedBox(height: 5.0.h,),
+
+                                  Text('Appointments')
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 9.0.w,),
+                          Expanded(
+                            child: Container(
+                              height: 120.0.h,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: HexColor('#fedde6'),
+                                  borderRadius: BorderRadius.circular(10.0.r)
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children:
+                                [
+                                  Icon(
+                                    Icons.account_balance_wallet,
+                                    size: 30.0,
+                                  ),
+                                  SizedBox(height: 5.0.h,),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        '\$',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 25.0.sp
+                                        ),
+                                      ),
+                                      Text(
+                                        '400',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 25.0.sp
+                                        ),
+                                      ),
+
                                     ],
-                                  )
+                                  ),
+                                  SizedBox(height: 5.0.h,),
+                                  Text('Total Earned')
                                 ],
                               ),
                             ),
@@ -374,12 +256,136 @@ class Dashboard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    separatorBuilder: (context,index)=>SizedBox(height: 5.0,),
-                    itemCount: 10,
+                    SizedBox(height: 20.0.h,),
+                    Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 25.w),
+                      child: Text(
+                        'Clients List',
+                        style: TextStyle(
+                            fontSize: 25.0.sp,
+                            fontWeight: FontWeight.w400
+                        ),
+                      ),
+                    ),
+                    ListView.separated(
+                      physics: NeverScrollableScrollPhysics(),///مرلول على مرلول ميرولش
+                      shrinkWrap: true,
+                      itemBuilder: (context,index)=>Padding(
+                        padding:  EdgeInsets.symmetric(horizontal: 18.0.w),
+                        child: Stack(
+                          children: [
+                            Container(
+                              height: 175.h,
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[200],
+                                  borderRadius: BorderRadius.circular(10.0.r)
+                              ),
+                            ),
+                            Container(
+                              height: 170.0.h,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10.0.r)
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        CircleAvatar(
+                                          radius: 35.0.r,
+                                        ),
+                                        SizedBox(width: 10.0.w,),
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  'Hassanien',
+                                                  style: TextStyle(
+                                                      fontSize: 17.0.sp,
+                                                      fontWeight: FontWeight.bold
+                                                  ),
+                                                ),
+                                                SizedBox(width:120.0.w ),
+                                                IconButton(
+                                                    onPressed: ()
+                                                    {
+                                                      MentorCubit.get(context).changePinIcon(index);
+                                                    },
+                                                    icon: MentorCubit.get(context).isPinned&&MentorCubit.get(context).iPin==index?Icon(Icons.push_pin_rounded,size: 22.0,color: Colors.blue,):Icon(Icons.push_pin_outlined,size: 22.0,color: Colors.grey,)
+                                                )
+                                              ],
+                                            ),
+                                            //SizedBox(height: 3,),
+                                            Text(
+                                              'amin@gmail.com',
+                                              style: TextStyle(
+                                                  fontSize: 15.0.sp,
+                                                  color: Colors.black
+                                              ),
+                                            ),
+                                            SizedBox(height: 3.h,),
+                                            Row(
+                                              children:
+                                              [
+                                                Icon(
+                                                  Icons.date_range,
+                                                  size: 20.0,
+                                                  color: Colors.grey,
+                                                ),
+                                                SizedBox(width: 2.0.w,),
+                                                Text('10/2/2022'),
+                                              ],
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(height: 3.h,),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        IconButton(iconSize:42.0,  onPressed: (){}, icon:Icon(Icons.cancel,color:Colors.red,)),
+                                        IconButton(iconSize:42.0,  onPressed: (){}, icon:Icon(Icons.check_circle,color:Colors.green,)),
+                                        SizedBox(width: 70.0.w),
+                                        Container(
+                                            width: 100.0.w,
+                                            child:  ElevatedButton.icon(
+                                              onPressed: ()
+                                              {
+                                                Navigator.push(context, MaterialPageRoute(builder: (context)=>MenteeProfile()));
+                                              },
+                                              icon: Icon(Icons.remove_red_eye_rounded),
+                                              label: Text('View',
+                                                style: TextStyle(
+                                                    fontSize: 15.0.sp
+                                                ),),
+                                              style: ElevatedButton.styleFrom(
+                                                  primary: HexColor('#b6d0e7'),
+                                                  elevation: 0.0
+                                              ),
+                                            )
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      separatorBuilder: (context,index)=>SizedBox(height: 5.0.h,),
+                      itemCount: 10,
 
-                  ),
+                    ),
 
-                ],
+                  ],
+                ),
               ),
             )
           ],
@@ -393,21 +399,21 @@ class Dashboard extends StatelessWidget {
 
 /// هتبعت هنا ال index بتاع الكارت وااول ما يدوس على الصح تقبله من خلال الاندكس وكذلك مع ال كانسل
 Widget clientRequestCard({required context})=> Padding(
-  padding: const EdgeInsets.all(20.0),
+  padding: EdgeInsets.symmetric(horizontal: 20.0.w),
   child: Stack(
     children: [
       Container(
-        height: 155,
+        height: 155.h,
         decoration: BoxDecoration(
             color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(10.0)
+            borderRadius: BorderRadius.circular(10.0.r)
         ),
       ),
       Container(
-        height: 150.0,
+        height: 150.0.h,
         decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(10.0)
+            borderRadius: BorderRadius.circular(10.0.r)
         ),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -418,28 +424,28 @@ Widget clientRequestCard({required context})=> Padding(
                 children: [
                   CircleAvatar(
 
-                    radius: 35.0,
+                    radius: 35.0.r,
                   ),
-                  SizedBox(width: 10.0,),
+                  SizedBox(width: 10.0.w,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Hassanien',
                         style: TextStyle(
-                            fontSize: 17.0,
+                            fontSize: 17.0.sp,
                             fontWeight: FontWeight.bold
                         ),
                       ),
-                      SizedBox(height: 3,),
+                      SizedBox(height: 3.h,),
                       Text(
                         'amin@gmail.com',
                         style: TextStyle(
-                            fontSize: 15.0,
+                            fontSize: 15.0.sp,
                             color: Colors.black
                         ),
                       ),
-                      SizedBox(height: 3,),
+                      SizedBox(height: 3.h,),
                       Row(
                         children:
                         [
@@ -448,7 +454,7 @@ Widget clientRequestCard({required context})=> Padding(
                             size: 20.0,
                             color: Colors.grey,
                           ),
-                          SizedBox(width: 2.0,),
+                          SizedBox(width: 2.0.w,),
                           Text('10/2/2022'),
                         ],
                       ),
@@ -462,12 +468,13 @@ Widget clientRequestCard({required context})=> Padding(
                   IconButton(iconSize:42.0,  onPressed: (){}, icon:Icon(Icons.check_circle,color:Colors.green,)),
 
                   IconButton(iconSize:42.0,  onPressed: (){
-                    cancelDialog(context: context);
+                    //canceldialog(context: context);
+                    //showDialog(context: context, builder: )
                   }, icon:Icon(Icons.cancel,color:Colors.red,)),
 
                   Container(
-                      width: 100.0,
-                      height: 37.0,
+                      width: 100.0.h,
+                      height: 37.0.w,
 
                       child:  Center(
                           child: ElevatedButton.icon(
@@ -478,7 +485,7 @@ Widget clientRequestCard({required context})=> Padding(
                             icon: Icon(Icons.flag),
                             label: Text('Pin',
                               style: TextStyle(
-                                  fontSize: 15.0
+                                  fontSize: 15.0.sp
                               ),),
                             style: ElevatedButton.styleFrom(
                                 primary:Colors.orange,
@@ -487,9 +494,9 @@ Widget clientRequestCard({required context})=> Padding(
                           )
                       )
                   ),
-                  SizedBox(width: 20.0),
+                  SizedBox(width: 20.0.w),
                   Container(
-                      width: 100.0,
+                      width: 100.0.w,
                       child:  ElevatedButton.icon(
                         onPressed: ()
                         {
@@ -498,7 +505,7 @@ Widget clientRequestCard({required context})=> Padding(
                         icon: Icon(Icons.remove_red_eye_rounded),
                         label: Text('View',
                           style: TextStyle(
-                              fontSize: 15.0
+                              fontSize: 15.0.sp
                           ),),
                         style: ElevatedButton.styleFrom(
                             primary: HexColor('#b6d0e7'),
@@ -528,7 +535,7 @@ Future<dynamic> cancelDialog({
 
       contentPadding: const EdgeInsets.all(0.0),
       content:  Container(
-        height: 300,
+        height: 300.h,
         padding: EdgeInsets.all(8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -556,10 +563,10 @@ Future<dynamic> cancelDialog({
               },
             ),
 
-            SizedBox(height: 20,),
+            SizedBox(height: 20.h,),
             Container(
-                width: 100.0,
-                height: 37.0,
+                width: 100.0.w,
+                height: 37.0.h,
 
                 child:  Center(
                     child: ElevatedButton.icon(
@@ -570,7 +577,7 @@ Future<dynamic> cancelDialog({
                       icon: Icon(Icons.send),
                       label: Text('Send',
                         style: TextStyle(
-                            fontSize: 15.0
+                            fontSize: 15.0.sp
                         ),),
                       style: ElevatedButton.styleFrom(
                           primary:Colors.blue,
@@ -586,5 +593,53 @@ Future<dynamic> cancelDialog({
   },
 );
 
-
+// Future<dynamic> canceldialog({
+//
+//   required context,
+//
+// }) => showDialog(
+//   context: context,
+//   builder: (context){
+//     return AlertDialog(
+//
+//       shape: RoundedRectangleBorder(
+//         borderRadius: BorderRadius.circular(12.0),
+//       ),
+//       contentPadding: const EdgeInsets.all(0.0),
+//       content: Container(
+//         height: 300,
+//         padding: EdgeInsets.all(10),
+//         child: Center(child: Column(
+//           mainAxisAlignment: MainAxisAlignment.spaceAround,
+//           children: [
+//             Text('Please, choose your refuse reason',
+//               style: TextStyle(
+//                   fontSize: 20.0,
+//                   fontWeight: FontWeight.bold
+//               ),),
+//             SizedBox(height: 20.0,),
+//             DropdownButton(
+//               isExpanded: false,
+//               hint: Text('selact a message'),
+//               items: [
+//                 "Sorry, i am busy",
+//                 "I can't help you with your problem",
+//                 "I can't help you with your problem",
+//                 "Sorry, i am busy",
+//               ].map((e) => DropdownMenuItem(child: Text("$e"),value: e,)).toList(),
+//               onChanged: (val){
+//                 setState(() {
+//                   selectedReason = val;
+//                 });
+//               },
+//               value: selectedReason,
+//               //menuMaxHeight: 60.0,
+//             ),
+//
+//           ],
+//         )),
+//       ),
+//     );
+//   },
+// );
 

@@ -10,12 +10,12 @@ class ForgotPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(  centerTitle: true,
         title: Center(child: Text("Forgot password ")),
       ),
       body: Center(
         child: Padding(
-          padding:  EdgeInsets.all(10.0.w),
+          padding:  EdgeInsets.all(28.0.w),
           child: Form(
             key: _formkey,
             child: Column(

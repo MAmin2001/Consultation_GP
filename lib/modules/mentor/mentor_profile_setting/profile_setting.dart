@@ -1,6 +1,7 @@
 import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 class ProfileSetting extends StatefulWidget {
@@ -29,7 +30,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
         title:  Text('Profile Setting',),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding:  EdgeInsets.all(30.0.r),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Form(
@@ -41,9 +42,9 @@ class _ProfileSettingState extends State<ProfileSetting> {
                 Center(
                   child: Stack(children: [
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                      width: 90,
-                      height: 90,
+                      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                      width: 90.w,
+                      height: 90.h,
                       child: CircleAvatar(
                         backgroundColor: Colors.blue,
                         child:
@@ -52,8 +53,8 @@ class _ProfileSettingState extends State<ProfileSetting> {
                           Icons.account_circle_rounded,
                           color: Colors.white,) :
                         Container(
-                          width: 90,
-                          height: 90,
+                          width: 90.w,
+                          height: 90.h,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
@@ -67,7 +68,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                   ]),
                 ),
                 SizedBox(
-                  width: 20,
+                  width: 20.w,
                 ),
                 Center(
                   child: ElevatedButton(
@@ -75,7 +76,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     child: Text("Upload Image"),
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 /*Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -114,13 +115,13 @@ class _ProfileSettingState extends State<ProfileSetting> {
                 Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: Colors.grey,
                     ),
                     "Date of birth: "
                         "${date.day}/${date.month}/${date.year}"),
                 SizedBox(
-                  height: 5,
+                  height: 5.h,
                 ),
                 Container(
                   width: double.infinity,
@@ -139,7 +140,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                       child: Text(
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 20,
+                            fontSize: 20.sp,
                           ),
                           "Select a date") ),
                 )
@@ -190,16 +191,16 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     ),
                   ),
                 ),*/
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: Colors.grey,
                     ),
                     "Job title: "),
                 SizedBox(
-                  height: 5,
+                  height: 5.h,
                 ),
                 TextFormField(
                   validator: (value) {
@@ -224,16 +225,16 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: Colors.grey,
                     ),
                     "Company: "),
                 SizedBox(
-                  height: 5,
+                  height: 5.h,
                 ),
                 TextFormField(
                   validator: (value) {
@@ -246,7 +247,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                   //onSaved: (value) => _firstname = value!,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                         color: Colors.grey,
                       ),
@@ -258,32 +259,32 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 Row(
                   children: [
                     Expanded(
                       child: Text(
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 19,
+                            fontSize: 19.sp,
                             color: Colors.grey,
                           ),
                           "Gender: "),
                     ),
-                    SizedBox(width: 20.0,),
+                    SizedBox(width: 20.0.w,),
                     Expanded(
                       child:  Text(
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 19,
+                            fontSize: 19.sp,
                             color: Colors.grey,
                           ),
                           "Category: "),
                     ),
-                    SizedBox(height: 5.0,),
+                    SizedBox(height: 5.0.h,),
                   ],
                 ),
-                SizedBox(width: 5.0,),
+                SizedBox(width: 5.0.w,),
                 Row(
                   children:
                   [
@@ -300,7 +301,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                         value: selectedGender,
                       ),
                     ),
-                    SizedBox(width: 20.0,),
+                    SizedBox(width: 20.0.w,),
                     Expanded(
                       child: DropdownButton(
                         isExpanded: true,
@@ -316,32 +317,32 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     ),
                   ],
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 Row(
                   children: [
                     Expanded(
                       child: Text(
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 19,
+                            fontSize: 19.sp,
                             color: Colors.grey,
                           ),
                           "Experience: "),
                     ),
-                    SizedBox(width: 20.0,),
+                    SizedBox(width: 20.0.w,),
                     Expanded(
                       child:  Text(
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 19,
+                            fontSize: 19.sp,
                             color: Colors.grey,
                           ),
                           "Years of Exp: "),
                     ),
-                    SizedBox(height: 5.0,),
+                    SizedBox(height: 5.0.h,),
                   ],
                 ),
-                SizedBox(width: 5.0,),
+                SizedBox(width: 5.0.h,),
                 Row(
                   children:
                   [
@@ -358,7 +359,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                         value: selectedSkills,
                       ),
                     ),
-                    SizedBox(width: 20.0,),
+                    SizedBox(width: 20.0.w,),
                     Expanded(
                       child: DropdownButton(
                         isExpanded: true,
@@ -375,16 +376,16 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     ),
                   ],
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: Colors.grey,
                     ),
                     "Skills: "),
                 SizedBox(
-                  height: 5,
+                  height: 5.h,
                 ),
                 TextFormField(
                   validator: (value) {
@@ -397,7 +398,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                   //onSaved: (value) => _firstname = value!,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                         color: Colors.grey,
                       ),
@@ -409,16 +410,16 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: Colors.grey,
                     ),
                     "Address: "),
                 SizedBox(
-                  height: 5,
+                  height: 5.h,
                 ),
                 TextFormField(
                   validator: (value) {
@@ -431,7 +432,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                   //onSaved: (value) => _firstname = value!,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                         color: Colors.grey,
                       ),
@@ -443,16 +444,16 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: Colors.grey,
                     ),
                     "Country: "),
                 SizedBox(
-                  height: 5,
+                  height: 5.h,
                 ),
                 TextFormField(
                   validator: (value) {
@@ -465,7 +466,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                   //onSaved: (value) => _firstname = value!,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                         color: Colors.grey,
                       ),
@@ -477,16 +478,16 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: Colors.grey,
                     ),
                     "City: "),
                 SizedBox(
-                  height: 5,
+                  height: 5.h,
                 ),
                 TextFormField(
                   validator: (value) {
@@ -499,7 +500,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                   //onSaved: (value) => _firstname = value!,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                         color: Colors.grey,
                       ),
@@ -511,16 +512,16 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: Colors.grey,
                     ),
                     "Zip code: "),
                 SizedBox(
-                  height: 5,
+                  height: 5.h,
                 ),
                 TextFormField(
                   validator: (value) {
@@ -533,7 +534,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                   //onSaved: (value) => _firstname = value!,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                         color: Colors.grey,
                       ),
@@ -545,16 +546,16 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 Text(
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 19,
+                      fontSize: 19.sp,
                       color: Colors.grey,
                     ),
                     "Bio: "),
                 SizedBox(
-                  height: 5,
+                  height: 5.h,
                 ),
                 TextFormField(
                   maxLines: 5,
@@ -568,7 +569,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                   //onSaved: (value) => _firstname = value!,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                         color: Colors.grey,
                       ),
@@ -580,11 +581,11 @@ class _ProfileSettingState extends State<ProfileSetting> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 Center(
                   child: Container(
-                    height: 50.0,
-                    width: 100.0,
+                    height: 50.0.h,
+                    width: 100.0.w,
                     child: ElevatedButton(
                       onPressed: ()
                       {
@@ -595,7 +596,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
                       },
                       child: Text("Submit",
                         style:TextStyle(
-                            fontSize: 20.0
+                            fontSize: 20.0.sp
                         )
                         ,),
                     ),

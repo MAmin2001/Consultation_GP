@@ -3,6 +3,7 @@ import 'package:consultation_gp/modules/mentee/booking_steps/booking_details/boo
 import 'package:consultation_gp/modules/mentee/booking_steps/payment_details/payment_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hex_color/flutter_hex_color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppointmentCost extends StatelessWidget {
   const AppointmentCost({Key? key}) : super(key: key);
@@ -11,116 +12,118 @@ class AppointmentCost extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 40.0,left: 20.0,right: 20.0,bottom: 40.0),
+        padding:  EdgeInsets.only(top: 40.0.h,left: 30.0.w,right: 30.0.w,bottom: 40.0.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
                 Column(
                   children: [
                     CircleAvatar(
-                      radius: 14.0,
+                      radius: 14.0.r,
                       backgroundColor: HexColor('60CD6A'),
-                      child: Icon(Icons.check_circle_outline_rounded,size: 25,color: Colors.white,),
+                      child: Icon(Icons.check_circle_outline_rounded,size: 25.r,color: Colors.white,),
 
                     ),
-                    SizedBox(height: 5,),
-                    Text('Appointment',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A')),)
+                    SizedBox(height: 5.h,),
+
+                    Text('Appointment',style: TextStyle(fontSize: 14.0.sp,fontWeight: FontWeight.bold,color: HexColor('60CD6A')),)
                   ],
                 ),
-                SizedBox(width:5.0 ,),
+                SizedBox(width:2.0.w ,),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0),
+                  padding:  EdgeInsets.only(bottom: 20.0.h),
                   child: Container(
-                    height: 3.0,
-                    width: 40.0,
+                    height: 3.0.h,
+                    width: 30.0.w,
                     color:HexColor('60CD6A'),
                   ),
                 ),
                 Column(
                   children: [
                     CircleAvatar(
-                      radius: 14.0,
+                      radius: 14.0.r,
                       backgroundColor:HexColor('60CD6A'),
-                      child: Icon(Icons.check_circle_outline_rounded,size: 25,color: Colors.white,),
+                      child: Icon(Icons.check_circle_outline_rounded,size: 25.r,color: Colors.white,),
                     ),
-                    SizedBox(height: 5,),
-                    Text('Details',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
+                    SizedBox(height: 5.h,),
+                    Text('Details',style: TextStyle(fontSize: 14.0.sp,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
                   ],
                 ),
-                SizedBox(width:5.0 ,),
+                SizedBox(width:2.0.w ,),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0),
+                  padding:  EdgeInsets.only(bottom: 20.0.h),
                   child: Container(
-                    height: 3.0,
-                    width: 46.0,
+                    height: 3.0.h,
+                    width: 30.0.w,
                     color:HexColor('60CD6A'),
                   ),
                 ),
-                SizedBox(width:5.0 ,),
+                SizedBox(width:3.0.w ,),
                 Column(
                   children: [
                     CircleAvatar(
-                      radius: 14.0,
+                      radius: 14.0.r,
                       backgroundColor:HexColor('60CD6A'),
                     ),
-                    SizedBox(height: 5,),
-                    Text('Cost',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
+                    SizedBox(height: 5.h,),
+                    Text('Cost',style: TextStyle(fontSize: 14.0.sp,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
                   ],
                 ),
-                SizedBox(width:5.0 ,),
+                SizedBox(width:3.0.w ,),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0),
+                  padding:  EdgeInsets.only(bottom: 20.0.w),
                   child: Container(
-                    height: 3.0,
-                    width: 46.0,
+                    height: 3.0.h,
+                    width: 30.0.w,
                     color: Colors.grey[300],
                   ),
                 ),
                 Column(
                   children: [
                     CircleAvatar(
-                      radius: 14.0,
+                      radius: 14.0.r,
                       backgroundColor: Colors.grey[300],
 
                     ),
-                    SizedBox(height: 5,),
-                    Text('Payment',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold)),
+                    SizedBox(height: 5.h,),
+                    Text('Payment',style: TextStyle(fontSize: 14.0.sp,fontWeight: FontWeight.bold)),
                   ],
                 ),
 
               ],
             ),
-            SizedBox(height:40.0),
+            SizedBox(height:40.0.h),
             Text('Booking Summery',
               style: TextStyle(
-                  fontSize: 18.0,
+                  fontSize: 18.0.sp,
                   color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20.0,),
+            SizedBox(height: 20.0.h,),
             costInfoItem(title: 'Date', value: '15 may 2023'),
             costInfoItem(title: 'Time', value: '10:00 Am'),
             costInfoItem(title: 'Consulting Fee', value: '\$80'),
-            Divider(height: 1.5, color: Colors.grey,),
+            Divider(height: 1.5.h, color: Colors.grey,),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20.0),
+              padding:  EdgeInsets.symmetric(vertical: 20.0.h),
               child:   Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Total',
                     style: TextStyle(
-                        fontSize: 22.0,
+                        fontSize: 22.0.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.bold
                     ),
                   ),
                   Text('80\$',
                     style: TextStyle(
-                        fontSize: 22.0,
+                        fontSize: 22.0.sp,
                         color: Colors.blue,
                         fontWeight: FontWeight.bold
                     ),
@@ -134,19 +137,19 @@ class AppointmentCost extends StatelessWidget {
               children: [
                 InkWell(
                   child: Container(
-                    width: 80.0,
-                    height: 45.0,
+                    width: 80.0.w,
+                    height: 45.0.h,
                     decoration: BoxDecoration(
                         color: Colors.blue,
-                        borderRadius: BorderRadius.circular(5.0)
+                        borderRadius: BorderRadius.circular(5.0.r)
                     ),
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.arrow_back_ios_outlined,size: 17.0,color: Colors.white),
-                          SizedBox(width: 5.0,),
-                          Text('Back',style: TextStyle(color: Colors.white,fontSize: 18.0),),
+                          Icon(Icons.arrow_back_ios_outlined,size: 17.0.r,color: Colors.white),
+                          SizedBox(width: 5.0.w,),
+                          Text('Back',style: TextStyle(color: Colors.white,fontSize: 18.0.sp),),
                         ],
                       ),
                     ),
@@ -157,19 +160,19 @@ class AppointmentCost extends StatelessWidget {
                 Spacer(),
                 InkWell(
                   child: Container(
-                    width: 80.0,
-                    height: 45.0,
+                    width: 80.0.w,
+                    height: 45.0.h,
                     decoration: BoxDecoration(
                         color: Colors.blue,
-                        borderRadius: BorderRadius.circular(5.0)
+                        borderRadius: BorderRadius.circular(5.0.r)
                     ),
                     child: Center(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Pay',style: TextStyle(color: Colors.white,fontSize: 18.0),),
-                          SizedBox(width: 5.0,),
-                          Icon(Icons.arrow_forward_ios_outlined,size: 17.0,color: Colors.white),
+                          Text('Pay',style: TextStyle(color: Colors.white,fontSize: 18.0.sp),),
+                          SizedBox(width: 5.0.w,),
+                          Icon(Icons.arrow_forward_ios_outlined,size: 17.0.r,color: Colors.white),
                         ],
                       ),
                     ),
@@ -188,20 +191,20 @@ class AppointmentCost extends StatelessWidget {
 
 
 Widget costInfoItem({required String title, required String value})=>Padding(
-  padding: const EdgeInsets.symmetric(vertical: 10.0),
+  padding:  EdgeInsets.symmetric(vertical: 10.0.h),
   child:   Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
       Text(title,
         style: TextStyle(
-            fontSize: 17.0,
+            fontSize: 17.0.sp,
             color: Colors.black,
             fontWeight: FontWeight.w500
         ),
       ),
       Text(value,
         style: TextStyle(
-            fontSize: 17.0,
+            fontSize: 17.0.sp,
             color: Colors.black.withOpacity(0.7),
             fontWeight: FontWeight.w400
         ),

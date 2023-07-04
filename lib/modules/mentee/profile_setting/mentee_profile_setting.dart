@@ -39,7 +39,7 @@ class _MenteeSettingState extends State<MenteeSetting> {
         title: Center(child: const Text('Mentee Setting',)),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding:  EdgeInsets.all(30.0.r),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Form(
@@ -51,9 +51,9 @@ class _MenteeSettingState extends State<MenteeSetting> {
                 Center(
                   child: Stack(children: [
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                      width: 90,
-                      height: 90,
+                      padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
+                      width: 90.w,
+                      height: 90.h,
                       child: CircleAvatar(
                         backgroundColor: Colors.blue,
                         child:
@@ -62,8 +62,8 @@ class _MenteeSettingState extends State<MenteeSetting> {
                           Icons.account_circle_rounded,
                           color: Colors.white,) :
                         Container(
-                          width: 90,
-                          height: 90,
+                          width: 90.w,
+                          height: 90.h,
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               image: DecorationImage(
@@ -77,7 +77,7 @@ class _MenteeSettingState extends State<MenteeSetting> {
                   ]),
                 ),
                 SizedBox(
-                  width: 20,
+                  width: 20.w,
                 ),
                 Center(
                   child: ElevatedButton(
@@ -85,7 +85,7 @@ class _MenteeSettingState extends State<MenteeSetting> {
                     child: Text("Upload Image"),
                   ),
                 ),
-                SizedBox(height: 20.0,),
+                SizedBox(height: 20.0.h,),
                 TextFormField(
                   validator: (value) {
                     if(value!.isEmpty)
@@ -97,7 +97,7 @@ class _MenteeSettingState extends State<MenteeSetting> {
 
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                         color: Colors.grey,
                       ),
@@ -174,7 +174,7 @@ class _MenteeSettingState extends State<MenteeSetting> {
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                         color: Colors.grey,
                       ),

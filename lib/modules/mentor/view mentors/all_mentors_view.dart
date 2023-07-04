@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AllMentorsScreenView extends StatelessWidget {
   const AllMentorsScreenView({Key? key}) : super(key: key);
@@ -8,16 +9,16 @@ class AllMentorsScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.menu,size: 33.0,),
+        leading: IconButton( padding: EdgeInsets.only(left: 28.0.r),
+          icon: Icon(Icons.menu,size: 33.0.r,),
           onPressed: () {  },
         ),
         centerTitle: true,
-        title:  const Text(
+        title:   Text(
           'MENTORUEST',
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 22.0
+              fontSize: 22.0.sp
           ),
         ),
         elevation: 0.0,
@@ -44,16 +45,16 @@ class AllMentorsScreenView extends StatelessWidget {
           ),
           Expanded(
             child: ListView.separated(
-              padding: EdgeInsets.all(12),
+              padding: EdgeInsets.all(27.5.r),
 
                 itemBuilder:(context,index){
                   return Container(
-                    width: 175,
-                    padding: EdgeInsets.all(8),
+                    width: 175.w,
+                    padding: EdgeInsets.all(8.r),
                     clipBehavior: Clip.antiAliasWithSaveLayer,
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(14.r),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,16 +63,16 @@ class AllMentorsScreenView extends StatelessWidget {
                         Column(
                           children: [
                             Container(
-                              height: 100,
-                              width:100,
+                              height: 100.h,
+                              width:100.w,
                               decoration: BoxDecoration(
                                 color: Colors.blue,
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: BorderRadius.circular(12.r),
                               ),
 
                             ),
-                            const SizedBox(
-                              height: 10,
+                             SizedBox(
+                              height: 10.h,
                             ),
                             MaterialButton(onPressed: (){
 
@@ -81,13 +82,13 @@ class AllMentorsScreenView extends StatelessWidget {
                               child:Row(
                                 children: [
                                   Icon(Icons.remove_red_eye_outlined,color: Colors.white,),
-                                  const SizedBox(
-                                    width: 10,
+                                   SizedBox(
+                                    width: 10.w,
                                   ),
                                   Text(
                                       style: TextStyle(
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 14,
+                                        fontSize: 14.sp,
                                         color: Colors.white,
                                       ),
                                       "View"
@@ -99,7 +100,7 @@ class AllMentorsScreenView extends StatelessWidget {
                           ],
                         ),
                         SizedBox(
-                          width: 10,
+                          width: 10.w,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,23 +109,23 @@ class AllMentorsScreenView extends StatelessWidget {
                             Text(
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 18,
+                                  fontSize: 18.sp,
                                   color: Colors.black.withOpacity(0.7),
                                 ),
                                 "Mohamed Hassanein"
                             ),
-                            const SizedBox(
-                              height: 10,
+                            SizedBox(
+                              height: 10.h,
                             ),
                             Text(
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   color: Colors.black.withOpacity(0.4),
                                 ),
                                 "calculas, Trignometry"
                             ),
-                            SizedBox(height: 3,),
+                            SizedBox(height: 3.h,),
                             Row(
 
                               children: [
@@ -133,7 +134,7 @@ class AllMentorsScreenView extends StatelessWidget {
                                   direction: Axis.horizontal,
                                   allowHalfRating: true,
                                   itemCount: 5,
-                                  itemSize: 25.0,
+                                  itemSize: 25.0.r,
                                   ratingWidget: RatingWidget(
                                       full: const Icon(Icons.star, color: Colors.amber),
                                       half: const Icon(
@@ -149,71 +150,71 @@ class AllMentorsScreenView extends StatelessWidget {
                                   onRatingUpdate: (double value) {  },
                                 ),
                                 SizedBox(
-                                  width:5 ,
+                                  width:5.w ,
 
                                 ),
                                 Text(
 
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 16,
+                                      fontSize: 16.sp,
                                       color: Colors.black.withOpacity(0.7),
                                     ),
                                     "4.0"
                                 ),
                               ],
                             ),
-                            const SizedBox(
-                              height: 5,
+                             SizedBox(
+                              height: 5.h,
                             ),
                             Row(
                               children: [
                                 Icon(Icons.access_alarm,color: Colors.grey,),
-                                const SizedBox(
-                                  width: 10,
+                                 SizedBox(
+                                  width: 10.w,
                                 ),
                                 Text(
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 14,
+                                      fontSize: 14.sp,
                                       color: Colors.grey,
                                     ),
                                     "Available on Mon, 18 Mar"
                                 ),
                               ],
                             ),
-                            const SizedBox(
-                              height: 4,
+                             SizedBox(
+                              height: 4.h,
                             ),
                             Row(
                               children: [
                                 Icon(Icons.location_on,color: Colors.grey,),
-                                const SizedBox(
-                                  width: 10,
+                                 SizedBox(
+                                  width: 10.w,
                                 ),
                                 Text(
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 14,
+                                      fontSize: 14.sp,
                                       color: Colors.grey,
                                     ),
                                     "Paris, France"
                                 ),
                               ],
                             ),
-                            const SizedBox(
-                              height: 4,
+                             SizedBox(
+                              height: 4.h,
                             ),
                             Row(
                               children: [
                                 Icon(Icons.monetization_on_outlined,color: Colors.grey,),
-                                const SizedBox(
-                                  width: 10,
+                                 SizedBox(
+                                  width: 10.w,
                                 ),
                                 Text(
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 14,
+                                      fontSize: 14.sp,
                                       color: Colors.grey,
                                     ),
                                     " \$300 - \$500"
@@ -231,7 +232,7 @@ class AllMentorsScreenView extends StatelessWidget {
                 } ,
                 separatorBuilder:(context,index){
                   return SizedBox(
-                    height: 20,
+                    height: 20.h,
                   );
                 } ,
                 itemCount: 5
