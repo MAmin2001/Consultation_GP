@@ -49,10 +49,12 @@ dependencies:
   json_serializable:
   url_launcher:
   flutter_animate:
-  #firbase
-  firebase_core:
-  firebase_auth:
-  cloud_firestore:
+  http:
+  get_it:
+  pusher_client:
+  event_bus:
+  pusher_channels_flutter:
+
 
 
 
