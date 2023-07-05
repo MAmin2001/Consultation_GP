@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class Friend {
@@ -5,82 +6,37 @@ class Friend {
   final String image;
   final String lastMessage;
   final DateTime lastMessageDate;
+  final VoidCallback onTap;
+
 
   Friend({
     required this.name,
     required this.image,
     required this.lastMessage,
     required this.lastMessageDate,
+    required this.onTap
   });
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+    );
+  }
+
 }
 
 class GetUsersScreen extends StatelessWidget {
   final List<Friend> friends = [
+
     Friend(
+      onTap: (){
+       //Navigator.of(context).push(MaterialPageRoute(builder: (context) => Container(),));
+      },
       name: "Mohamed Selim",
       image: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png",
       lastMessage: "Hey, how are you?",
       lastMessageDate: DateTime.now().subtract(Duration(hours: 1)),
-    ),
-    Friend(
-      name: "Mahmoud Amin",
-      image: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png",
-      lastMessage: "Where r u?",
-      lastMessageDate: DateTime.now().subtract(Duration(hours: 5)),
-    ),
-    Friend(
-      name: "7arakat",
-      image: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png",
-      lastMessage: "ya3aaaaaaam",
-      lastMessageDate: DateTime.now().subtract(Duration(days: 5)),
-    ),
-    Friend(
-      name: "3atef",
-      image: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png",
-      lastMessage: "yastaaa",
-      lastMessageDate: DateTime.now().subtract(Duration(days: 20)),
-    ),
-    Friend(
-      name: "shalaby",
-      image: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png",
-      lastMessage: "Ma7lola",
-      lastMessageDate: DateTime.now().subtract(Duration(hours: 21)),
-    ),
-    Friend(
-      name: "Mohamed Selim",
-      image: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png",
-      lastMessage: "Hey, how are you?",
-      lastMessageDate: DateTime.now().subtract(Duration(hours: 1)),
-    ),
-    Friend(
-      name: "Mohamed Selim",
-      image: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png",
-      lastMessage: "Hey, how are you?",
-      lastMessageDate: DateTime.now().subtract(Duration(hours: 1)),
-    ),
-    Friend(
-      name: "Mohamed Selim",
-      image: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png",
-      lastMessage: "Hey, how are you?",
-      lastMessageDate: DateTime.now().subtract(Duration(hours: 1)),
-    ),
-    Friend(
-      name: "Mohamed Selim",
-      image: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png",
-      lastMessage: "Hey, how are you?",
-      lastMessageDate: DateTime.now().subtract(Duration(hours: 1)),
-    ),
-    Friend(
-      name: "Mohamed Selim",
-      image: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png",
-      lastMessage: "Hey, how are you?",
-      lastMessageDate: DateTime.now().subtract(Duration(hours: 1)),
-    ),
-    Friend(
-      name: "Mohamed Selim",
-      image: "https://img.uxwing.com/wp-content/themes/uxwing/download/peoples-avatars-thoughts/man-person-icon.png",
-      lastMessage: "Hey, how are you?",
-      lastMessageDate: DateTime.now().subtract(Duration(hours: 1)),
+
     ),
 
 
