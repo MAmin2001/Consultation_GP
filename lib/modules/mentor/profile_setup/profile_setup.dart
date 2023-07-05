@@ -5,6 +5,7 @@ import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 class ProfileSetup extends StatelessWidget {
    ProfileSetup({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class ProfileSetup extends StatelessWidget {
            title: Center(child: const Text('Profile setup',)),
          ),
          body: Padding(
-           padding: const EdgeInsets.all(20.0),
+           padding:  EdgeInsets.symmetric(horizontal: 30.0.r,vertical: 20.0.r),
            child: SingleChildScrollView(
              scrollDirection: Axis.vertical,
              child: Form(
@@ -44,9 +45,9 @@ class ProfileSetup extends StatelessWidget {
                    Center(
                      child: Stack(children: [
                        Container(
-                         padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                         width: 110,
-                         height: 110,
+                         padding: EdgeInsets.symmetric(horizontal: 5.r, vertical: 5.r),
+                         width: 110.w,
+                         height: 110.h,
                          child: CircleAvatar(
                            backgroundColor: Colors.blue,
                            child:
@@ -55,8 +56,8 @@ class ProfileSetup extends StatelessWidget {
                              Icons.account_circle_rounded,
                              color: Colors.white,) :
                            Container(
-                             width: 110,
-                             height: 110,
+                             width: 110.w,
+                             height: 110.h,
                              decoration: BoxDecoration(
                                  shape: BoxShape.circle,
                                  image: DecorationImage(
@@ -70,7 +71,7 @@ class ProfileSetup extends StatelessWidget {
                      ]),
                    ),
                    SizedBox(
-                     width: 20,
+                     width: 20.w,
                    ),
                    Center(
                      child: ElevatedButton(
@@ -81,18 +82,18 @@ class ProfileSetup extends StatelessWidget {
                        child: Text("Upload Image"),
                      ),
                    ),
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Text(
                        style: TextStyle(
                          fontWeight: FontWeight.bold,
-                         fontSize: 19,
+                         fontSize: 19.sp,
                          color: Colors.grey,
                        ),
                        MentorCubit.get(context).dateController==null?"Date of birth: ${DateTime.now().year}/${DateTime.now().month}/${DateTime.now().day}":
                        "Date of birth: "
                            "${MentorCubit.get(context).dateController}"),
                    SizedBox(
-                     height: 5,
+                     height: 5.h,
                    ),
                    Container(
                      width: double.infinity,
@@ -104,21 +105,21 @@ class ProfileSetup extends StatelessWidget {
                          child: Text(
                              style: TextStyle(
                                fontWeight: FontWeight.bold,
-                               fontSize: 20,
+                               fontSize: 20.sp,
                              ),
                              "Select a date") ),
                    )
                    ,
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Text(
                        style: TextStyle(
                          fontWeight: FontWeight.bold,
-                         fontSize: 19,
+                         fontSize: 19.sp,
                          color: Colors.grey,
                        ),
                        "Job title: "),
                    SizedBox(
-                     height: 5,
+                     height: 5.h,
                    ),
                    TextFormField(
                      validator: (value) {
@@ -132,7 +133,7 @@ class ProfileSetup extends StatelessWidget {
                      //onSaved: (value) => _firstname = value!,
                      decoration: InputDecoration(
                        enabledBorder: OutlineInputBorder(
-                         borderRadius: BorderRadius.circular(10),
+                         borderRadius: BorderRadius.circular(10.r),
                          borderSide: BorderSide(
                            color: Colors.grey,
                          ),
@@ -144,16 +145,16 @@ class ProfileSetup extends StatelessWidget {
                        ),
                      ),
                    ),
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Text(
                        style: TextStyle(
                          fontWeight: FontWeight.bold,
-                         fontSize: 19,
+                         fontSize: 19.sp,
                          color: Colors.grey,
                        ),
                        "Company: "),
                    SizedBox(
-                     height: 5,
+                     height: 5.h,
                    ),
                    TextFormField(
                      validator: (value) {
@@ -167,7 +168,7 @@ class ProfileSetup extends StatelessWidget {
                      //onSaved: (value) => _firstname = value!,
                      decoration: InputDecoration(
                        enabledBorder: OutlineInputBorder(
-                         borderRadius: BorderRadius.circular(10),
+                         borderRadius: BorderRadius.circular(10.r),
                          borderSide: BorderSide(
                            color: Colors.grey,
                          ),
@@ -179,32 +180,32 @@ class ProfileSetup extends StatelessWidget {
                        ),
                      ),
                    ),
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Row(
                      children: [
                        Expanded(
                          child: Text(
                              style: TextStyle(
                                fontWeight: FontWeight.bold,
-                               fontSize: 19,
+                               fontSize: 19.sp,
                                color: Colors.grey,
                              ),
                              "Gender: "),
                        ),
-                       SizedBox(width: 20.0,),
+                       SizedBox(width: 20.0.w,),
                        Expanded(
                          child:  Text(
                              style: TextStyle(
                                fontWeight: FontWeight.bold,
-                               fontSize: 19,
+                               fontSize: 19.sp,
                                color: Colors.grey,
                              ),
                              "Category: "),
                        ),
-                       SizedBox(height: 5.0,),
+                       SizedBox(height: 5.0.h,),
                      ],
                    ),
-                   SizedBox(width: 5.0,),
+                   SizedBox(width: 5.0.w,),
                    Row(
                      children:
                      [
@@ -219,7 +220,7 @@ class ProfileSetup extends StatelessWidget {
                            value: MentorCubit.get(context).selectedGender,
                          ),
                        ),
-                       SizedBox(width: 20.0,),
+                       SizedBox(width: 20.0.w,),
                        Expanded(
                          child: DropdownButton(
                            isExpanded: true,
@@ -233,32 +234,32 @@ class ProfileSetup extends StatelessWidget {
                        ),
                      ],
                    ),
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Row(
                      children: [
                        Expanded(
                          child: Text(
                              style: TextStyle(
                                fontWeight: FontWeight.bold,
-                               fontSize: 19,
+                               fontSize: 19.sp,
                                color: Colors.grey,
                              ),
                              "Experience: "),
                        ),
-                       SizedBox(width: 20.0,),
+                       SizedBox(width: 20.0.w,),
                        Expanded(
                          child:  Text(
                              style: TextStyle(
                                fontWeight: FontWeight.bold,
-                               fontSize: 19,
+                               fontSize: 19.sp,
                                color: Colors.grey,
                              ),
                              "Years of Exp: "),
                        ),
-                       SizedBox(height: 5.0,),
+                       SizedBox(height: 5.0.h,),
                      ],
                    ),
-                   SizedBox(width: 5.0,),
+                   SizedBox(width: 5.0.w,),
                    Row(
                      children:
                      [
@@ -273,7 +274,7 @@ class ProfileSetup extends StatelessWidget {
                            value: MentorCubit.get(context).selectedExperience,
                          ),
                        ),
-                       SizedBox(width: 20.0,),
+                       SizedBox(width: 20.0.w,),
                        Expanded(
                          child: DropdownButton(
                            isExpanded: true,
@@ -289,16 +290,16 @@ class ProfileSetup extends StatelessWidget {
                        ),
                      ],
                    ),
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Text(
                        style: TextStyle(
                          fontWeight: FontWeight.bold,
-                         fontSize: 19,
+                         fontSize: 19.sp,
                          color: Colors.grey,
                        ),
                        "Skills: "),
                    SizedBox(
-                     height: 5,
+                     height: 5.h,
                    ),
                    TextFormField(
                      validator: (value) {
@@ -312,7 +313,7 @@ class ProfileSetup extends StatelessWidget {
                      //onSaved: (value) => _firstname = value!,
                      decoration: InputDecoration(
                        enabledBorder: OutlineInputBorder(
-                         borderRadius: BorderRadius.circular(10),
+                         borderRadius: BorderRadius.circular(10.r),
                          borderSide: BorderSide(
                            color: Colors.grey,
                          ),
@@ -324,16 +325,16 @@ class ProfileSetup extends StatelessWidget {
                        ),
                      ),
                    ),
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Text(
                        style: TextStyle(
                          fontWeight: FontWeight.bold,
-                         fontSize: 19,
+                         fontSize: 19.sp,
                          color: Colors.grey,
                        ),
                        "Address: "),
                    SizedBox(
-                     height: 5,
+                     height: 5.h,
                    ),
                    TextFormField(
                      validator: (value) {
@@ -359,16 +360,16 @@ class ProfileSetup extends StatelessWidget {
                        ),
                      ),
                    ),
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Text(
                        style: TextStyle(
                          fontWeight: FontWeight.bold,
-                         fontSize: 19,
+                         fontSize: 19.sp,
                          color: Colors.grey,
                        ),
                        "Country: "),
                    SizedBox(
-                     height: 5,
+                     height: 5.h,
                    ),
                    TextFormField(
                      validator: (value) {
@@ -382,7 +383,7 @@ class ProfileSetup extends StatelessWidget {
                      //onSaved: (value) => _firstname = value!,
                      decoration: InputDecoration(
                        enabledBorder: OutlineInputBorder(
-                         borderRadius: BorderRadius.circular(10),
+                         borderRadius: BorderRadius.circular(10.r),
                          borderSide: BorderSide(
                            color: Colors.grey,
                          ),
@@ -394,16 +395,16 @@ class ProfileSetup extends StatelessWidget {
                        ),
                      ),
                    ),
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Text(
                        style: TextStyle(
                          fontWeight: FontWeight.bold,
-                         fontSize: 19,
+                         fontSize: 19.sp,
                          color: Colors.grey,
                        ),
                        "City: "),
                    SizedBox(
-                     height: 5,
+                     height: 5.h,
                    ),
                    TextFormField(
                      validator: (value) {
@@ -417,7 +418,7 @@ class ProfileSetup extends StatelessWidget {
                      //onSaved: (value) => _firstname = value!,
                      decoration: InputDecoration(
                        enabledBorder: OutlineInputBorder(
-                         borderRadius: BorderRadius.circular(10),
+                         borderRadius: BorderRadius.circular(10.r),
                          borderSide: BorderSide(
                            color: Colors.grey,
                          ),
@@ -429,16 +430,16 @@ class ProfileSetup extends StatelessWidget {
                        ),
                      ),
                    ),
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Text(
                        style: TextStyle(
                          fontWeight: FontWeight.bold,
-                         fontSize: 19,
+                         fontSize: 19.sp,
                          color: Colors.grey,
                        ),
                        "Zip code: "),
                    SizedBox(
-                     height: 5,
+                     height: 5.h,
                    ),
                    TextFormField(
                      validator: (value) {
@@ -452,7 +453,7 @@ class ProfileSetup extends StatelessWidget {
                      //onSaved: (value) => _firstname = value!,
                      decoration: InputDecoration(
                        enabledBorder: OutlineInputBorder(
-                         borderRadius: BorderRadius.circular(10),
+                         borderRadius: BorderRadius.circular(10.r),
                          borderSide: BorderSide(
                            color: Colors.grey,
                          ),
@@ -464,16 +465,16 @@ class ProfileSetup extends StatelessWidget {
                        ),
                      ),
                    ),
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Text(
                        style: TextStyle(
                          fontWeight: FontWeight.bold,
-                         fontSize: 19,
+                         fontSize: 19.sp,
                          color: Colors.grey,
                        ),
                        "Bio: "),
                    SizedBox(
-                     height: 5,
+                     height: 5.h,
                    ),
                    TextFormField(
                      maxLines: 5,
@@ -488,7 +489,7 @@ class ProfileSetup extends StatelessWidget {
                      //onSaved: (value) => _firstname = value!,
                      decoration: InputDecoration(
                        enabledBorder: OutlineInputBorder(
-                         borderRadius: BorderRadius.circular(10),
+                         borderRadius: BorderRadius.circular(10.r),
                          borderSide: BorderSide(
                            color: Colors.grey,
                          ),
@@ -500,11 +501,11 @@ class ProfileSetup extends StatelessWidget {
                        ),
                      ),
                    ),
-                   SizedBox(height: 20.0,),
+                   SizedBox(height: 20.0.h,),
                    Center(
                      child: Container(
-                       height: 50.0,
-                       width: 100.0,
+                       height: 50.0.h,
+                       width: 100.0.w,
                        child: ElevatedButton(
                          onPressed: ()
                          {
@@ -525,7 +526,7 @@ class ProfileSetup extends StatelessWidget {
                          },
                          child: Text("Submit",
                            style:TextStyle(
-                               fontSize: 20.0
+                               fontSize: 20.0.sp
                            )
                            ,),
                        ),

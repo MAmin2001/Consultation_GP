@@ -10,13 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hex_color/flutter_hex_color.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MentorProfile extends StatelessWidget {
   const MentorProfile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    MentorCubit.get(context).getProfileData();
+    //MentorCubit.get(context).getProfileData();
     return BlocConsumer<MentorCubit,ConsultStates>(
       listener: (context,state){},
       builder: (context,state) {
@@ -42,16 +43,16 @@ class MentorProfile extends StatelessWidget {
               child: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding:  EdgeInsets.symmetric(horizontal: 30.r , vertical: 10.r),
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        padding:  EdgeInsets.symmetric(vertical: 20.r),
                         child: Container(
-                          height: 170.0,
+                          height: 170.0.h,
                           decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0)
+                              borderRadius: BorderRadius.circular(10.0.r)
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,9 +60,9 @@ class MentorProfile extends StatelessWidget {
                               Row(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(10.0),
+                                    padding:  EdgeInsets.all(10.0.r),
                                     child: CircleAvatar(
-                                      radius: 45.0,
+                                      radius: 45.0.r,
                                     ),
                                   ),
                                   Column(
@@ -69,7 +70,7 @@ class MentorProfile extends StatelessWidget {
                                       Text(
                                         'Mahmoud Amin',
                                         style: TextStyle(
-                                            fontSize: 20.0,
+                                            fontSize: 20.0.sp,
                                             fontWeight: FontWeight.bold
                                         ),
                                       ),
@@ -516,7 +517,8 @@ class MentorProfile extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(height: 7.0,),
-                                  Text(cubit.mentorProfileModel!.bio!,
+                                  Text('hamada'//cubit.mentorProfileModel!.bio!
+                                     ,
                                     maxLines: 5,
                                     style: TextStyle(
                                       fontWeight: FontWeight.w400,
@@ -582,7 +584,7 @@ class MentorProfile extends StatelessWidget {
                                             ),
                                           ),
                                           SizedBox(height: 3.0,),
-                                          Text(cubit.mentorProfileModel!.gender!,
+                                          Text('hamada'/*cubit.mentorProfileModel!.gender!*/,
                                             style: TextStyle(
                                               fontSize: 17.0,
                                             ),
@@ -621,7 +623,7 @@ class MentorProfile extends StatelessWidget {
                                             ),
                                           ),
                                           SizedBox(height: 3.0,),
-                                          Text(cubit.mentorProfileModel!.birthDate!,
+                                          Text('hamada'/*cubit.mentorProfileModel!.birthDate!*/,
                                             style: TextStyle(
                                               fontSize: 17.0,
                                             ),
@@ -669,7 +671,7 @@ class MentorProfile extends StatelessWidget {
                                     ),
                                   ),
                                   SizedBox(height: 7.0,),
-                                  Text( cubit.mentorProfileModel!.skills!,
+                                  Text( /*cubit.mentorProfileModel!.skills!*/'hamada',
                                     maxLines: 4,
                                     style: TextStyle(
                                       fontWeight: FontWeight.w400,
@@ -735,7 +737,7 @@ class MentorProfile extends StatelessWidget {
                                             ),
                                           ),
                                           SizedBox(height: 3.0,),
-                                          Text(cubit.mentorProfileModel!.company!,
+                                          Text(/*cubit.mentorProfileModel!.company!*/'hamada',
                                             style: TextStyle(
                                               fontSize: 17.0,
                                             ),
@@ -774,7 +776,7 @@ class MentorProfile extends StatelessWidget {
                                             ),
                                           ),
                                           SizedBox(height: 3.0,),
-                                          Text(cubit.mentorProfileModel!.experience!,
+                                          Text(/*cubit.mentorProfileModel!.experience!*/'hamada',
                                             style: TextStyle(
                                               fontSize: 17.0,
                                             ),
@@ -813,12 +815,19 @@ class MentorProfile extends StatelessWidget {
                                             ),
                                           ),
                                           SizedBox(height: 3.0,),
-                                          Text('${cubit.mentorProfileModel!.yearsOfExperience!} years',
+                                          // Text('/*${cubit.mentorProfileModel!.yearsOfExperience!}*/ years',
+                                          //   style: TextStyle(
+                                          //     fontSize: 17.0,
+                                          //   ),
+                                          // ),
+                                          Text('years',
                                             style: TextStyle(
                                               fontSize: 17.0,
                                             ),
                                           ),
+
                                         ],
+
                                       )
                                     ],
                                   ),
@@ -880,7 +889,7 @@ class MentorProfile extends StatelessWidget {
                                             ),
                                           ),
                                           SizedBox(height: 3.0,),
-                                          Text(cubit.mentorProfileModel!.country!,
+                                          Text(/*cubit.mentorProfileModel!.country!*/'hamada',
                                             style: TextStyle(
                                               fontSize: 17.0,
                                             ),
@@ -919,7 +928,7 @@ class MentorProfile extends StatelessWidget {
                                             ),
                                           ),
                                           SizedBox(height: 3.0,),
-                                          Text(cubit.mentorProfileModel!.city!,
+                                          Text(/*cubit.mentorProfileModel!.city!*/'hamada',
                                             style: TextStyle(
                                               fontSize: 17.0,
                                             ),
@@ -958,7 +967,7 @@ class MentorProfile extends StatelessWidget {
                                             ),
                                           ),
                                           SizedBox(height: 3.0,),
-                                          Text(cubit.mentorProfileModel!.address!,
+                                          Text(/*cubit.mentorProfileModel!.address!*/'hamada',
                                             style: TextStyle(
                                               fontSize: 17.0,
                                             ),
@@ -997,7 +1006,7 @@ class MentorProfile extends StatelessWidget {
                                             ),
                                           ),
                                           SizedBox(height: 3.0,),
-                                          Text(cubit.mentorProfileModel!.zipCode!,
+                                          Text(/*cubit.mentorProfileModel!.zipCode!*/'hamada',
                                             style: TextStyle(
                                               fontSize: 17.0,
                                             ),

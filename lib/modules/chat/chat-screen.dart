@@ -1,5 +1,6 @@
 import 'package:consultation_gp/shared/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
 
@@ -43,6 +44,46 @@ class _ChatScreenState extends State<ChatScreen> {
         date: DateTime.now().subtract(Duration(minutes: 1)),
         isSentByMe: true
     ),
+    Message(
+        text: "hey",
+        date: DateTime.now().subtract(Duration(minutes: 33)),
+        isSentByMe: false
+    ),
+    Message(
+        text: "hii",
+        date: DateTime.now().subtract(Duration(minutes: 53)),
+        isSentByMe: true
+    ),
+    Message(
+        text: "How are u?",
+        date: DateTime.now().subtract(Duration(minutes: 23)),
+        isSentByMe: false
+    ),
+    Message(
+        text: "all good wbu?",
+        date: DateTime.now().subtract(Duration(minutes: 1)),
+        isSentByMe: true
+    ),
+    Message(
+        text: "hey",
+        date: DateTime.now().subtract(Duration(minutes: 33)),
+        isSentByMe: false
+    ),
+    Message(
+        text: "hii",
+        date: DateTime.now().subtract(Duration(minutes: 53)),
+        isSentByMe: true
+    ),
+    Message(
+        text: "How are u?",
+        date: DateTime.now().subtract(Duration(minutes: 23)),
+        isSentByMe: false
+    ),
+    Message(
+        text: "all good wbu?",
+        date: DateTime.now().subtract(Duration(minutes: 1)),
+        isSentByMe: true
+    ),
   ];
 
   @override
@@ -67,11 +108,14 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ],
         ),
-        leading: IconButton(
-          onPressed: (){},
-          icon: Icon(
-            color: Colors.blue,
-              Icons.arrow_back),
+        leading: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.0.w),
+          child: IconButton(
+            onPressed: (){},
+            icon: Icon(
+              color: Colors.blue,
+                Icons.arrow_back),
+          ),
         ),
       ),
       body: Column(
@@ -79,7 +123,7 @@ class _ChatScreenState extends State<ChatScreen> {
           Expanded(
             child: GroupedListView<Message, DateTime>
               (
-              padding: EdgeInsetsDirectional.all(8),
+              padding: EdgeInsetsDirectional.all(25.w),
               reverse: true,
               order: GroupedListOrder.DESC,
               useStickyGroupSeparators: true,
@@ -91,7 +135,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 message.date.day
               ) ,
               groupHeaderBuilder: (Message message) => SizedBox(
-                height: 40,
+                height: 40.h,
                 child: Center(
                   child: Card(
                     color: Theme.of(context).primaryColor,
@@ -134,7 +178,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   Icons.emoji_emotions_rounded
               )),
               Container(
-                width: 250,
+                width: 200.w,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
                   color: Colors.grey.shade200,

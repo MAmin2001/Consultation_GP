@@ -117,76 +117,84 @@ class ConsultLogin extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: MediaQuery.of(context).size.height/15,),
-                        TextFormField(
-                          controller: emailController,
-                          decoration: InputDecoration(
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.r),
-                              borderSide: BorderSide(
+                        Padding(
+                          padding:  EdgeInsets.all(8.0.w),
+                          child: TextFormField(
+
+                            controller: emailController,
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.r),
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(),
+                              labelText: "E-mail",
+                              hintText: "enter your email",
+                              hintStyle: TextStyle(
                                 color: Colors.grey,
                               ),
+                              prefixIcon: Icon(
+                                Icons.email,
+                              ),
                             ),
-                            focusedBorder: OutlineInputBorder(),
-                            labelText: "E-mail",
-                            hintText: "enter your email",
-                            hintStyle: TextStyle(
-                              color: Colors.grey,
-                            ),
-                            prefixIcon: Icon(
-                              Icons.email,
-                            ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter an email';
+                              }
+                              if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                  .hasMatch(value)) {
+                                return 'Please enter a valid Email';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) => _email = value!,
                           ),
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Please enter an email';
-                            }
-                            if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                                .hasMatch(value)) {
-                              return 'Please enter a valid Email';
-                            }
-                            return null;
-                          },
-                          onSaved: (value) => _email = value!,
                         ),
                         SizedBox(height: MediaQuery.of(context).size.height/20,),
-                        TextFormField(
-                          controller: passwordController,
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Please enter a password';
-                            }
-                            return null;
-                          },
-                          onSaved: (value) => _password = value!,
-                          decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.r),
-                              borderSide: BorderSide(
+                        Padding(
+                          padding:  EdgeInsets.all(8.0.w),
+                          child: TextFormField(
+                            controller: passwordController,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter a password';
+                              }
+                              return null;
+                            },
+                            onSaved: (value) => _password = value!,
+                            decoration: InputDecoration(
+                              focusedBorder: OutlineInputBorder(),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.r),
+                                borderSide: BorderSide(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              labelText: "Password",
+                              hintText: "enter your Password",
+                              hintStyle: TextStyle(
                                 color: Colors.grey,
                               ),
+                              prefixIcon: Icon(
+                                Icons.password,
+                              ),
+                              suffixIcon: IconButton(
+                                onPressed: () {
+                                  LoginCubit.get(context).obscureLogin();
+                                },
+                                icon: LoginCubit.get(context).isOb ? Icon(Icons.visibility_off) : Icon(Icons
+                                    .visibility),
+                              ),
                             ),
-                            labelText: "Password",
-                            hintText: "enter your Password",
-                            hintStyle: TextStyle(
-                              color: Colors.grey,
-                            ),
-                            prefixIcon: Icon(
-                              Icons.password,
-                            ),
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                LoginCubit.get(context).obscureLogin();
-                              },
-                              icon: LoginCubit.get(context).isOb ? Icon(Icons.visibility_off) : Icon(Icons
-                                  .visibility),
-                            ),
+                            obscureText: LoginCubit.get(context).isOb,
                           ),
-                          obscureText: LoginCubit.get(context).isOb,
                         ),
                         SizedBox(height: MediaQuery.of(context).size.height/15,),
                         Container
                           (
+                          padding:EdgeInsets.only(left: 8.0.w,right: 8.0.w) ,
                           width: double.infinity.w,
                           height: 50.0.h,
                           child: ElevatedButton(

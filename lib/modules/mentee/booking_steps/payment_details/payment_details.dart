@@ -3,6 +3,7 @@ import 'package:consultation_gp/modules/mentee/booking_steps/booking_details/boo
 import 'package:consultation_gp/modules/mentor/incvoices/invoice_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hex_color/flutter_hex_color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PaymentDetails extends StatefulWidget {
    PaymentDetails({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 40.0,left: 20.0,right: 20.0,bottom: 40.0),
+        padding:  EdgeInsets.only(top: 40.0.h,left: 30.0.w,right: 30.0.w,bottom: 40.0.h),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,87 +31,87 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 14.0,
+                        radius: 14.0.r,
                         backgroundColor: HexColor('60CD6A'),
-                        child: Icon(Icons.check_circle_outline_rounded,size: 25,color: Colors.white,),
+                        child: Icon(Icons.check_circle_outline_rounded,size: 25.r,color: Colors.white,),
 
                       ),
-                      SizedBox(height: 5,),
-                      Text('Appointment',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A')),)
+                      SizedBox(height: 5.h,),
+                      Text('Appointment',style: TextStyle(fontSize: 14.0.sp,fontWeight: FontWeight.bold,color: HexColor('60CD6A')),)
                     ],
                   ),
-                  SizedBox(width:5.0 ,),
+                  SizedBox(width:2.0.w ,),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 20.0),
+                    padding:  EdgeInsets.only(bottom: 20.0.h),
                     child: Container(
-                      height: 3.0,
-                      width: 40.0,
+                      height: 3.0.h,
+                      width: 30.0.w,
                       color:HexColor('60CD6A'),
                     ),
                   ),
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 14.0,
+                        radius: 14.0.r,
                         backgroundColor:HexColor('60CD6A'),
-                        child: Icon(Icons.check_circle_outline_rounded,size: 25,color: Colors.white,),
+                        child: Icon(Icons.check_circle_outline_rounded,size: 25.r,color: Colors.white,),
                       ),
-                      SizedBox(height: 5,),
-                      Text('Details',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
+                      SizedBox(height: 5.h,),
+                      Text('Details',style: TextStyle(fontSize: 14.0.sp,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
                     ],
                   ),
-                  SizedBox(width:5.0 ,),
+                  SizedBox(width:2.0.w ,),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 20.0),
+                    padding:  EdgeInsets.only(bottom: 20.0.h),
                     child: Container(
-                      height: 3.0,
-                      width: 46.0,
+                      height: 3.0.h,
+                      width: 30.0.w,
                       color:HexColor('60CD6A'),
                     ),
                   ),
-                  SizedBox(width:5.0 ,),
+                  SizedBox(width:2.0.w ,),
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 14.0,
+                        radius: 14.0.r,
                         backgroundColor:HexColor('60CD6A'),
-                        child: Icon(Icons.check_circle_outline_rounded,size: 25,color: Colors.white,),
+                        child: Icon(Icons.check_circle_outline_rounded,size: 25.r,color: Colors.white,),
                       ),
-                      SizedBox(height: 5,),
-                      Text('Cost',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
+                      SizedBox(height: 5.h,),
+                      Text('Cost',style: TextStyle(fontSize: 14.0.sp,fontWeight: FontWeight.bold,color: HexColor('60CD6A'))),
                     ],
                   ),
-                  SizedBox(width:5.0 ,),
+                  SizedBox(width:2.0.w ,),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 20.0),
+                    padding:  EdgeInsets.only(bottom: 20.0.h),
                     child: Container(
-                      height: 3.0,
-                      width: 46.0,
+                      height: 3.0.h,
+                      width: 30.0.w,
                       color: HexColor('60CD6A'),
                     ),
                   ),
                   Column(
                     children: [
                       CircleAvatar(
-                        radius: 14.0,
+                        radius: 14.0.r,
                         backgroundColor: HexColor('60CD6A'),
 
                       ),
-                      SizedBox(height: 5,),
-                      Text('Payment',style: TextStyle(fontSize: 14.0,fontWeight: FontWeight.bold)),
+                      SizedBox(height: 5.h,),
+                      Text('Payment',style: TextStyle(fontSize: 14.0.sp,fontWeight: FontWeight.bold)),
                     ],
                   ),
 
                 ],
               ),
-              SizedBox(height:40.0),
+              SizedBox(height:40.0.h),
               Row(
                 children: [
-                  Text('Payment Method :',style: TextStyle(fontSize: 18.0),),
-                  SizedBox(width: 10.0,),
+                  Text('Payment Method :',style: TextStyle(fontSize: 18.0.sp),),
+                  SizedBox(width: 10.0.w,),
                   DropdownButton(
                     isExpanded: false,
-                   borderRadius: BorderRadius.circular(10.0),
+                   borderRadius: BorderRadius.circular(10.0.r),
                     hint: Text('Method'),
                     items: ["Credit Card", "VISA",].map((e) => DropdownMenuItem(child: Text("$e"),value: e,)).toList(),
                     onChanged: (val){
@@ -122,9 +123,9 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   ),
                 ],
               ),
-              SizedBox(height:20.0),
-              Text('Card Number:',style: TextStyle(fontSize: 18.0),),
-              SizedBox(height:10.0),
+              SizedBox(height:20.0.h),
+              Text('Card Number:',style: TextStyle(fontSize: 18.0.sp),),
+              SizedBox(height:10.0.h),
               TextFormField(
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -136,13 +137,13 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 },
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                           color: Colors.grey
                       )
                   ),
                   focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                           color: Colors.blue
                       )
@@ -150,13 +151,13 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   hintText: "1234 5678 9123 4567",
                   hintStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 15,
+                    fontSize: 15.sp,
                   ),
                 ),
               ),
-              SizedBox(height:20.0),
-              Text('Expiry Month:',style: TextStyle(fontSize: 18.0),),
-              SizedBox(height:10.0),
+              SizedBox(height:20.0.h),
+              Text('Expiry Month:',style: TextStyle(fontSize: 18.0.sp),),
+              SizedBox(height:10.0.h),
               TextFormField(
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -168,13 +169,13 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 },
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                           color: Colors.grey
                       )
                   ),
                   focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                           color: Colors.blue
                       )
@@ -182,13 +183,13 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   hintText: "MM",
                   hintStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 15,
+                    fontSize: 15.sp,
                   ),
                 ),
               ),
-              SizedBox(height:20.0),
-              Text('Expiry Year:',style: TextStyle(fontSize: 18.0),),
-              SizedBox(height:10.0),
+              SizedBox(height:20.0.h),
+              Text('Expiry Year:',style: TextStyle(fontSize: 18.0.sp),),
+              SizedBox(height:10.0.h),
               TextFormField(
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -200,13 +201,13 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 },
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                           color: Colors.grey
                       )
                   ),
                   focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                           color: Colors.blue
                       )
@@ -214,13 +215,13 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   hintText: "YY",
                   hintStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 15,
+                    fontSize: 15.sp,
                   ),
                 ),
               ),
-              SizedBox(height:20.0),
-              Text('CVV:',style: TextStyle(fontSize: 18.0),),
-              SizedBox(height:10.0),
+              SizedBox(height:20.0.h),
+              Text('CVV:',style: TextStyle(fontSize: 18.0.sp),),
+              SizedBox(height:10.0.h),
               TextFormField(
                 keyboardType: TextInputType.number,
                 validator: (value) {
@@ -232,13 +233,13 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 },
                 decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                           color: Colors.grey
                       )
                   ),
                   focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       borderSide: BorderSide(
                           color: Colors.blue
                       )
@@ -246,28 +247,28 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   hintText: "",
                   hintStyle: TextStyle(
                     color: Colors.grey,
-                    fontSize: 15,
+                    fontSize: 15.sp,
                   ),
                 ),
               ),
-              SizedBox(height:20.0),
+              SizedBox(height:20.0.h),
               Row(
                 children: [
                   InkWell(
                     child: Container(
-                      width: 100.0,
-                      height: 45.0,
+                      width: 100.0.w,
+                      height: 45.0.h,
                       decoration: BoxDecoration(
                           color: Colors.blue,
-                          borderRadius: BorderRadius.circular(5.0)
+                          borderRadius: BorderRadius.circular(5.0.r)
                       ),
                       child: Center(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(Icons.arrow_back_ios_outlined,size: 17.0,color: Colors.white),
-                            SizedBox(width: 5.0,),
-                            Text('Back',style: TextStyle(color: Colors.white,fontSize: 18.0),),
+                            Icon(Icons.arrow_back_ios_outlined,size: 17.0.r,color: Colors.white),
+                            SizedBox(width: 5.0.w,),
+                            Text('Back',style: TextStyle(color: Colors.white,fontSize: 18.0.sp),),
                           ],
 
 
@@ -280,19 +281,19 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   Spacer(),
                   InkWell(
                     child: Container(
-                      width: 100.0,
-                      height: 45.0,
+                      width: 100.0.w,
+                      height: 45.0.h,
                       decoration: BoxDecoration(
                           color: Colors.blue,
-                          borderRadius: BorderRadius.circular(5.0)
+                          borderRadius: BorderRadius.circular(5.0.r)
                       ),
                       child: Center(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text('Confirm',style: TextStyle(color: Colors.white,fontSize: 18.0),),
-                            SizedBox(width: 5.0,),
-                            Icon(Icons.arrow_forward_ios_outlined,size: 17.0,color: Colors.white),
+                            Text('Confirm',style: TextStyle(color: Colors.white,fontSize: 18.0.sp),),
+                            SizedBox(width: 5.0.w,),
+                            Icon(Icons.arrow_forward_ios_outlined,size: 17.0.r,color: Colors.white),
                           ],
 
 
@@ -329,40 +330,40 @@ Future<dynamic> successfulPaymentDialog({
     return AlertDialog(
 
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(12.0.r),
       ),
-      contentPadding: const EdgeInsets.all(0.0),
+      contentPadding:  EdgeInsets.all(0.0.r),
       content: Container(
-        height: 300,
-        padding: EdgeInsets.all(10),
+        height: 300.h,
+        padding: EdgeInsets.all(10.r),
         child: Center(child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Icon(Icons.check_circle, color: Colors.blue,size: 70,),
+            Icon(Icons.check_circle, color: Colors.blue,size: 70.r,),
             Text(
               'Appointment booked successfully',
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 20.0,
+                  fontSize: 20.0.sp,
                 fontWeight: FontWeight.bold
               ),),
             Text(
               'Waiting for mentor confirmation',
               style: TextStyle(
                 color: Colors.black.withOpacity(0.7),
-                fontSize: 16.0,
+                fontSize: 16.0.sp,
                 fontWeight: FontWeight.w600
               ),),
             InkWell(
               child: Container(
                 width: double.infinity,
-                height: 45.0,
+                height: 45.0.h,
                 decoration: BoxDecoration(
                     color: Colors.blue,
-                    borderRadius: BorderRadius.circular(5.0)
+                    borderRadius: BorderRadius.circular(5.0.r)
                 ),
                 child: Center(
-                  child: Text('View Invoice', style: TextStyle(color: Colors.white,fontSize: 18.0),),
+                  child: Text('View Invoice', style: TextStyle(color: Colors.white,fontSize: 18.0.sp),),
                 ),
               ),
               onTap: (){

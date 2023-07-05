@@ -64,7 +64,7 @@ class _CreatePlanState extends State<CreatePlan> {
                 centerTitle: true,
               ),
               body: Padding(
-                padding:  EdgeInsets.all(20.0.r),
+                padding:  EdgeInsets.symmetric(horizontal: 30.0.r, vertical: 20.0.r),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Form(

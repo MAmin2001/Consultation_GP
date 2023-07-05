@@ -51,47 +51,50 @@ class _MentorSettingsState extends State<MentorSettings> {
               )
           ),
           SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: buildButton(0, (){
-                          navigateTo(context, ProfileSetting());
-                        }),
-                      ),
-                      SizedBox(width: 10),
-                      Expanded(
-                        child: buildButton(1, (){
-                          navigateTo(context, ScheduleTimings());
-                        }),
-                      ),
-                    ],
+            child: Padding(
+              padding:  EdgeInsets.only(left: 25.0.r,right: 25.0.r),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: buildButton(0, (){
+                            navigateTo(context, ProfileSetting());
+                          }),
+                        ),
+                        SizedBox(width: 1.5.w),
+                        Expanded(
+                          child: buildButton(1, (){
+                            navigateTo(context, ScheduleTimings());
+                          }),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(height: 10),
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: buildButton(2, (){
-                          navigateTo(context, PaymentInfo());
-                        }),
-                      ),
-                      SizedBox(width: 10),
-                      Expanded(
-                        child: buildButton(3, (){
-                          navigateTo(context, AccountSettingsScreen());
-                        }),
-                      ),
-                    ],
+                  SizedBox(height: 10.h),
+                  Expanded(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: buildButton(2, (){
+                            navigateTo(context, PaymentInfo());
+                          }),
+                        ),
+                        SizedBox(width: 1.5.w),
+                        Expanded(
+                          child: buildButton(3, (){
+                            navigateTo(context, AccountSettingsScreen());
+                          }),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
@@ -101,7 +104,7 @@ class _MentorSettingsState extends State<MentorSettings> {
 
   Widget buildButton(int index, Function function) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding:  EdgeInsets.all(10.0.r),
       child: Container(
 
         height: 350,
@@ -117,7 +120,7 @@ class _MentorSettingsState extends State<MentorSettings> {
           style: ButtonStyle(
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
                 side: BorderSide(
                   color: isSelected[index] ? Colors.lightBlueAccent : Colors.white,
                 ),
@@ -133,10 +136,10 @@ class _MentorSettingsState extends State<MentorSettings> {
             children: [
               Icon(
                 buttonIcons[index],
-                size: 30,
+                size: 30.sp,
                 color: isSelected[index] ? Colors.white : Colors.lightBlueAccent,
               ),
-              const SizedBox(height: 8,),
+               SizedBox(height: 8.h,),
               Text(
                 buttonNames[index],
                 textAlign: TextAlign.center,
