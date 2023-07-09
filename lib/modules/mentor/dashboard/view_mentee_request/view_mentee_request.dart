@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ViewMenteeRequestScreen extends StatelessWidget {
   const ViewMenteeRequestScreen({Key? key}) : super(key: key);
@@ -8,21 +7,18 @@ class ViewMenteeRequestScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0.w),
-          child: IconButton(
-            icon: Icon(Icons.arrow_back_ios,size: 33.0,),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios,size: 33.0,),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         centerTitle: true,
-        title:   Text(
+        title:  const Text(
           'Client Request Details ',
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 22.0.sp
+              fontSize: 22.0
           ),
         ),
         elevation: 0.0,
@@ -47,7 +43,7 @@ class ViewMenteeRequestScreen extends StatelessWidget {
           ),
           SingleChildScrollView(
             child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 28.0.w, vertical: 10.h),
+              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -89,13 +85,13 @@ Widget titleAndDesc({required String title, required String description})=> Padd
 
           color: Colors.black,
 
-          fontSize: 16.0.sp,
+          fontSize: 16.0,
 
         ),
 
       ),
 
-      SizedBox(height: 4.sp,),
+      SizedBox(height: 4,),
 
       Text(
 
@@ -107,7 +103,7 @@ Widget titleAndDesc({required String title, required String description})=> Padd
 
           color: Colors.black.withOpacity(0.7),
 
-          fontSize: 16.0.sp,
+          fontSize: 16.0,
 
         ),
 

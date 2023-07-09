@@ -22,9 +22,8 @@ import 'package:consultation_gp/modules/mentee/mentor_exploration/search%20_for_
 import 'package:consultation_gp/modules/mentee/profile_setting/mentee_profile_setting.dart';
 import 'package:consultation_gp/modules/mentee/review_a_mentor/review.dart';
 import 'package:consultation_gp/modules/mentee/view_mentor_profile/view_mentor_profile.dart';
-import 'package:consultation_gp/modules/mentor/account%20Setting/account_setting.dart';
 import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmentes.dart';
-import 'package:consultation_gp/modules/mentor/create_plan/create_plan.dart';
+import 'package:consultation_gp/modules/mentor/create_plan/standard_plan.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/refuse%20message/refuse_message.dart';
   import 'package:consultation_gp/modules/mentor/incvoices/invoice_view.dart';
@@ -32,7 +31,6 @@ import 'package:consultation_gp/modules/mentor/dashboard/refuse%20message/refuse
   import 'package:consultation_gp/modules/mentor/mentor_profile/mentor_profile.dart';
   import 'package:consultation_gp/modules/mentor/mentor_profile_setting/profile_setting.dart';
   import 'package:consultation_gp/modules/mentor/mentor_reg/register_screen/mentor_reg.dart';
-import 'package:consultation_gp/modules/mentor/mentor_setting/mentor_settings.dart';
 import 'package:consultation_gp/modules/mentor/payment_details/payment_info.dart';
   import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
 import 'package:consultation_gp/modules/mentor/reviews/view_reviews.dart';
@@ -41,7 +39,6 @@ import 'package:consultation_gp/modules/mentor/reviews/view_reviews.dart';
   import 'package:consultation_gp/network/local/cache_helper.dart';
   import 'package:consultation_gp/network/remote/dio_helper.dart';
   import 'package:consultation_gp/shared/constants.dart';
-import 'package:device_preview/device_preview.dart';
   import 'package:firebase_core/firebase_core.dart';
   import 'package:flutter/material.dart';
   import 'package:flutter_bloc/flutter_bloc.dart';
@@ -83,11 +80,10 @@ import 'package:device_preview/device_preview.dart';
       print (token);
       startScreen = ConsultLogin();
     }
-    //DevicePreview(builder:(context)=>
 
-    runApp(DevicePreview(builder:(context)=> MyApp(
-        startScreen:startScreen,
-      ),
+
+    runApp( MyApp(
+      startScreen:startScreen,
     ));
 
 
@@ -105,7 +101,7 @@ import 'package:device_preview/device_preview.dart';
       return MultiBlocProvider(
         providers: [
           BlocProvider<MentorCubit>(
-          create: (BuildContext context)=> MentorCubit()..getTimes(),
+          create: (BuildContext context)=> MentorCubit()..getMentorDashboardData()..getProfileData()..getTimes()..getReviews()..getBookings()..getAppointments()..getPlans()
           ),
           BlocProvider<MenteeCubit>(
             create: (BuildContext context)=> MenteeCubit(),
@@ -118,8 +114,7 @@ import 'package:device_preview/device_preview.dart';
             builder: (BuildContext context,child)
             {
               return MaterialApp(
-                builder: DevicePreview.appBuilder,
-                home: MenteeProfile(),
+                home: startScreen,
                 debugShowCheckedModeBanner: false,
               );
             },
