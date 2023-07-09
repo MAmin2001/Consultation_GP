@@ -1,6 +1,5 @@
 import 'package:consultation_gp/modules/login/login_screen/login.dart';
 import 'package:consultation_gp/modules/mentee/booking_steps/available_times/available_times.dart';
-import 'package:consultation_gp/modules/mentor/create_plan/create_plan.dart';
 import 'package:consultation_gp/network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hex_color/flutter_hex_color.dart';

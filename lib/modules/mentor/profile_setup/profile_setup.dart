@@ -61,7 +61,7 @@ class ProfileSetup extends StatelessWidget {
                                  shape: BoxShape.circle,
                                  image: DecorationImage(
                                    fit: BoxFit.cover,
-                                   image: FileImage(MentorCubit.get(context).file),
+                                   image: FileImage(MentorCubit.get(context).file!),
                                  )
                              ),
                            ),
@@ -72,14 +72,23 @@ class ProfileSetup extends StatelessWidget {
                    SizedBox(
                      width: 20,
                    ),
-                   Center(
-                     child: ElevatedButton(
-                       onPressed: ()
-                       {
-                         MentorCubit.get(context).imagePicker();
-                       },
-                       child: Text("Upload Image"),
-                     ),
+                   Row(
+                     children: [
+                       ElevatedButton(
+                         onPressed: ()
+                         {
+                           MentorCubit.get(context).imagePicker();
+                         },
+                         child: Text("Upload Image"),
+                       ),
+                       ElevatedButton(
+                         onPressed: ()
+                         {
+                           MentorCubit.get(context).postImage();
+                         },
+                         child: Text("Save Image"),
+                       ),
+                     ],
                    ),
                    SizedBox(height: 20.0,),
                    Text(
@@ -522,6 +531,10 @@ class ProfileSetup extends StatelessWidget {
                                  context: context
                              );
                            }
+                           MentorCubit.get(context).postImage();
+                           MentorCubit.get(context).getTimes();
+                           MentorCubit.get(context).getMentorDashboardData();
+                           MentorCubit.get(context).getProfileData();
                          },
                          child: Text("Submit",
                            style:TextStyle(

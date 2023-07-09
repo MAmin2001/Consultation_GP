@@ -23,7 +23,7 @@ import 'package:consultation_gp/modules/mentee/profile_setting/mentee_profile_se
 import 'package:consultation_gp/modules/mentee/review_a_mentor/review.dart';
 import 'package:consultation_gp/modules/mentee/view_mentor_profile/view_mentor_profile.dart';
 import 'package:consultation_gp/modules/mentor/appointmentes/mentor_appointmentes.dart';
-import 'package:consultation_gp/modules/mentor/create_plan/create_plan.dart';
+import 'package:consultation_gp/modules/mentor/create_plan/standard_plan.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/mentor_dashboard.dart';
 import 'package:consultation_gp/modules/mentor/dashboard/refuse%20message/refuse_message.dart';
   import 'package:consultation_gp/modules/mentor/incvoices/invoice_view.dart';
@@ -31,7 +31,9 @@ import 'package:consultation_gp/modules/mentor/dashboard/refuse%20message/refuse
   import 'package:consultation_gp/modules/mentor/mentor_profile/mentor_profile.dart';
   import 'package:consultation_gp/modules/mentor/mentor_profile_setting/profile_setting.dart';
   import 'package:consultation_gp/modules/mentor/mentor_reg/register_screen/mentor_reg.dart';
+import 'package:consultation_gp/modules/mentor/payment_details/payment_info.dart';
   import 'package:consultation_gp/modules/mentor/profile_setup/profile_setup.dart';
+import 'package:consultation_gp/modules/mentor/reviews/view_reviews.dart';
   import 'package:consultation_gp/modules/mentor/schedule_timings/schedule_time.dart';
   import 'package:consultation_gp/modules/mentor/view%20mentors/all_mentors_view.dart';
   import 'package:consultation_gp/network/local/cache_helper.dart';
@@ -99,7 +101,7 @@ import 'package:consultation_gp/modules/mentor/dashboard/refuse%20message/refuse
       return MultiBlocProvider(
         providers: [
           BlocProvider<MentorCubit>(
-          create: (BuildContext context)=> MentorCubit()..getTimes(),
+          create: (BuildContext context)=> MentorCubit()..getMentorDashboardData()..getProfileData()..getTimes()..getReviews()..getBookings()..getAppointments()..getPlans()
           ),
           BlocProvider<MenteeCubit>(
             create: (BuildContext context)=> MenteeCubit(),
@@ -112,7 +114,7 @@ import 'package:consultation_gp/modules/mentor/dashboard/refuse%20message/refuse
             builder: (BuildContext context,child)
             {
               return MaterialApp(
-                home: ScheduleTimings(),
+                home: startScreen,
                 debugShowCheckedModeBanner: false,
               );
             },

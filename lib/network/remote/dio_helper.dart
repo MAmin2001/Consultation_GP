@@ -11,7 +11,7 @@ class DioHelper
   {
     dio= Dio(
       BaseOptions(
-        baseUrl: 'http://grad-cs-cons-sys.northeurope.cloudapp.azure.com/api/v1',
+        baseUrl: 'https://sobhdesign.com/api/v1',
         receiveDataWhenStatusError: true,
           validateStatus: (statusCode){
             if(statusCode == null){
@@ -43,7 +43,6 @@ class DioHelper
       'Content-Type':'application/json',
       'Accept':'application/json',
       'Authorization': 'Bearer $tkn'
-
     };
     return await dio.get(url,queryParameters: query);
   }
@@ -71,6 +70,23 @@ class DioHelper
         queryParameters: query,
         data: data
       );
+  }
+
+  static Future <Response> deleteData({
+
+    required String url,
+    Map<String,dynamic>? query,
+    String? tkn
+
+  })async
+  {
+    dio.options.headers=
+    {
+      'Content-Type':'application/json',
+      'Accept':'application/json',
+      'Authorization': 'Bearer $tkn'
+    };
+    return await dio.delete(url,queryParameters: query);
   }
 
 
