@@ -1,6 +1,8 @@
 import 'package:consultation_gp/modules/mentee/mentor_exploration/mentor_explore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 import '../../mentor/mentor_profile/mentor_profile.dart';
 
@@ -16,35 +18,37 @@ class SearchScreen extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios,size: 28.0,),
+          padding: EdgeInsets.only(left: 30.w),
+          icon: Icon(Icons.arrow_back_ios,size: 28.0.r,),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context)=>ExploreMentor()));
           },
         ),
         centerTitle: true,
-        title:  const Text(
+        title:   Text(
           'Search',
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 22.0
+              fontSize: 22.0.sp
           ),
         ),
         elevation: 0.0,
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.filter_list, size: 28,),
+            padding: EdgeInsets.only(right: 30.w),
+              icon: Icon(Icons.filter_list, size: 28.r,),
               onPressed: () {
                 showModalBottomSheet(
                   context: context,backgroundColor: Colors.transparent,
                   builder: (BuildContext context) {
                     return Container(
                       width: double.infinity,
-                      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+                      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
                       decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(40),
-                            topRight: Radius.circular(40),
+                            topLeft: Radius.circular(40.r),
+                            topRight: Radius.circular(40.r),
                           )),
                       child: SingleChildScrollView(
                         child: Column(
@@ -55,23 +59,23 @@ class SearchScreen extends StatelessWidget {
                             Align(
                               alignment: Alignment.center,
                               child: Container(
-                                height: 3,
-                                width: 60,
+                                height: 3.h,
+                                width: 60.w,
                                 color: Colors.grey[300],
 
 
                               ),
                             ),
-                            SizedBox(height: 30,),
+                            SizedBox(height: 30.h,),
                             Text(
                                 style: TextStyle(
                                   fontWeight: FontWeight.w700,
-                                  fontSize: 18,
+                                  fontSize: 18.sp,
                                   color: Colors.black.withOpacity(0.7),
                                 ),
                                 "Fields"
                             ),
-                            Divider(height: 2,color: Colors.grey,),
+                            Divider(height: 2.h,color: Colors.grey,),
                             CheckboxListTile(
                               title: Text('Checkbox 1'),
                               value: _checkboxValue1,
@@ -98,19 +102,19 @@ class SearchScreen extends StatelessWidget {
 
                               },
                             ),
-                            SizedBox(height: 20,),
+                            SizedBox(height: 20.h,),
 
                             Text(
                                 style: TextStyle(
                                   fontWeight: FontWeight.w700,
-                                  fontSize: 18,
+                                  fontSize: 18.sp,
                                   color: Colors.black.withOpacity(0.7),
                                 ),
                                 "Gender"
                             ),
-                            Divider(height: 2,color: Colors.grey,),
+                            Divider(height: 2.h,color: Colors.grey,),
                             SizedBox(
-                              height : 100,
+                              height : 100.h,
                               child: Row(
                                 children: [
                                   Expanded(
@@ -128,7 +132,7 @@ class SearchScreen extends StatelessWidget {
                                         Text(
                                             style: TextStyle(
                                               fontWeight: FontWeight.w700,
-                                              fontSize: 18,
+                                              fontSize: 18.sp,
                                               color: Colors.black.withOpacity(0.7),
                                             ),
                                             "Male"
@@ -151,7 +155,7 @@ class SearchScreen extends StatelessWidget {
                                         Text(
                                             style: TextStyle(
                                               fontWeight: FontWeight.w700,
-                                              fontSize: 18,
+                                              fontSize: 18.sp,
                                               color: Colors.black.withOpacity(0.7),
                                             ),
                                             "Female"
@@ -170,7 +174,7 @@ class SearchScreen extends StatelessWidget {
                               color: Colors.blue,
                               child:Text(style: TextStyle(
                                 fontWeight: FontWeight.w500,
-                                fontSize: 16,
+                                fontSize: 16.sp,
                                 color: Colors.white,
                               ),
                                   "Apply"
@@ -206,17 +210,17 @@ class SearchScreen extends StatelessWidget {
               )
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            padding:  EdgeInsets.symmetric(horizontal: 25.w),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   width: double.infinity,
-                  height: 60,
+                  height: 60.h,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.r),
 
                   ),
                   alignment: AlignmentDirectional(0,0),
@@ -224,7 +228,7 @@ class SearchScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Expanded(child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(4, 0, 4, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(4.r, 0.r, 4.r, 0.r),
                         child: TextFormField(
                           autofocus: true,
                           obscureText: false,
@@ -232,24 +236,24 @@ class SearchScreen extends StatelessWidget {
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Colors.white,
-                                width: 2,
+                                width: 2.w,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(000000000),
-                                width: 2,
+                                width: 2.w,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.r),
 
                             ),
                             focusedErrorBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Color(00000000),
-                                width: 2,
+                                width: 2.w,
                               ),
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(8.r),
                             ),
                             filled: true,
                             fillColor: Colors.white,
@@ -259,7 +263,7 @@ class SearchScreen extends StatelessWidget {
                           style: TextStyle(
                               fontFamily: 'Lexend Deca',
                               fontWeight: FontWeight.normal,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               color: Colors.black
                           ),
                           maxLines: null,
@@ -269,14 +273,14 @@ class SearchScreen extends StatelessWidget {
 
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0.r, 0.r, 8.r, 0.r),
                         child: Container(
                           child:ElevatedButton.icon(
                             onPressed: (){},
                             label: Text('Search',
                               style: TextStyle(
                                   color:Colors.blue,
-                                  fontSize: 17
+                                  fontSize: 17.sp
                               ),
                             ),
                             icon: Icon(
@@ -293,7 +297,7 @@ class SearchScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 20.h,),
                 Expanded(
                   child: ListView.separated(
 
@@ -304,12 +308,12 @@ class SearchScreen extends StatelessWidget {
                           ));
                         },
                           child: Container(
-                            width: 175,
-                            padding: EdgeInsets.all(8),
+                            width: 175.w,
+                            padding: EdgeInsets.all(8.r),
                             clipBehavior: Clip.antiAliasWithSaveLayer,
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              borderRadius: BorderRadius.circular(14),
+                              borderRadius: BorderRadius.circular(14.r),
                             ),
                             child: Column(
                               children: [
@@ -320,23 +324,23 @@ class SearchScreen extends StatelessWidget {
                                     Column(
                                       children: [
                                         Container(
-                                          height: 100,
-                                          width:100,
+                                          height: 100.h,
+                                          width:100.h,
                                           decoration: BoxDecoration(
                                             color: Colors.blue,
-                                            borderRadius: BorderRadius.circular(12),
+                                            borderRadius: BorderRadius.circular(12.r),
                                           ),
 
                                         ),
-                                        const SizedBox(
-                                          height: 10,
+                                         SizedBox(
+                                          height: 10.h,
                                         ),
 
 
                                       ],
                                     ),
                                     SizedBox(
-                                      width: 10,
+                                      width: 10.w,
                                     ),
                                     Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -345,23 +349,23 @@ class SearchScreen extends StatelessWidget {
                                         Text(
                                             style: TextStyle(
                                               fontWeight: FontWeight.w500,
-                                              fontSize: 18,
+                                              fontSize: 18.sp,
                                               color: Colors.black.withOpacity(0.7),
                                             ),
                                             "Mohamed Hassanein"
                                         ),
-                                        const SizedBox(
-                                          height: 10,
+                                         SizedBox(
+                                          height: 10.h,
                                         ),
                                         Text(
                                             style: TextStyle(
                                               fontWeight: FontWeight.w500,
-                                              fontSize: 16,
+                                              fontSize: 16.sp,
                                               color: Colors.black.withOpacity(0.4),
                                             ),
                                             "calculas, Trignometry"
                                         ),
-                                        SizedBox(height: 3,),
+                                        SizedBox(height: 3.h,),
                                         Row(
 
                                           children: [
@@ -370,7 +374,7 @@ class SearchScreen extends StatelessWidget {
                                               direction: Axis.horizontal,
                                               allowHalfRating: true,
                                               itemCount: 5,
-                                              itemSize: 25.0,
+                                              itemSize: 25.0.r,
                                               ratingWidget: RatingWidget(
                                                   full: const Icon(Icons.star, color: Colors.amber),
                                                   half: const Icon(
@@ -386,26 +390,24 @@ class SearchScreen extends StatelessWidget {
                                               onRatingUpdate: (double value) {  },
                                             ),
                                             SizedBox(
-                                              width:5 ,
+                                              width:5.w ,
 
                                             ),
 
                                           ],
                                         ),
 
-                                        const SizedBox(
-                                          height: 4,
+                                         SizedBox(
+                                          height: 4.h,
                                         ),
                                         Row(
                                           children: [
                                             Icon(Icons.location_on,color: Colors.grey,),
-                                            const SizedBox(
-                                              width: 10,
-                                            ),
+                                             SizedBox(width: 10.w,),
                                             Text(
                                                 style: TextStyle(
                                                   fontWeight: FontWeight.w500,
-                                                  fontSize: 14,
+                                                  fontSize: 14.sp,
                                                   color: Colors.grey,
                                                 ),
                                                 "Paris, France"
@@ -429,7 +431,7 @@ class SearchScreen extends StatelessWidget {
                       } ,
                       separatorBuilder:(context,index){
                         return SizedBox(
-                          height: 20,
+                          height: 20.h,
                         );
                       } ,
                       itemCount: 5

@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  device_preview: ^1.1.0
   flutter:
    sdk: flutter
   cupertino_icons: ^1.0.2
@@ -49,10 +50,12 @@ dependencies:
   json_serializable:
   url_launcher:
   flutter_animate:
-  #firbase
-  firebase_core:
-  firebase_auth:
-  cloud_firestore:
+  http:
+  get_it:
+  pusher_client:
+  event_bus:
+  pusher_channels_flutter:
+
 
 
 

@@ -38,118 +38,117 @@ class ScheduleTimings extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<MentorCubit,ConsultStates>(
       listener: (context,state){},
-      builder: (context,state)=>Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.menu,size: 33.0,),
-            onPressed: () {  },
-          ),
-          title:  const Text(
-            '            Schedule Timing',
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 22.0
+      builder: (context,state)=>ConditionalBuilder
+        (
+        condition: MentorCubit.get(context).getTimesModel !=null,
+        builder: (context)=>Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(Icons.menu,size: 33.0,),
+              onPressed: () {  },
             ),
-          ),
-          elevation: 0.0,
-        ),
-        body: Stack(
-          children: [
-            Container(
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomLeft,
-                        colors: <Color>
-                        [
-                          Colors.blue,
-                          Colors.white10
-                        ],
-                        tileMode: TileMode.mirror
-                    )
-                )
+            title:  const Text(
+              '            Schedule Timing',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22.0
+              ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Select A Day',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold
-                    ),
+            elevation: 0.0,
+          ),
+          body: Stack(
+            children: [
+              Container(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomLeft,
+                          colors: <Color>
+                          [
+                            Colors.blue,
+                            Colors.white10
+                          ],
+                          tileMode: TileMode.mirror
+                      )
+                  )
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Select A Day',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold
+                      ),
 
-                  ),
-                  SizedBox(height: 20.0,),
-                  Container(
-                    height: 105.0,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: true,
-                      itemBuilder:(context,index)=>
-                          GestureDetector(
-                            child: Container(
-                              width: 60,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20.0),
-                                  color: MentorCubit.get(context).iDay==index?Colors.blue:Colors.white
-                              ),
-                              child:Center(
-                                child: Text(
-                                  days[index],
-                                  style: TextStyle(
-                                      color: MentorCubit.get(context).iDay==index?Colors.white:Colors.grey[700],
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 17.0
+                    ),
+                    SizedBox(height: 20.0,),
+                    Container(
+                      height: 105.0,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemBuilder:(context,index)=>
+                            GestureDetector(
+                              child: Container(
+                                width: 60,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20.0),
+                                    color: MentorCubit.get(context).iDay==index?Colors.blue:Colors.white
+                                ),
+                                child:Center(
+                                  child: Text(
+                                    days[index],
+                                    style: TextStyle(
+                                        color: MentorCubit.get(context).iDay==index?Colors.white:Colors.grey[700],
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 17.0
+                                    ),
                                   ),
                                 ),
                               ),
+                              onTap: ()
+                              {
+                                MentorCubit.get(context).daySelection(index);
+                                MentorCubit.get(context).getTimes();
+                              },
                             ),
-                            onTap: ()
-                            {
-                              MentorCubit.get(context).daySelection(index);
-                              MentorCubit.get(context).getTimes();
-                            },
-                          ),
-                      separatorBuilder:(context,index)=>SizedBox(width: 10),
-                      itemCount:7 ,
-                    ),
-                  ),
-                  SizedBox(height: 20.0,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Time Slots - ${day[MentorCubit.get(context).iDay]}',
-                        style:TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20.0,
-                            color: Colors.grey[700]
-                        ),
+                        separatorBuilder:(context,index)=>SizedBox(width: 10),
+                        itemCount:7 ,
                       ),
-                      ElevatedButton.icon(
-                        onPressed: (){
-                          showDialog(context: context, builder: (context) => AlertDialog(
-                            actions: [
-                              TextButton(
-                                  onPressed: ()
-                                  {
-                                    MentorCubit.get(context).storeTimes
-                                      (
-                                        from: fromController.text.trim(),
-                                        to: toController.text.trim()
-                                    );
-                                    Navigator.pop(context);
-                                    /*MentorCubit.get(context).getTimes();*/
-                                  },
-                                  child: Text("Save"))
-                            ],
-                            content: Container(
-                              height: 90.0,
-                              child: Row(
+                    ),
+                    SizedBox(height: 20.0,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Time Slots - ${day[MentorCubit.get(context).iDay]}',
+                          style:TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0,
+                              color: Colors.grey[700]
+                          ),
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: (){
+                            showDialog(context: context, builder: (context) => AlertDialog(
+                              actions: [
+                                TextButton(
+                                    onPressed: ()
+                                    {
+                                      MentorCubit.get(context).storeTimes
+                                        (
+                                          from: fromController.text.trim(),
+                                          to: toController.text.trim()
+                                      );
+                                    },
+                                    child: Text("Save"))
+                              ],
+                              content: Row(
                                 children: [
                                   Expanded(
                                     child: Column(
@@ -194,7 +193,7 @@ class ScheduleTimings extends StatelessWidget {
                                           validator: (value) {
                                             if(value!.isEmpty)
                                             {
-                                              return "Please enter from time";
+                                              return "Please enter your Skills";
                                             }
                                             return null;
                                           },
@@ -218,65 +217,84 @@ class ScheduleTimings extends StatelessWidget {
                                   ),
                                 ],
                               ),
+                            ),);
+                          },
+                          label: Text('Edit',
+                            style: TextStyle(
+                                color:Colors.blue,
+                                fontSize: 17
                             ),
-                          ));
-                        },
-                        label: Text('Add',
-                          style: TextStyle(
-                              color:Colors.blue,
-                              fontSize: 19,
-                            fontWeight: FontWeight.bold
+                          ),
+                          icon: Icon(
+                              Icons.edit,
+                              color:Colors.blue
+                          ),
+                          style: ElevatedButton.styleFrom(
+                              primary: Colors.white
                           ),
                         ),
-                        icon: Icon(
-                            Icons.add,
-                            color:Colors.blue,
-                          size: 25.0,
+                      ],
+                    ),
+                    SizedBox(height: 10.0,),
+                    Expanded(
+                      child: GridView.count(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          childAspectRatio: 1/0.25,
+                          children: List.generate(MentorCubit.get(context).getTimesModel!.data!.length, (index) => TimeSlot(time: '${MentorCubit.get(context).getTimesModel!.data![index].from!} - ${MentorCubit.get(context).getTimesModel!.data![index].to!}')
+                          )
 
-                        ),
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.white
-                        ),
+
                       ),
-                    ],
-                  ),
-                  SizedBox(height: 10.0,),
-                  ConditionalBuilder(
-                      condition: state is GetTimesLoadingState,
-                      builder: (context)=>Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            CircularProgressIndicator(color: Colors.white,),
-                            SizedBox(height: 20,),
-                            Text('loading your data',style: TextStyle(fontSize: 16.0),),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+
+        ),
+        fallback: (context)=>Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(Icons.menu,size: 33.0,),
+              onPressed: () {  },
+            ),
+            title:  const Text(
+              '            Schedule Timing',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22.0
+              ),
+            ),
+            elevation: 0.0,
+          ),
+          body: Stack(
+            children: [
+              Container(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomLeft,
+                          colors: <Color>
+                          [
+                            Colors.blue,
+                            Colors.white10
                           ],
-                        ),
-                      ),
-                      fallback: (context)=>ConditionalBuilder(
-                          condition: MentorCubit.get(context).getTimesModel!.data==null,
-                          builder: (context)=>Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: Center(child: Text('There is no data,yet',style: TextStyle(fontSize: 16.0),)),
-                          ),
-                          fallback:(context)=> Expanded(
-                            child: GridView.count(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 10,
-                                mainAxisSpacing: 10,
-                                childAspectRatio: 1/0.25,
-                                children: List.generate(MentorCubit.get(context).getTimesModel!.data!.length, (index) => TimeSlot(time: '${MentorCubit.get(context).getTimesModel!.data![index].from!} - ${MentorCubit.get(context).getTimesModel!.data![index].to!}', timeId: MentorCubit.get(context).getTimesModel!.data![index].id!,)
-                                )
-                            ),
+                          tileMode: TileMode.mirror
                       )
                   )
-                  )
-                ],
               ),
-            )
-          ],
+              CircularProgressIndicator(
+                color: Colors.blue,
+              )
+            ],
+          ),
+
         ),
-      ),
+      )
+
     );
   }
 }
@@ -286,10 +304,8 @@ class ScheduleTimings extends StatelessWidget {
 
 
 class TimeSlot extends StatelessWidget {
-  TimeSlot({Key? key,required this.time,required this.timeId}) : super(key: key);
+  TimeSlot({Key? key,required this.time}) : super(key: key);
   late String time;
-  late int timeId;
-
 
   @override
   Widget build(BuildContext context) {
@@ -304,12 +320,12 @@ class TimeSlot extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Text(time,style: TextStyle(color: Colors.white,fontSize: 16.0),),
+          Text(time,style: TextStyle(color: Colors.white),),
           InkWell(
             child: Icon(Icons.cancel_outlined,color: Colors.white,),
             onTap: ()
             {
-             MentorCubit.get(context).deleteTime(timeID:timeId);
+             // MentorCubit.get(context).deleteTime(timeID:MentorCubit.get(context).getTimesModel!.data![id] );
             },
 
           ),

@@ -39,7 +39,7 @@ class ConsultRegister extends StatelessWidget {
               title: Center(child: Text("Register as client")),
             ),
             body: Padding(
-              padding:  EdgeInsets.all(20.0.r),
+              padding:  EdgeInsets.all(30.0.r),
               child: Form(
                 key: _formkey,
                 child: SingleChildScrollView(
